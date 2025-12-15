@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FUTURES DECK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* === HARING PALETTE === */
+      --haring-red: #FF3333;
+      --haring-yellow: #FFDE00;
+      --haring-blue: #0066FF;
+      --haring-green: #00CC66;
+      --haring-orange: #FF9900;
+      --haring-pink: #FF66B2;
+      --haring-purple: #9933FF;
+      --haring-black: #1A1A1A;
+      --haring-white: #FFFEF5;
+
+      /* === DECK COLORS === */
+      --arc-color: #FF6B6B;
+      --terrain-color: #4ECDC4;
+      --object-color: #FFE66D;
+      --wellbeing-color: #9B59B6;
+      --timeframe-color: #FF69B4;
+      --coin-positive: #2ECC71;
+      --coin-negative: #E74C3C;
+      --modifier-color: #95E1D3;
+
+      /* === TYPE === */
+      --font-display: 'Archivo Black', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--haring-white);
+      color: var(--haring-black);
+      min-height: 100vh;
+    }
+
+    /* === POLLOCK BACKGROUND === */
+    .pollock-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      opacity: 0.06;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50,100 Q100,50 150,120 T250,80 T350,150' stroke='%23FF3333' stroke-width='3' fill='none'/%3E%3Cpath d='M30,200 Q80,150 180,220 T280,180 T380,250' stroke='%230066FF' stroke-width='2' fill='none'/%3E%3Cpath d='M60,300 Q120,250 200,320 T300,280 T400,350' stroke='%23FFDE00' stroke-width='4' fill='none'/%3E%3Cpath d='M20,50 Q70,100 120,30 T220,70 T320,20' stroke='%231A1A1A' stroke-width='2' fill='none'/%3E%3Ccircle cx='100' cy='150' r='5' fill='%23FF3333'/%3E%3Ccircle cx='200' cy='100' r='3' fill='%230066FF'/%3E%3Ccircle cx='300' cy='200' r='4' fill='%23FFDE00'/%3E%3Ccircle cx='150' cy='300' r='6' fill='%231A1A1A'/%3E%3C/svg%3E");
+      background-size: 400px 400px;
+      pointer-events: none;
+    }
+
+    /* === PAGES === */
+    .page { display: none; min-height: 100vh; position: relative; z-index: 1; }
+    .page.active { display: block; }
+
+    /* === INTRO PAGE === */
+    .intro {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    .intro-header { margin-bottom: 48px; }
+
+    .intro-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--haring-black);
+      opacity: 0.6;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .intro-title {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 12vw, 120px);
+      line-height: 0.9;
+      text-transform: uppercase;
+    }
+
+    .intro-title .word-futures { color: var(--terrain-color); }
+    .intro-title .word-deck { color: var(--haring-red); }
+
+    .intro-sub {
+      font-size: 18px;
+      color: var(--haring-black);
+      opacity: 0.7;
+      margin-top: 24px;
+      max-width: 500px;
+    }
+
+    .intro-content {
+      max-width: 700px;
+      margin-bottom: 48px;
+    }
+
+    .intro-section {
+      text-align: left;
+      margin-bottom: 24px;
+      padding: 24px;
+      border: 4px solid var(--haring-black);
+      background: white;
+      box-shadow: 6px 6px 0 var(--haring-black);
+    }
+
+    .intro-section h3 {
+      font-family: var(--font-display);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+
+    .intro-section p {
+      font-size: 15px;
+      line-height: 1.7;
+      opacity: 0.8;
+    }
+
+    .deck-preview {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .deck-chip {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      padding: 8px 12px;
+      border: 3px solid var(--haring-black);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: bold;
+    }
+
+    .deck-chip.arc { background: var(--arc-color); }
+    .deck-chip.terrain { background: var(--terrain-color); }
+    .deck-chip.object { background: var(--object-color); }
+    .deck-chip.wellbeing { background: var(--wellbeing-color); }
+    .deck-chip.timeframe { background: var(--timeframe-color); }
+    .deck-chip.modifier { background: var(--modifier-color); }
+
+    .quantum-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      background: var(--haring-purple);
+      color: white;
+      border: 4px solid var(--haring-black);
+      margin-bottom: 32px;
+      box-shadow: 6px 6px 0 var(--haring-black);
+    }
+
+    .quantum-icon { font-size: 32px; }
+    .quantum-text { font-size: 14px; line-height: 1.5; }
+    .quantum-text strong { color: var(--haring-yellow); }
+
+    .enter-btn {
+      font-family: var(--font-display);
+      font-size: 18px;
+      text-transform: uppercase;
+      padding: 24px 56px;
+      background: var(--haring-red);
+      color: white;
+      border: 4px solid var(--haring-black);
+      cursor: pointer;
+      transition: all 0.15s;
+      box-shadow: 6px 6px 0 var(--haring-black);
+    }
+
+    .enter-btn:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 9px 9px 0 var(--haring-black);
+    }
+
+    .enter-btn:active {
+      transform: translate(3px, 3px);
+      box-shadow: 3px 3px 0 var(--haring-black);
+    }
+
+    /* === ORACLE PAGE === */
+    .oracle-page {
+      padding: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      background: var(--haring-black);
+      border: 4px solid var(--haring-black);
+      margin-bottom: 24px;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 20px;
+      text-transform: uppercase;
+      color: white;
+    }
+
+    .logo .f { color: var(--terrain-color); }
+    .logo .d { color: var(--haring-yellow); }
+
+    .quantum-counter {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .quantum-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 8px 14px;
+      background: var(--haring-purple);
+      color: white;
+      font-weight: bold;
+    }
+
+    .quantum-remaining {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: white;
+      opacity: 0.8;
+    }
+
+    .quantum-remaining strong {
+      color: var(--haring-yellow);
+      font-size: 18px;
+    }
+
+    /* === SPREAD AREA === */
+    .spread-area {
+      background: white;
+      border: 4px solid var(--haring-black);
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 8px 8px 0 var(--haring-black);
+    }
+
+    .spread-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 3px solid var(--haring-black);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .spread-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+
+    .spread-controls {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 12px 20px;
+      background: white;
+      color: var(--haring-black);
+      border: 3px solid var(--haring-black);
+      cursor: pointer;
+      transition: all 0.15s;
+      box-shadow: 3px 3px 0 var(--haring-black);
+    }
+
+    .btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 var(--haring-black);
+    }
+
+    .btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 var(--haring-black);
+    }
+
+    .btn-primary {
+      background: var(--haring-red);
+      color: white;
+    }
+
+    /* === SPREAD CARDS === */
+    .spread-cards {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      min-height: 60vh;
+      padding: 32px;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent 0px,
+        transparent 10px,
+        rgba(0,0,0,0.02) 10px,
+        rgba(0,0,0,0.02) 20px
+      );
+      border: 3px dashed var(--haring-black);
+    }
+
+    .spread-cards:empty::before {
+      content: 'DRAW THE FUTURE';
+      font-family: var(--font-display);
+      font-size: 32px;
+      color: rgba(0,0,0,0.15);
+      text-transform: uppercase;
+    }
+
+    /* === CARD === */
+    .card {
+      width: 140px;
+      height: 200px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    /* Big cards in spread */
+    .spread-cards .card {
+      width: 200px;
+      height: 300px;
+    }
+
+    .spread-cards .card-name {
+      font-size: 15px;
+    }
+
+    .spread-cards .card-type {
+      font-size: 11px;
+    }
+
+    .spread-cards .card-info {
+      padding: 12px;
+    }
+
+    .card:hover {
+      transform: translate(-4px, -4px) rotate(-1deg);
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      background: white;
+      border: 4px solid var(--haring-black);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 4px 4px 0 var(--haring-black);
+    }
+
+    .card:hover .card-inner {
+      box-shadow: 7px 7px 0 var(--haring-black);
+    }
+
+    .card-image {
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card--arc .card-image { background: var(--arc-color); }
+    .card--terrain .card-image { background: var(--terrain-color); }
+    .card--object .card-image { background: var(--object-color); }
+    .card--wellbeing .card-image { background: var(--wellbeing-color); }
+    .card--timeframe .card-image { background: var(--timeframe-color); }
+    .card--coin .card-image { background: var(--coin-positive); }
+    .card--coin.negative .card-image { background: var(--coin-negative); }
+    .card--modifier .card-image { background: var(--modifier-color); }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-placeholder {
+      font-family: var(--font-display);
+      font-size: 36px;
+      color: rgba(0,0,0,0.2);
+    }
+
+    .card-info {
+      padding: 10px;
+      background: var(--haring-black);
+      color: white;
+    }
+
+    .card-type {
+      font-family: var(--font-mono);
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 2px;
+    }
+
+    .card--arc .card-type { color: var(--arc-color); }
+    .card--terrain .card-type { color: var(--terrain-color); }
+    .card--object .card-type { color: var(--object-color); }
+    .card--wellbeing .card-type { color: var(--wellbeing-color); }
+    .card--timeframe .card-type { color: var(--timeframe-color); }
+    .card--coin .card-type { color: var(--coin-positive); }
+    .card--coin.negative .card-type { color: var(--coin-negative); }
+    .card--modifier .card-type { color: var(--modifier-color); }
+
+    .card-name {
+      font-family: var(--font-display);
+      font-size: 11px;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .card-year {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--tech-color);
+      margin-top: 2px;
+    }
+
+    .card-value {
+      font-family: var(--font-display);
+      font-size: 24px;
+    }
+
+    /* === NARRATIVE SECTION === */
+    .narrative-area {
+      margin-top: 24px;
+      display: none;
+    }
+
+    .narrative-area.visible { display: block; }
+
+    .narrative-prompt {
+      padding: 24px;
+      background: var(--haring-yellow);
+      border: 4px solid var(--haring-black);
+      margin-bottom: 16px;
+      box-shadow: 6px 6px 0 var(--haring-black);
+    }
+
+    .narrative-prompt-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 12px;
+      opacity: 0.6;
+    }
+
+    .narrative-prompt-text {
+      font-family: var(--font-display);
+      font-size: 16px;
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+
+    .narrative-prompt-text .hl {
+      background: var(--haring-black);
+      color: var(--haring-yellow);
+      padding: 2px 8px;
+    }
+
+    .narrative-content {
+      padding: 32px;
+      background: white;
+      border: 4px solid var(--haring-black);
+      box-shadow: 6px 6px 0 var(--haring-black);
+    }
+
+    .narrative-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .narrative-short {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      padding: 16px;
+      background: var(--haring-black);
+      color: var(--haring-yellow);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .narrative-long {
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .narrative-long p { margin-bottom: 16px; }
+
+    .narrative-loading {
+      text-align: center;
+      padding: 48px;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      opacity: 0.6;
+    }
+
+    /* === CARD MODAL === */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 24px;
+    }
+
+    .modal-overlay.visible { display: flex; }
+
+    .modal {
+      background: white;
+      border: 4px solid var(--haring-black);
+      max-width: 800px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 12px 12px 0 var(--haring-black);
+      display: flex;
+      flex-direction: row;
+    }
+
+    .modal-image {
+      width: 300px;
+      min-height: 450px;
+      background: var(--haring-black);
+      flex-shrink: 0;
+    }
+
+    .modal-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (max-width: 768px) {
+      .modal { flex-direction: column; max-width: 95vw; }
+      .modal-image { width: 100%; min-height: 250px; }
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      background: var(--haring-black);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      text-transform: uppercase;
+      color: white;
+    }
+
+    .modal-close {
+      font-size: 28px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-close:hover { color: var(--haring-yellow); }
+
+    .modal-body { padding: 24px; }
+
+    .modal-context {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      opacity: 0.8;
+    }
+
+    .modal-section { margin-bottom: 20px; }
+
+    .modal-section h4 {
+      font-family: var(--font-display);
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 3px solid var(--haring-black);
+    }
+
+    .symbol-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .symbol-chip {
+      font-size: 11px;
+      padding: 6px 10px;
+      background: var(--haring-yellow);
+      border: 2px solid var(--haring-black);
+    }
+
+    .modal-model {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 8px 12px;
+      background: var(--haring-purple);
+      color: white;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .modal-prompt {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      line-height: 1.6;
+      padding: 12px;
+      background: rgba(0,0,0,0.05);
+      border: 2px solid var(--haring-black);
+      word-break: break-word;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+
+    /* === DECK GRID === */
+    .decks-section { margin-top: 48px; }
+
+    .deck-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 4px solid var(--haring-black);
+      margin-bottom: 20px;
+    }
+
+    .deck-label {
+      font-family: var(--font-display);
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+
+    .deck-label.arc { color: var(--arc-color); }
+    .deck-label.terrain { color: var(--terrain-color); }
+    .deck-label.object { color: var(--object-color); }
+    .deck-label.wellbeing { color: var(--wellbeing-color); }
+    .deck-label.timeframe { color: var(--timeframe-color); }
+    .deck-label.modifier { color: var(--modifier-color); }
+
+    .deck-count {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      opacity: 0.6;
+    }
+
+    .deck-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .card--grid { height: 200px; }
+
+    /* === ANIMATION === */
+    @keyframes pop-in {
+      from { opacity: 0; transform: scale(0.8) rotate(-5deg); }
+      to { opacity: 1; transform: scale(1) rotate(0); }
+    }
+
+    .spread-cards .card {
+      animation: pop-in 0.3s ease-out backwards;
+    }
+
+    .spread-cards .card:nth-child(1) { animation-delay: 0.05s; }
+    .spread-cards .card:nth-child(2) { animation-delay: 0.1s; }
+    .spread-cards .card:nth-child(3) { animation-delay: 0.15s; }
+    .spread-cards .card:nth-child(4) { animation-delay: 0.2s; }
+    .spread-cards .card:nth-child(5) { animation-delay: 0.25s; }
+    .spread-cards .card:nth-child(6) { animation-delay: 0.3s; }
+    .spread-cards .card:nth-child(7) { animation-delay: 0.35s; }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .spread-header { flex-direction: column; text-align: center; }
+      .card { width: 100px; height: 150px; }
+      .spread-cards .card { width: 130px; height: 195px; }
+      .top-bar { flex-direction: column; gap: 12px; text-align: center; }
+      .spread-cards { min-height: 50vh; gap: 12px; }
+    }
+
+    @media (min-width: 1200px) {
+      .spread-cards .card { width: 260px; height: 390px; }
+      .spread-cards { gap: 32px; }
+      .spread-cards .card-name { font-size: 18px; }
+      .spread-cards .card-type { font-size: 12px; }
+      .spread-cards .card-info { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="pollock-bg"></div>
+
+  <!-- INTRO PAGE (hidden by default) -->
+  <div class="page intro" id="introPage">
+    <div class="intro-header">
+      <div class="intro-eyebrow">A Speculative Futures Oracle</div>
+      <h1 class="intro-title">
+        <span class="word-futures">Futures</span><br>
+        <span class="word-deck">Deck</span>
+      </h1>
+      <p class="intro-sub">Explore possible futures through randomness and combinatorial imagination</p>
+    </div>
+
+    <div class="intro-content">
+      <div class="intro-section">
+        <h3>How It Works</h3>
+        <p>Draw cards to generate a unique futures scenario. First draw your spread: <strong>Arc</strong> (type of future), <strong>Terrain</strong> (domain), <strong>Object</strong> (artifact), <strong>Wellbeing</strong> (human need), and <strong>Modifier</strong>. Then flip the <strong>Coin</strong> (positive or negative effect) and draw your <strong>Timeframe</strong>.</p>
+        <div class="deck-preview">
+          <span class="deck-chip arc">4 Arcs</span>
+          <span class="deck-chip terrain">16 Terrains</span>
+          <span class="deck-chip object">10 Objects</span>
+          <span class="deck-chip wellbeing">13 Wellbeing</span>
+          <span class="deck-chip modifier">6 Modifiers</span>
+          <span class="deck-chip timeframe">7 Timeframes</span>
+        </div>
+      </div>
+
+      <div class="intro-section">
+        <h3>Narrative Generation</h3>
+        <p>Each draw generates a narrative describing the world that emerges from your spread. Get a compelling title, a punchy summary, and a rich story exploring this possible future.</p>
+      </div>
+
+      <div class="quantum-info">
+        <span class="quantum-icon">&#9883;</span>
+        <span class="quantum-text">Card draws use <strong>true random numbers</strong> from ANU's quantum vacuum fluctuations. Each draw consumes one number—you have <strong>100 per month</strong>.</span>
+      </div>
+    </div>
+
+    <button class="enter-btn" onclick="enterOracle()">Enter the Oracle</button>
+  </div>
+
+  <!-- ORACLE PAGE -->
+  <div class="page oracle-page active" id="oraclePage">
+    <div class="top-bar">
+      <div class="logo"><span class="f">Futures</span> <span class="d">Deck</span></div>
+      <div class="spread-controls">
+        <button class="btn" onclick="clearSpread()">Clear</button>
+        <button class="btn btn-primary" onclick="drawSpread()">Draw Cards</button>
+      </div>
+    </div>
+
+    <div class="spread-area">
+
+      <div class="spread-cards" id="spreadCards"></div>
+
+      <div class="narrative-area" id="narrativeArea">
+        <div class="narrative-prompt">
+          <div class="narrative-prompt-label">The Vision</div>
+          <div class="narrative-prompt-text" id="promptText"></div>
+        </div>
+        <div class="narrative-content" id="narrativeContent">
+          <div class="narrative-loading" id="narrativeLoading">Generating narrative...</div>
+          <div id="narrativeDisplay" style="display: none;">
+            <h2 class="narrative-title" id="narrativeTitle"></h2>
+            <div class="narrative-short" id="narrativeShort"></div>
+            <div class="narrative-long" id="narrativeLong"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="decks-section">
+      <div class="deck-header">
+        <span class="deck-label arc">Arc</span>
+        <span class="deck-count">What type of future?</span>
+      </div>
+      <div class="deck-grid" id="arcGrid"></div>
+
+      <div class="deck-header">
+        <span class="deck-label terrain">Terrain</span>
+        <span class="deck-count">What domain?</span>
+      </div>
+      <div class="deck-grid" id="terrainGrid"></div>
+
+      <div class="deck-header">
+        <span class="deck-label object">Object</span>
+        <span class="deck-count">What artifact?</span>
+      </div>
+      <div class="deck-grid" id="objectGrid"></div>
+
+      <div class="deck-header">
+        <span class="deck-label wellbeing">Wellbeing</span>
+        <span class="deck-count">What human factor?</span>
+      </div>
+      <div class="deck-grid" id="wellbeingGrid"></div>
+
+      <div class="deck-header">
+        <span class="deck-label modifier">Modifier</span>
+        <span class="deck-count">What shifts the timeline?</span>
+      </div>
+      <div class="deck-grid" id="modifierGrid"></div>
+
+      <div class="deck-header">
+        <span class="deck-label timeframe">Timeframe</span>
+        <span class="deck-count">When does this happen?</span>
+      </div>
+      <div class="deck-grid" id="timeframeGrid"></div>
+    </div>
+  </div>
+
+  <!-- CARD DETAIL MODAL -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-image" id="modalImage"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="modal-title" id="modalTitle">Card Name</span>
+          <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p class="modal-context" id="modalContext"></p>
+          <div class="modal-section">
+            <h4>Symbols</h4>
+            <div class="symbol-list" id="modalSymbols"></div>
+          </div>
+          <div class="modal-section">
+            <h4>Image Generation</h4>
+            <div class="modal-model" id="modalModel"></div>
+            <div class="modal-prompt" id="modalPrompt"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let cardData = null;
+    let scenario = { arc: null, terrain: null, object: null, wellbeing: null, tech: null, modifier: null };
+
+    // Quantum tracking
+    const STORAGE_KEY = 'futures_deck_quantum_draws';
+    let quantumDrawsUsed = parseInt(localStorage.getItem(STORAGE_KEY) || '0');
+
+    // ANU Quantum RNG
+    const QRNG_API = 'https://quantumnumbers.anu.edu.au';
+    const QRNG_KEY = 'sfgoC9w2Jb1tb6RuJfF7x2yonB8gAjV343TK4aVk';
+
+    // Generated images - map card IDs to image paths
+    const cardImages = {
+      // Arc cards
+      'arc-01': 'assets/tarot/arc-01.png',
+      'arc-02': 'assets/tarot/arc-02.png',
+      'arc-03': 'assets/tarot/arc-03.png',
+      'arc-04': 'assets/tarot/arc-04.png',
+      // Terrain cards
+      'terrain-01': 'assets/tarot/terrain-01.png',
+      'terrain-02': 'assets/tarot/terrain-02.png',
+      'terrain-03': 'assets/tarot/terrain-03.png',
+      'terrain-04': 'assets/tarot/terrain-04.png',
+      'terrain-05': 'assets/tarot/terrain-05.png',
+      'terrain-06': 'assets/tarot/terrain-06.png',
+      'terrain-07': 'assets/tarot/terrain-07.png',
+      'terrain-08': 'assets/tarot/terrain-08.png',
+      'terrain-09': 'assets/tarot/terrain-09.png',
+      'terrain-10': 'assets/tarot/terrain-10.png',
+      'terrain-11': 'assets/tarot/terrain-11.png',
+      'terrain-12': 'assets/tarot/terrain-12.png',
+      'terrain-13': 'assets/tarot/terrain-13.png',
+      'terrain-14': 'assets/tarot/terrain-14.png',
+      'terrain-15': 'assets/tarot/terrain-15.png',
+      'terrain-16': 'assets/tarot/terrain-16.png',
+      // Object cards
+      'object-01': 'assets/tarot/object-01.png',
+      'object-02': 'assets/tarot/object-02.png',
+      'object-03': 'assets/tarot/object-03.png',
+      'object-04': 'assets/tarot/object-04.png',
+      'object-05': 'assets/tarot/object-05.png',
+      'object-06': 'assets/tarot/object-06.png',
+      'object-07': 'assets/tarot/object-07.png',
+      'object-08': 'assets/tarot/object-08.png',
+      'object-09': 'assets/tarot/object-09.png',
+      'object-10': 'assets/tarot/object-10.png',
+      // Wellbeing cards
+      'well-01': 'assets/tarot/well-01.png',
+      'well-02': 'assets/tarot/well-02.png',
+      'well-03': 'assets/tarot/well-03.png',
+      'well-04': 'assets/tarot/well-04.png',
+      'well-05': 'assets/tarot/well-05.png',
+      'well-06': 'assets/tarot/well-06.png',
+      'well-07': 'assets/tarot/well-07.png',
+      'well-08': 'assets/tarot/well-08.png',
+      'well-09': 'assets/tarot/well-09.png',
+      'well-10': 'assets/tarot/well-10.png',
+      'well-11': 'assets/tarot/well-11.png',
+      'well-12': 'assets/tarot/well-12.png',
+      'well-13': 'assets/tarot/well-13.png',
+      // Modifier cards
+      'mod-01': 'assets/tarot/mod-01.png',
+      'mod-02': 'assets/tarot/mod-02.png',
+      'mod-03': 'assets/tarot/mod-03.png',
+      'mod-04': 'assets/tarot/mod-04.png',
+      'mod-05': 'assets/tarot/mod-05.png',
+      'mod-06': 'assets/tarot/mod-06.png',
+      // Timeframe cards
+      'time-01': 'assets/tarot/time-01.png',
+      'time-02': 'assets/tarot/time-02.png',
+      'time-03': 'assets/tarot/time-03.png',
+      'time-04': 'assets/tarot/time-04.png',
+      'time-05': 'assets/tarot/time-05.png',
+      'time-06': 'assets/tarot/time-06.png',
+      'time-07': 'assets/tarot/time-07.png'
+    };
+
+    function updateQuantumCounter() {
+      const remaining = Math.max(0, 100 - quantumDrawsUsed);
+      document.getElementById('quantumCount').textContent = remaining;
+    }
+
+    async function fetchQuantumNumber() {
+      if (quantumDrawsUsed >= 100) {
+        console.log('Quantum draws exhausted, using classical');
+        return null;
+      }
+
+      try {
+        const response = await fetch(`${QRNG_API}/API/jsonI.php?length=1&type=uint16`, {
+          headers: { 'x-api-key': QRNG_KEY }
+        });
+        const data = await response.json();
+        if (data.success && data.data?.[0] !== undefined) {
+          quantumDrawsUsed++;
+          localStorage.setItem(STORAGE_KEY, quantumDrawsUsed.toString());
+          updateQuantumCounter();
+          return data.data[0];
+        }
+      } catch (e) {
+        console.log('Quantum API error:', e.message);
+      }
+      return null;
+    }
+
+    // Mixed-radix decomposition: 4 * 16 * 10 * 13 * 6 = 49,920 combinations
+    function spreadFromNumber(q) {
+      return {
+        arcIdx: q % 4,
+        terrainIdx: Math.floor(q / 4) % 16,
+        objectIdx: Math.floor(q / 64) % 10,
+        wellbeingIdx: Math.floor(q / 640) % 13,
+        modifierIdx: Math.floor(q / 8320) % 6
+      };
+    }
+
+    // Second draw: timeframe (7) and coin (2) = 14 combinations
+    function secondDrawFromNumber(q) {
+      return {
+        timeframeIdx: q % 7,
+        coinPositive: Math.floor(q / 7) % 2 === 0
+      };
+    }
+
+    function enterOracle() {
+      document.getElementById('introPage').classList.remove('active');
+      document.getElementById('oraclePage').classList.add('active');
+    }
+
+    // Load card data
+    fetch('src/cards-v2.json')
+      .then(r => r.json())
+      .then(data => {
+        cardData = data;
+        renderDecks();
+        updateQuantumCounter();
+      });
+
+    function renderCard(card, type, isGrid = false) {
+      const hasImage = cardImages[card.id];
+      const imageHtml = hasImage
+        ? `<img src="${cardImages[card.id]}" alt="${card.name}">`
+        : `<div class="card-placeholder">&#10023;</div>`;
+
+      const yearHtml = card.baseline_year ? `<div class="card-year">${card.baseline_year}</div>` : '';
+      const valueHtml = card.value !== undefined ? `<div class="card-value">${card.value > 0 ? '+' : ''}${card.value}</div>` : '';
+      const name = card.short_name || card.name || card.label;
+
+      return `
+        <div class="card card--${type} ${isGrid ? 'card--grid' : ''}"
+             onclick="showCardDetail('${type}', '${card.id}')"
+             data-id="${card.id}">
+          <div class="card-inner">
+            <div class="card-image">${imageHtml}</div>
+            <div class="card-info">
+              <div class="card-type">${type}</div>
+              <div class="card-name">${name}</div>
+              ${yearHtml}${valueHtml}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderDecks() {
+      document.getElementById('arcGrid').innerHTML =
+        cardData.arc.map(c => renderCard(c, 'arc', true)).join('');
+      document.getElementById('terrainGrid').innerHTML =
+        cardData.terrain.map(c => renderCard(c, 'terrain', true)).join('');
+      document.getElementById('objectGrid').innerHTML =
+        cardData.object.map(c => renderCard(c, 'object', true)).join('');
+      document.getElementById('wellbeingGrid').innerHTML =
+        cardData.wellbeing.map(c => renderCard(c, 'wellbeing', true)).join('');
+      document.getElementById('modifierGrid').innerHTML =
+        cardData.modifiers.map(c => renderCard(c, 'modifier', true)).join('');
+      document.getElementById('timeframeGrid').innerHTML =
+        cardData.timeframe.map(c => renderCard(c, 'timeframe', true)).join('');
+    }
+
+    async function drawSpread() {
+      // First draw: core spread
+      let q = await fetchQuantumNumber();
+      if (q === null) {
+        q = Math.floor(Math.random() * 65536);
+      }
+
+      const idx = spreadFromNumber(q);
+      scenario = {
+        arc: cardData.arc[idx.arcIdx],
+        terrain: cardData.terrain[idx.terrainIdx],
+        object: cardData.object[idx.objectIdx],
+        wellbeing: cardData.wellbeing[idx.wellbeingIdx],
+        modifier: cardData.modifiers[idx.modifierIdx],
+        timeframe: null,
+        coinPositive: null
+      };
+
+      renderSpread();
+      showSecondDrawPrompt();
+    }
+
+    function showSecondDrawPrompt() {
+      document.getElementById('narrativeArea').classList.add('visible');
+      document.getElementById('narrativeLoading').style.display = 'none';
+      document.getElementById('narrativeDisplay').style.display = 'none';
+      document.getElementById('promptText').innerHTML = `
+        Your spread is ready. Draw your <strong>Timeframe</strong> and flip the <strong>Coin</strong>.
+        <br><br>
+        <button class="btn btn-primary" onclick="drawTimeframe()" style="font-size: 18px; padding: 16px 32px;">
+          Draw Cards
+        </button>
+      `;
+    }
+
+    async function drawTimeframe() {
+      // Second draw: timeframe + coin
+      let q = await fetchQuantumNumber();
+      if (q === null) {
+        q = Math.floor(Math.random() * 65536);
+      }
+
+      const idx = secondDrawFromNumber(q);
+      scenario.timeframe = cardData.timeframe[idx.timeframeIdx];
+      scenario.coinPositive = idx.coinPositive;
+
+      renderSpread();
+      renderPrompt();
+      generateNarrative();
+    }
+
+    function renderSpread() {
+      const container = document.getElementById('spreadCards');
+      let html = '';
+
+      if (scenario.arc) html += renderCard(scenario.arc, 'arc');
+      if (scenario.terrain) html += renderCard(scenario.terrain, 'terrain');
+      if (scenario.object) html += renderCard(scenario.object, 'object');
+      if (scenario.wellbeing) html += renderCard(scenario.wellbeing, 'wellbeing');
+      if (scenario.modifier) html += renderCard(scenario.modifier, 'modifier');
+
+      // Coin card (only after second draw)
+      if (scenario.coinPositive !== null) {
+        const coinCard = {
+          id: 'coin',
+          name: scenario.coinPositive ? 'Flourishing' : 'Diminishing',
+          description: scenario.coinPositive ? 'Positive effect on wellbeing' : 'Negative effect on wellbeing'
+        };
+        html += `
+          <div class="card card--coin ${scenario.coinPositive ? '' : 'negative'}">
+            <div class="card-inner">
+              <div class="card-image">
+                <div class="card-placeholder" style="font-size: 48px;">${scenario.coinPositive ? '&#9728;' : '&#9790;'}</div>
+              </div>
+              <div class="card-info">
+                <div class="card-type">coin</div>
+                <div class="card-name">${coinCard.name}</div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      // Timeframe card (only after second draw)
+      if (scenario.timeframe) html += renderCard(scenario.timeframe, 'timeframe');
+
+      container.innerHTML = html;
+    }
+
+    function renderPrompt() {
+      const { arc, terrain, object, wellbeing, modifier, timeframe, coinPositive } = scenario;
+      if (!arc || !terrain || !object || !wellbeing || !timeframe) {
+        return;
+      }
+
+      const effect = coinPositive ? 'flourishing' : 'diminishing';
+      const effectColor = coinPositive ? 'var(--coin-positive)' : 'var(--coin-negative)';
+
+      document.getElementById('promptText').innerHTML = `
+        In <span class="hl">${timeframe.name}</span>,
+        a future of <span class="hl">${arc.name}</span>
+        within <span class="hl">${terrain.name}</span>.
+        A <span class="hl">${object.name}</span>
+        causes <span class="hl" style="color: ${effectColor}">${effect}</span> of <span class="hl">${wellbeing.name}</span>.
+      `;
+      document.getElementById('narrativeArea').classList.add('visible');
+    }
+
+    function generateNarrative() {
+      const { arc, terrain, object, wellbeing, modifier, timeframe, coinPositive } = scenario;
+      if (!arc || !terrain || !object || !wellbeing || !timeframe) return;
+
+      document.getElementById('narrativeLoading').style.display = 'block';
+      document.getElementById('narrativeDisplay').style.display = 'none';
+
+      const narratives = generateNarrativeContent(arc, terrain, object, wellbeing, modifier, timeframe, coinPositive);
+
+      setTimeout(() => {
+        document.getElementById('narrativeLoading').style.display = 'none';
+        document.getElementById('narrativeDisplay').style.display = 'block';
+        document.getElementById('narrativeTitle').textContent = narratives.title;
+        document.getElementById('narrativeShort').textContent = narratives.short;
+        document.getElementById('narrativeLong').innerHTML = narratives.long;
+      }, 800);
+    }
+
+    // Generate two specific options for the object
+    function generateOptions(arc, terrain, object, wellbeing, coinPositive) {
+      const options = {
+        'Device': [
+          ['A personal scanner that monitors ' + wellbeing.name.toLowerCase(), 'A communal terminal that rations ' + wellbeing.name.toLowerCase()],
+          ['A wearable that amplifies ' + wellbeing.name.toLowerCase(), 'A household appliance that regulates ' + wellbeing.name.toLowerCase()]
+        ],
+        'Law': [
+          ['The ' + wellbeing.name + ' Protection Act', 'The ' + terrain.name + ' ' + wellbeing.name + ' Mandate'],
+          ['A constitutional amendment for ' + wellbeing.name.toLowerCase(), 'An international treaty on ' + wellbeing.name.toLowerCase()]
+        ],
+        'Ritual': [
+          ['A daily practice for cultivating ' + wellbeing.name.toLowerCase(), 'A coming-of-age ceremony focused on ' + wellbeing.name.toLowerCase()],
+          ['A communal gathering celebrating ' + wellbeing.name.toLowerCase(), 'A private meditation technique for ' + wellbeing.name.toLowerCase()]
+        ],
+        'Beverage': [
+          ['A drink that enhances ' + wellbeing.name.toLowerCase(), 'A ceremonial brew shared among ' + terrain.name.toLowerCase() + ' workers'],
+          ['A synthetic elixir of ' + wellbeing.name.toLowerCase(), 'A traditional tea reimagined for ' + wellbeing.name.toLowerCase()]
+        ],
+        'Currency': [
+          [wellbeing.name + ' Credits traded in ' + terrain.name.toLowerCase(), 'A reputation token measuring ' + wellbeing.name.toLowerCase()],
+          ['A time-based currency for ' + wellbeing.name.toLowerCase(), 'A community scrip guaranteeing ' + wellbeing.name.toLowerCase()]
+        ],
+        'Game': [
+          ['A simulation teaching ' + wellbeing.name.toLowerCase() + ' in ' + terrain.name.toLowerCase(), 'A competitive sport around ' + wellbeing.name.toLowerCase()],
+          ['A children\'s game about ' + wellbeing.name.toLowerCase(), 'A gambling platform tied to ' + wellbeing.name.toLowerCase()]
+        ],
+        'Service': [
+          ['On-demand ' + wellbeing.name.toLowerCase() + ' for ' + terrain.name.toLowerCase(), 'A subscription for guaranteed ' + wellbeing.name.toLowerCase()],
+          ['A public utility providing ' + wellbeing.name.toLowerCase(), 'A gig platform for ' + wellbeing.name.toLowerCase() + ' labor']
+        ],
+        'Garment': [
+          ['A uniform marking ' + wellbeing.name.toLowerCase() + ' status', 'Smart fabric that monitors ' + wellbeing.name.toLowerCase()],
+          ['Ceremonial attire for ' + wellbeing.name.toLowerCase() + ' rituals', 'Protective gear enhancing ' + wellbeing.name.toLowerCase()]
+        ],
+        'Building': [
+          ['The ' + wellbeing.name + ' Center for ' + terrain.name, 'A sanctuary devoted to ' + wellbeing.name.toLowerCase()],
+          ['A tower housing ' + wellbeing.name.toLowerCase() + ' services', 'A bunker protecting ' + wellbeing.name.toLowerCase()]
+        ],
+        'Advertisement': [
+          ['A campaign promising ' + wellbeing.name.toLowerCase() + ' through ' + terrain.name.toLowerCase(), 'A warning against ' + wellbeing.name.toLowerCase() + ' decline'],
+          ['A viral message about ' + wellbeing.name.toLowerCase(), 'A recruitment ad for ' + wellbeing.name.toLowerCase() + ' workers']
+        ]
+      };
+      const objectOptions = options[object.name] || [
+        ['A new form of ' + object.name.toLowerCase() + ' for ' + wellbeing.name.toLowerCase(), 'A traditional ' + object.name.toLowerCase() + ' adapted for ' + arc.name.toLowerCase()],
+        ['A ' + terrain.name.toLowerCase() + '-specific ' + object.name.toLowerCase(), 'A controversial ' + object.name.toLowerCase() + ' affecting ' + wellbeing.name.toLowerCase()]
+      ];
+      const pair = objectOptions[Math.floor(Math.random() * objectOptions.length)];
+      return coinPositive ? pair : [pair[1], pair[0]]; // Swap order based on coin
+    }
+
+    function generateNarrativeContent(arc, terrain, object, wellbeing, modifier, timeframe, coinPositive) {
+      const arcTone = {
+        'Growth': { adj: 'expanding', feel: 'prosperous' },
+        'Collapse': { adj: 'crumbling', feel: 'desperate' },
+        'Discipline': { adj: 'controlled', feel: 'ordered' },
+        'Transformation': { adj: 'transformed', feel: 'alien' }
+      }[arc.name] || { adj: 'changed', feel: 'different' };
+
+      const title = `The ${object.name} of ${timeframe.name}`;
+
+      const outcome = coinPositive ? wellbeing.positive : wellbeing.negative;
+      const effectWord = coinPositive ? 'flourishes' : 'diminishes';
+      const effectAdj = coinPositive ? 'flourishing' : 'diminishing';
+
+      const short = `In ${timeframe.name.toLowerCase()}, a ${arcTone.adj} world of ${arc.name.toLowerCase()}. Within ${terrain.name.toLowerCase()}, human ${wellbeing.name.toLowerCase()} ${effectWord}. A ${object.name.toLowerCase()} emerges at the center of it all.`;
+
+      const modifierContext = modifier?.value < 0
+        ? 'Change comes faster than expected.'
+        : modifier?.value > 0
+          ? 'Progress has been slower than hoped.'
+          : 'Things proceed as anticipated.';
+
+      const [option1, option2] = generateOptions(arc, terrain, object, wellbeing, coinPositive);
+
+      const long = `
+        <p>${timeframe.context} ${modifierContext} The world feels ${arcTone.feel}—${arc.description.toLowerCase()}</p>
+        <p>In ${terrain.name.toLowerCase()}, human ${wellbeing.name.toLowerCase()} is ${effectAdj}. ${terrain.context}</p>
+        <p>${wellbeing.context}</p>
+        <p>The outcome: ${outcome || (coinPositive ? 'new possibilities emerge' : 'new challenges arise')}.</p>
+        <p>And at the center of it all: a ${object.name.toLowerCase()}. ${object.context}</p>
+        <p><strong>Two possibilities:</strong></p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px;">
+          <div style="background:rgba(0,0,0,0.05);padding:16px;border:2px solid var(--haring-black);">
+            <strong>Option A:</strong><br>${option1}
+          </div>
+          <div style="background:rgba(0,0,0,0.05);padding:16px;border:2px solid var(--haring-black);">
+            <strong>Option B:</strong><br>${option2}
+          </div>
+        </div>
+      `;
+
+      return { title, short, long };
+    }
+
+    function clearSpread() {
+      scenario = { arc: null, terrain: null, object: null, wellbeing: null, modifier: null, timeframe: null, coinPositive: null };
+      document.getElementById('spreadCards').innerHTML = '';
+      document.getElementById('narrativeArea').classList.remove('visible');
+    }
+
+    // Generate the Midjourney prompt used for a card
+    const TAROT_STYLE = 'intricate tarot card illustration, dense esoteric symbology, mystical occult imagery, ornate decorative border, art nouveau frame, rich saturated colors, gold leaf accents, woodcut engraving style, dramatic lighting, professional tarot deck art, highly detailed, 4k --ar 2:3 --stylize 750';
+
+    function getCardPrompt(type, card) {
+      const symbolStr = (card.symbols || []).join(', ');
+      const name = card.name || card.label;
+
+      switch (type) {
+        case 'arc':
+          return `${name} tarot card: ${symbolStr}, representing a future of ${name.toLowerCase()}, ${card.description}, ${TAROT_STYLE}`;
+        case 'terrain':
+          return `${name} tarot card: ${symbolStr}, representing the domain of ${name.toLowerCase()}, ${card.description}, ${TAROT_STYLE}`;
+        case 'object':
+          return `${name} tarot card: ${symbolStr}, an artifact representing ${card.description.toLowerCase()}, ${TAROT_STYLE}`;
+        case 'wellbeing':
+          return `${name} tarot card: ${symbolStr}, human flourishing and ${card.description.toLowerCase()}, ${TAROT_STYLE}`;
+        case 'modifier':
+          return `${name} tarot card: ${symbolStr}, timeline modifier representing ${card.context.toLowerCase()}, ${TAROT_STYLE}`;
+        case 'timeframe':
+          return `${name} tarot card: ${symbolStr}, representing the passage of time, temporal mysticism, ${card.description}, ${TAROT_STYLE}`;
+        default:
+          return `${name} tarot card: ${symbolStr}, ${card.description}, ${TAROT_STYLE}`;
+      }
+    }
+
+    function showCardDetail(type, cardId) {
+      const deckMap = {
+        arc: 'arc', terrain: 'terrain', object: 'object',
+        wellbeing: 'wellbeing', modifier: 'modifiers', timeframe: 'timeframe'
+      };
+      const deck = cardData[deckMap[type]];
+      const card = deck.find(c => c.id === cardId);
+      if (!card) return;
+
+      // Show image
+      const imgPath = cardImages[cardId];
+      const modalImage = document.getElementById('modalImage');
+      if (imgPath) {
+        modalImage.innerHTML = `<img src="${imgPath}" alt="${card.name || card.label}">`;
+      } else {
+        modalImage.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:64px;color:rgba(255,255,255,0.3);">&#10023;</div>`;
+      }
+
+      document.getElementById('modalTitle').textContent = card.name || card.label;
+      document.getElementById('modalContext').textContent = card.context || card.description || '';
+
+      const symbols = card.symbols || [];
+      document.getElementById('modalSymbols').innerHTML =
+        symbols.map(s => `<span class="symbol-chip">${s}</span>`).join('');
+
+      // Show image generation info
+      document.getElementById('modalModel').textContent = 'Model: Midjourney v6 (via MuleRouter)';
+      document.getElementById('modalPrompt').textContent = getCardPrompt(type, card);
+
+      document.getElementById('modalOverlay').classList.add('visible');
+    }
+
+    function closeModal(event) {
+      if (!event || event.target === document.getElementById('modalOverlay')) {
+        document.getElementById('modalOverlay').classList.remove('visible');
+      }
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>

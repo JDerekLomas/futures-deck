@@ -1,0 +1,110 @@
+{
+  "checked_at": "2025-12-15T16:26:08.475Z",
+  "results": [
+    {
+      "taskId": "a6fe83f0-7649-4dba-8134-2509c037788d",
+      "cardId": "domain-01",
+      "cardName": "Finance & Banking",
+      "endpoint": "/vendors/midjourney/v1/tob/diffusion/a6fe83f0-7649-4dba-8134-2509c037788d",
+      "data": {
+        "task_info": {
+          "id": "a6fe83f0-7649-4dba-8134-2509c037788d",
+          "status": "completed",
+          "created_at": "2025-12-15T16:24:47.454993+00:00",
+          "updated_at": "2025-12-15T16:25:09.914596+00:00"
+        },
+        "images": [
+          "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/a6fe83f0-7649-4dba-8134-2509c037788d/result_00.png",
+          "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/a6fe83f0-7649-4dba-8134-2509c037788d/result_01.png",
+          "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/a6fe83f0-7649-4dba-8134-2509c037788d/result_02.png",
+          "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/a6fe83f0-7649-4dba-8134-2509c037788d/result_03.png"
+        ],
+        "seed": 2589434341
+      }
+    },
+    {
+      "taskId": "04047894-8341-429c-8d40-d66f13e29d21",
+      "cardId": "domain-02",
+      "cardName": "Healthcare & Pharma",
+      "endpoint": "/vendors/midjourney/v1/tob/diffusion/04047894-8341-429c-8d40-d66f13e29d21",
+      "data": {
+        "task_info": {
+          "id": "04047894-8341-429c-8d40-d66f13e29d21",
+          "status": "completed",
+          "created_at": "2025-12-15T16:24:49.367172+00:00",
+          "updated_at": "2025-12-15T16:25:10.712431+00:00"
+        },
+        "images": [
+          "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/04047894-8341-429c-8d40-d66f13e29d21/result_00.png",
+          "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/04047894-8341-429c-8d40-d66f13e29d21/result_01.png",
+          "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/04047894-8341-429c-8d40-d66f13e29d21/result_02.png",
+          "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/04047894-8341-429c-8d40-d66f13e29d21/result_03.png"
+        ],
+        "seed": 2834494266
+      }
+    },
+    {
+      "taskId": "2f5106ab-60bd-42b2-bc4c-0e89c0fe316d",
+      "cardId": "well-01",
+      "cardName": "Autonomy / Agency",
+      "endpoint": "/vendors/midjourney/v1/tob/diffusion/2f5106ab-60bd-42b2-bc4c-0e89c0fe316d",
+      "data": {
+        "task_info": {
+          "id": "2f5106ab-60bd-42b2-bc4c-0e89c0fe316d",
+          "status": "completed",
+          "created_at": "2025-12-15T16:24:50.846344+00:00",
+          "updated_at": "2025-12-15T16:25:12.144075+00:00"
+        },
+        "images": [
+          "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/2f5106ab-60bd-42b2-bc4c-0e89c0fe316d/result_00.png",
+          "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/2f5106ab-60bd-42b2-bc4c-0e89c0fe316d/result_01.png",
+          "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/2f5106ab-60bd-42b2-bc4c-0e89c0fe316d/result_02.png",
+          "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/2f5106ab-60bd-42b2-bc4c-0e89c0fe316d/result_03.png"
+        ],
+        "seed": 530251134
+      }
+    },
+    {
+      "taskId": "798b21f1-d828-47ea-845b-b423a0477b65",
+      "cardId": "well-06",
+      "cardName": "Equity / Fairness",
+      "endpoint": "/vendors/midjourney/v1/tob/diffusion/798b21f1-d828-47ea-845b-b423a0477b65",
+      "data": {
+        "task_info": {
+          "id": "798b21f1-d828-47ea-845b-b423a0477b65",
+          "status": "completed",
+          "created_at": "2025-12-15T16:24:52.709223+00:00",
+          "updated_at": "2025-12-15T16:25:14.006220+00:00"
+        },
+        "images": [
+          "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/798b21f1-d828-47ea-845b-b423a0477b65/result_00.png",
+          "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/798b21f1-d828-47ea-845b-b423a0477b65/result_01.png",
+          "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/798b21f1-d828-47ea-845b-b423a0477b65/result_02.png",
+          "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/798b21f1-d828-47ea-845b-b423a0477b65/result_03.png"
+        ],
+        "seed": 613997651
+      }
+    },
+    {
+      "taskId": "96d7ad41-42b5-4a86-be2a-fff19ddc6c19",
+      "cardId": "tech-01",
+      "cardName": "Fault-Tolerant Quantum Computing",
+      "endpoint": "/vendors/midjourney/v1/tob/diffusion/96d7ad41-42b5-4a86-be2a-fff19ddc6c19",
+      "data": {
+        "task_info": {
+          "id": "96d7ad41-42b5-4a86-be2a-fff19ddc6c19",
+          "status": "completed",
+          "created_at": "2025-12-15T16:24:54.167019+00:00",
+          "updated_at": "2025-12-15T16:25:15.426675+00:00"
+        },
+        "images": [
+          "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/96d7ad41-42b5-4a86-be2a-fff19ddc6c19/result_00.png",
+          "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/96d7ad41-42b5-4a86-be2a-fff19ddc6c19/result_01.png",
+          "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/96d7ad41-42b5-4a86-be2a-fff19ddc6c19/result_02.png",
+          "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/96d7ad41-42b5-4a86-be2a-fff19ddc6c19/result_03.png"
+        ],
+        "seed": 2541077266
+      }
+    }
+  ]
+}

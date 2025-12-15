@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 822 1122" width="822" height="1122">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap');
+      .display { font-family: 'Space Grotesk', sans-serif; }
+      .mono { font-family: 'JetBrains Mono', monospace; }
+    </style>
+    <!-- Grid pattern for subtle texture -->
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(0,0,0,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Bleed area background -->
+  <rect x="0" y="0" width="822" height="1122" fill="#FAFAFA"/>
+
+  <!-- Card border -->
+  <rect x="36" y="36" width="750" height="1050"
+        fill="#FAFAFA"
+        stroke="#1A1A1A"
+        stroke-width="9" rx="24"/>
+
+  <!-- Grid texture -->
+  <rect x="36" y="36" width="750" height="1050" fill="url(#grid)" rx="24"/>
+
+  <!-- Header bar -->
+  <rect x="40.5" y="40.5" width="741" height="120"
+        fill="#1565C0" rx="20 20 0 0"/>
+
+  <!-- Type label -->
+  <text x="84" y="108"
+        class="display" fill="#FAFAFA"
+        font-size="30" font-weight="700" letter-spacing="4">
+    DOMAIN
+  </text>
+
+  <!-- Card number -->
+  <text x="738" y="108"
+        class="mono" fill="#FAFAFA"
+        font-size="27" text-anchor="end" opacity="0.8">
+    03
+  </text>
+
+  <!-- Geometric accent blocks (De Stijl) -->
+  <rect x="606" y="40.5" width="175.5" height="180"
+        fill="#1565C0" opacity="0.15" rx="0 20 0 0"/>
+  <rect x="40.5" y="846" width="120" height="235.5"
+        fill="#1565C0" opacity="0.1" rx="0 0 0 20"/>
+
+  <!-- Main content area -->
+  
+    <!-- Standard title layout -->
+    <text x="411" y="486"
+          class="display" fill="#1A1A1A"
+          font-size="60" font-weight="700" text-anchor="middle">
+      Energy & Climate
+    </text>
+    
+    <text x="411" y="556"
+          class="display" fill="#1A1A1A"
+          font-size="36" font-weight="500" text-anchor="middle" opacity="0.6">
+      
+    </text>
+    
+  
+
+  <!-- Footer line -->
+  <line x1="84" y1="942"
+        x2="738" y2="942"
+        stroke="#1A1A1A" stroke-width="3"/>
+
+  <!-- Footer text -->
+  <text x="84" y="1002"
+        class="display" fill="#999"
+        font-size="24" font-weight="700" letter-spacing="3">
+    WHERE DOES IT HIT?
+  </text>
+</svg>

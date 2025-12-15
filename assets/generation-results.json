@@ -1,0 +1,46 @@
+{
+  "generated_at": "2025-12-15T16:12:34.086Z",
+  "mulerouter_url": "http://localhost:3001",
+  "cards": [
+    {
+      "id": "domain-01",
+      "status": "dry-run",
+      "prompt": "Keith Haring style illustration, bold black outlines, flat bright colors, simple iconic figures, radiant energy lines, figures in dynamic poses, pop art aesthetic, solid color fills, playful and energetic, multiple figures interacting, thick black stroke weight, 1980s street art style, white background, figures exchanging money and coins, dancing figures with dollar signs, figures climbing bar charts, piggy bank symbols, figures shaking hands over deals, figures juggling gold coins, bright green gold and teal colors, on teal cyan colored background --ar 5:7 --style raw --v 6.1"
+    },
+    {
+      "id": "domain-02",
+      "status": "dry-run",
+      "prompt": "Keith Haring style illustration, bold black outlines, flat bright colors, simple iconic figures, radiant energy lines, figures in dynamic poses, pop art aesthetic, solid color fills, playful and energetic, multiple figures interacting, thick black stroke weight, 1980s street art style, white background, figures with glowing red hearts in chests, dancing figures forming medical cross shape, figures carrying others on stretchers, pill and capsule shapes, figures with stethoscopes, healing energy radiating from hands, DNA helix made of linked dancing figures, bright red white pink and teal colors --ar 5:7 --style raw --v 6.1"
+    },
+    {
+      "id": "well-01",
+      "status": "dry-run",
+      "prompt": "Keith Haring style illustration, bold black outlines, flat bright colors, simple iconic figures, radiant energy lines, figures in dynamic poses, pop art aesthetic, solid color fills, playful and energetic, multiple figures interacting, thick black stroke weight, 1980s street art style, white background, single figure breaking free from chains, figure choosing between multiple branching paths, figure with compass directing own destiny, figures each dancing independently freely, figure pushing away controlling hands, figure steering own ship wheel, radiant self-determination energy lines, figure standing alone confidently with arms raised, bold red and orange empowerment colors on golden yellow background --ar 5:7 --style raw --v 6.1"
+    },
+    {
+      "id": "well-06",
+      "status": "dry-run",
+      "prompt": "Keith Haring style illustration, bold black outlines, flat bright colors, simple iconic figures, radiant energy lines, figures in dynamic poses, pop art aesthetic, solid color fills, playful and energetic, multiple figures interacting, thick black stroke weight, 1980s street art style, white background, figures of different sizes all standing at equal height on different platforms, perfectly balanced scales with figures on each side, figures sharing resources passing items evenly, figures lifting smaller figures up to same level, circle of diverse figures all with equal radiant lines, figures redistributing to create balance, level playing field with figures, yellow and orange justice colors on golden background --ar 5:7 --style raw --v 6.1"
+    },
+    {
+      "id": "tech-01",
+      "status": "dry-run",
+      "prompt": "Keith Haring style illustration, bold black outlines, flat bright colors, simple iconic figures, radiant energy lines, figures in dynamic poses, pop art aesthetic, solid color fills, playful and energetic, multiple figures interacting, thick black stroke weight, 1980s street art style, white background, figures dancing inside computer and circuit shapes, figures catching and fixing falling pieces together, interlocking stable figure structures like building blocks, figures juggling glowing orbs without dropping any, fortress made of reliable connected figures, figures with checkmarks above heads showing success, robust interconnected system of figures, electric blue white and hot pink colors --ar 5:7 --style raw --v 6.1"
+    },
+    {
+      "id": "back-domain",
+      "status": "dry-run",
+      "prompt": "Jackson Pollock style abstract expressionist painting, chaotic drip painting technique, splattered paint layers, energetic gestural marks, interweaving paint drips, dynamic movement, layered enamel paint effect, predominantly teal cyan and blue paint drips with white accents, action painting aesthetic, no recognizable shapes, raw artistic energy --ar 5:7 --style raw --v 6.1"
+    },
+    {
+      "id": "back-wellbeing",
+      "status": "dry-run",
+      "prompt": "Jackson Pollock style abstract expressionist painting, chaotic drip painting technique, splattered paint layers, warm golden yellow and orange paint drips with amber accents, energetic gestural marks, organic flowing drip lines, human warmth energy feeling, action painting aesthetic --ar 5:7 --style raw --v 6.1"
+    },
+    {
+      "id": "back-tech",
+      "status": "dry-run",
+      "prompt": "Jackson Pollock style abstract expressionist painting, chaotic drip painting technique, hot pink magenta and red paint drips with electric accents, technological chaos energy, neon feeling, action painting aesthetic, high energy --ar 5:7 --style raw --v 6.1"
+    }
+  ]
+}

@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FUTURES DECK — Haring Edition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* === HARING PALETTE === */
+      --haring-red: #FF3333;
+      --haring-yellow: #FFDE00;
+      --haring-blue: #0066FF;
+      --haring-green: #00CC66;
+      --haring-orange: #FF9900;
+      --haring-pink: #FF66B2;
+      --haring-purple: #9933FF;
+      --haring-black: #1A1A1A;
+      --haring-white: #FFFEF5;
+
+      /* === DECK COLORS === */
+      --domain-bg: #00CED1;
+      --domain-accent: #006666;
+      --wellbeing-bg: #FFD700;
+      --wellbeing-accent: #B8860B;
+      --tech-bg: #FF69B4;
+      --tech-accent: #C71585;
+      --modifier-bg: #9370DB;
+      --modifier-accent: #4B0082;
+      --wildcard-bg: #FF6347;
+
+      /* === TYPE === */
+      --font-display: 'Archivo Black', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+
+      /* === CARD DIMENSIONS === */
+      --card-width: 280px;
+      --card-height: 392px;
+      --card-radius: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-mono);
+      background: var(--haring-white);
+      min-height: 100vh;
+    }
+
+    /* === POLLOCK BACKGROUND === */
+    .pollock-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      opacity: 0.08;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50,100 Q100,50 150,120 T250,80 T350,150' stroke='%23FF3333' stroke-width='3' fill='none'/%3E%3Cpath d='M30,200 Q80,150 180,220 T280,180 T380,250' stroke='%230066FF' stroke-width='2' fill='none'/%3E%3Cpath d='M60,300 Q120,250 200,320 T300,280 T400,350' stroke='%23FFDE00' stroke-width='4' fill='none'/%3E%3Cpath d='M20,50 Q70,100 120,30 T220,70 T320,20' stroke='%231A1A1A' stroke-width='2' fill='none'/%3E%3Ccircle cx='100' cy='150' r='5' fill='%23FF3333'/%3E%3Ccircle cx='200' cy='100' r='3' fill='%230066FF'/%3E%3Ccircle cx='300' cy='200' r='4' fill='%23FFDE00'/%3E%3Ccircle cx='150' cy='300' r='6' fill='%231A1A1A'/%3E%3C/svg%3E");
+      background-size: 400px 400px;
+    }
+
+    /* === CONTAINER === */
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    /* === HEADER === */
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+      padding: 32px;
+      background: var(--haring-black);
+      border: 6px solid var(--haring-black);
+      position: relative;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      inset: -12px;
+      border: 6px solid var(--haring-red);
+      pointer-events: none;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      inset: -20px;
+      border: 4px solid var(--haring-yellow);
+      pointer-events: none;
+    }
+
+    .header-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 8vw, 72px);
+      color: var(--haring-white);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1;
+    }
+
+    .header-sub {
+      font-size: 14px;
+      color: var(--haring-yellow);
+      margin-top: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    /* === ORACLE === */
+    .oracle {
+      background: var(--haring-white);
+      border: 6px solid var(--haring-black);
+      padding: 32px;
+      margin-bottom: 48px;
+      position: relative;
+    }
+
+    /* Haring-style border decoration */
+    .oracle::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: 20px;
+      right: 20px;
+      height: 6px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--haring-red) 0px,
+        var(--haring-red) 20px,
+        var(--haring-yellow) 20px,
+        var(--haring-yellow) 40px,
+        var(--haring-blue) 40px,
+        var(--haring-blue) 60px,
+        var(--haring-green) 60px,
+        var(--haring-green) 80px
+      );
+    }
+
+    .oracle-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .oracle-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      text-transform: uppercase;
+    }
+
+    .draw-btn {
+      font-family: var(--font-display);
+      font-size: 14px;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      background: var(--haring-red);
+      color: var(--haring-white);
+      border: 4px solid var(--haring-black);
+      cursor: pointer;
+      transition: all 0.15s;
+      box-shadow: 4px 4px 0 var(--haring-black);
+    }
+
+    .draw-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--haring-black);
+    }
+
+    .draw-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--haring-black);
+    }
+
+    /* === SPREAD === */
+    .spread {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      min-height: 420px;
+      align-items: center;
+      padding: 24px;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent 0px,
+        transparent 10px,
+        rgba(0,0,0,0.02) 10px,
+        rgba(0,0,0,0.02) 20px
+      );
+      border: 3px dashed var(--haring-black);
+    }
+
+    .spread:empty::before {
+      content: 'DRAW THE FUTURE';
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: rgba(0,0,0,0.15);
+      text-transform: uppercase;
+    }
+
+    /* === CARD === */
+    .card {
+      width: var(--card-width);
+      height: var(--card-height);
+      border-radius: var(--card-radius);
+      border: 5px solid var(--haring-black);
+      position: relative;
+      cursor: pointer;
+      transition: all 0.2s;
+      overflow: hidden;
+      box-shadow: 6px 6px 0 var(--haring-black);
+    }
+
+    .card:hover {
+      transform: translate(-4px, -4px) rotate(-1deg);
+      box-shadow: 10px 10px 0 var(--haring-black);
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* === CARD ILLUSTRATION ZONE (for Haring art) === */
+    .card-illustration {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .card-illustration img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Placeholder Haring-style SVG figures */
+    .haring-figures {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .haring-figure {
+      width: 48px;
+      height: 48px;
+    }
+
+    /* === CARD INFO ZONE === */
+    .card-info {
+      background: var(--haring-black);
+      padding: 12px 16px;
+      border-top: 4px solid var(--haring-black);
+    }
+
+    .card-type {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      text-transform: uppercase;
+      line-height: 1.2;
+      color: var(--haring-white);
+    }
+
+    .card-subtitle {
+      font-size: 11px;
+      opacity: 0.7;
+      margin-top: 2px;
+      color: var(--haring-white);
+    }
+
+    .card-year {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--haring-white);
+    }
+
+    .card-number {
+      font-family: var(--font-display);
+      font-size: 48px;
+      color: var(--haring-white);
+    }
+
+    /* === DOMAIN CARDS === */
+    .card--domain .card-illustration {
+      background: var(--domain-bg);
+    }
+    .card--domain .card-type { color: var(--domain-bg); }
+
+    /* === WELLBEING CARDS === */
+    .card--wellbeing .card-illustration {
+      background: var(--wellbeing-bg);
+    }
+    .card--wellbeing .card-type { color: var(--wellbeing-bg); }
+
+    /* === TECH CARDS === */
+    .card--tech .card-illustration {
+      background: var(--tech-bg);
+    }
+    .card--tech .card-type { color: var(--tech-bg); }
+
+    /* === MODIFIER CARDS === */
+    .card--modifier .card-illustration {
+      background: var(--modifier-bg);
+    }
+    .card--modifier .card-type { color: var(--modifier-bg); }
+
+    /* === WILDCARD === */
+    .card--wildcard .card-illustration {
+      background: var(--wildcard-bg);
+    }
+    .card--wildcard .card-type { color: var(--wildcard-bg); }
+
+    /* === OUTCOME COIN === */
+    .outcome {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .coin {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 5px solid var(--haring-black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 36px;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 4px 4px 0 var(--haring-black);
+    }
+
+    .coin:hover {
+      transform: scale(1.1) rotate(10deg);
+    }
+
+    .coin.positive {
+      background: var(--haring-green);
+      color: var(--haring-white);
+    }
+
+    .coin.negative {
+      background: var(--haring-red);
+      color: var(--haring-white);
+    }
+
+    .outcome-label {
+      font-family: var(--font-display);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    /* === PROMPT === */
+    .prompt {
+      margin-top: 32px;
+      padding: 24px;
+      background: var(--haring-yellow);
+      border: 4px solid var(--haring-black);
+      display: none;
+    }
+
+    .prompt.visible {
+      display: block;
+    }
+
+    .prompt-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .prompt-text {
+      font-family: var(--font-display);
+      font-size: clamp(16px, 3vw, 22px);
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+
+    .prompt-text .hl {
+      background: var(--haring-black);
+      color: var(--haring-white);
+      padding: 2px 6px;
+    }
+
+    /* === DECK SECTIONS === */
+    .deck-section {
+      margin-bottom: 48px;
+    }
+
+    .deck-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 4px solid var(--haring-black);
+    }
+
+    .deck-marker {
+      width: 32px;
+      height: 32px;
+      background: var(--haring-black);
+    }
+
+    .deck-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      text-transform: uppercase;
+    }
+
+    .deck-count {
+      font-size: 12px;
+      opacity: 0.6;
+      margin-left: auto;
+    }
+
+    .deck-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .card--sm {
+      width: 100%;
+      height: 340px;
+    }
+
+    /* === CONTROLS === */
+    .controls {
+      display: flex;
+      gap: 8px;
+    }
+
+    .control-btn {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 8px 16px;
+      background: var(--haring-white);
+      color: var(--haring-black);
+      border: 3px solid var(--haring-black);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .control-btn:hover {
+      background: var(--haring-black);
+      color: var(--haring-white);
+    }
+
+    /* === HARING FIGURE SVGs === */
+    .figure-dancing {
+      fill: var(--haring-black);
+    }
+
+    /* === CARD BACK PREVIEW === */
+    .card-back {
+      background: linear-gradient(135deg,
+        var(--haring-red) 0%,
+        var(--haring-yellow) 25%,
+        var(--haring-blue) 50%,
+        var(--haring-green) 75%,
+        var(--haring-red) 100%
+      );
+      background-size: 200% 200%;
+      animation: pollock-shift 3s ease infinite;
+    }
+
+    @keyframes pollock-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .oracle-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .card {
+        --card-width: 220px;
+        --card-height: 308px;
+      }
+    }
+
+    /* === ANIMATION === */
+    @keyframes pop-in {
+      from {
+        opacity: 0;
+        transform: scale(0.8) rotate(-5deg);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+      }
+    }
+
+    .spread .card {
+      animation: pop-in 0.3s ease-out backwards;
+    }
+
+    .spread .card:nth-child(1) { animation-delay: 0.05s; }
+    .spread .card:nth-child(2) { animation-delay: 0.1s; }
+    .spread .card:nth-child(3) { animation-delay: 0.15s; }
+    .spread .card:nth-child(4) { animation-delay: 0.2s; }
+  </style>
+</head>
+<body>
+  <div class="pollock-bg"></div>
+
+  <div class="container">
+    <header class="header">
+      <h1 class="header-title">Futures Deck</h1>
+      <p class="header-sub">Quantum Horizons / Haring Edition</p>
+    </header>
+
+    <section class="oracle">
+      <div class="oracle-header">
+        <h2 class="oracle-title">The Spread</h2>
+        <div class="controls">
+          <button class="control-btn" onclick="flipOutcome()">Flip</button>
+          <button class="control-btn" onclick="clearBoard()">Clear</button>
+        </div>
+        <button class="draw-btn" onclick="drawFullHand()">Draw Future</button>
+      </div>
+
+      <div class="spread" id="spread"></div>
+
+      <div class="prompt" id="prompt">
+        <div class="prompt-label">Your Future Scenario</div>
+        <div class="prompt-text" id="promptText"></div>
+      </div>
+    </section>
+
+    <div class="decks">
+      <section class="deck-section">
+        <div class="deck-header">
+          <div class="deck-marker" style="background: var(--domain-bg);"></div>
+          <h2 class="deck-title">Domains</h2>
+          <span class="deck-count">10 cards</span>
+        </div>
+        <div class="deck-grid" id="domainDeck"></div>
+      </section>
+
+      <section class="deck-section">
+        <div class="deck-header">
+          <div class="deck-marker" style="background: var(--wellbeing-bg);"></div>
+          <h2 class="deck-title">Wellbeing</h2>
+          <span class="deck-count">10 cards</span>
+        </div>
+        <div class="deck-grid" id="wellbeingDeck"></div>
+      </section>
+
+      <section class="deck-section">
+        <div class="deck-header">
+          <div class="deck-marker" style="background: var(--tech-bg);"></div>
+          <h2 class="deck-title">Technology</h2>
+          <span class="deck-count">8 cards</span>
+        </div>
+        <div class="deck-grid" id="techDeck"></div>
+      </section>
+
+      <section class="deck-section">
+        <div class="deck-header">
+          <div class="deck-marker" style="background: var(--modifier-bg);"></div>
+          <h2 class="deck-title">Modifiers</h2>
+          <span class="deck-count">6 cards</span>
+        </div>
+        <div class="deck-grid" id="modifierDeck"></div>
+      </section>
+
+      <section class="deck-section">
+        <div class="deck-header">
+          <div class="deck-marker" style="background: var(--wildcard-bg);"></div>
+          <h2 class="deck-title">Wildcards</h2>
+          <span class="deck-count">6 cards</span>
+        </div>
+        <div class="deck-grid" id="wildcardDeck"></div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Haring-style figure SVG templates -->
+  <svg style="display: none;">
+    <defs>
+      <!-- Dancing figure -->
+      <symbol id="figure-dance" viewBox="0 0 48 48">
+        <path fill="currentColor" d="M24 8a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-8 12l-8 8 4 4 8-8v16h-6v8h20v-8h-6V24l8 8 4-4-8-8-8 8-8-8z"/>
+      </symbol>
+      <!-- Radiant figure -->
+      <symbol id="figure-radiant" viewBox="0 0 48 48">
+        <circle cx="24" cy="10" r="6" fill="currentColor"/>
+        <path fill="currentColor" d="M18 18h12v14l6 10h-6l-6-8-6 8h-6l6-10z"/>
+        <path stroke="currentColor" stroke-width="2" fill="none" d="M24 0v4M36 4l-3 3M44 16h-4M36 28l-3-3M24 32v4M12 28l3-3M4 16h4M12 4l3 3"/>
+      </symbol>
+      <!-- Heart figure -->
+      <symbol id="figure-heart" viewBox="0 0 48 48">
+        <circle cx="24" cy="8" r="5" fill="currentColor"/>
+        <path fill="currentColor" d="M16 16h16v8l8 16h-8l-4-8v8h-8v-8l-4 8h-8l8-16z"/>
+        <path fill="none" stroke="currentColor" stroke-width="3" d="M24 24c-4-8 4-12 8-8s4 8-8 16c-12-8-12-12-8-16s12 0 8 8z"/>
+      </symbol>
+      <!-- Running figure -->
+      <symbol id="figure-run" viewBox="0 0 48 48">
+        <circle cx="28" cy="6" r="5" fill="currentColor"/>
+        <path fill="currentColor" d="M20 12l8 4 8-4-4 12-8-4-4 12-8-4 4-12 8 4-4-8z"/>
+      </symbol>
+      <!-- Connected figures -->
+      <symbol id="figure-connect" viewBox="0 0 48 48">
+        <circle cx="12" cy="8" r="4" fill="currentColor"/>
+        <circle cx="36" cy="8" r="4" fill="currentColor"/>
+        <path fill="currentColor" d="M8 14h8v20H8zM32 14h8v20h-8z"/>
+        <path stroke="currentColor" stroke-width="4" fill="none" d="M16 20h16"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <script>
+    let cardData = null;
+    let scenario = { domain: null, wellbeing: null, tech: null, modifier: null, outcome: null };
+
+    // Generated Tarot images from Midjourney
+    const generatedImages = {
+      'domain-01': 'assets/tarot/domain-01.png',
+      'domain-02': 'assets/tarot/domain-02.png',
+      'well-01': 'assets/tarot/well-01.png',
+      'well-06': 'assets/tarot/well-06.png',
+      'tech-01': 'assets/tarot/tech-01.png'
+    };
+
+    // Figure templates for each card type (fallback)
+    const figureTemplates = {
+      domain: ['figure-connect', 'figure-run', 'figure-dance'],
+      wellbeing: ['figure-heart', 'figure-radiant', 'figure-connect'],
+      tech: ['figure-radiant', 'figure-dance', 'figure-run'],
+      modifier: ['figure-run', 'figure-dance'],
+      wildcard: ['figure-radiant', 'figure-heart', 'figure-dance', 'figure-run']
+    };
+
+    function renderFigures(type, count = 6, cardId = null) {
+      // Use generated image if available
+      if (cardId && generatedImages[cardId]) {
+        return `<img src="${generatedImages[cardId]}" alt="${cardId}">`;
+      }
+
+      // Fallback to SVG figures
+      const templates = figureTemplates[type] || figureTemplates.domain;
+      let html = '<div class="haring-figures">';
+      for (let i = 0; i < count; i++) {
+        const fig = templates[i % templates.length];
+        html += `<svg class="haring-figure"><use href="#${fig}"/></svg>`;
+      }
+      html += '</div>';
+      return html;
+    }
+
+    fetch('src/cards.json')
+      .then(r => r.json())
+      .then(data => {
+        cardData = data;
+        renderDecks();
+      });
+
+    function renderDecks() {
+      document.getElementById('domainDeck').innerHTML = cardData.domains.map(c => `
+        <div class="card card--domain card--sm" onclick="select('domain','${c.id}')">
+          <div class="card-inner">
+            <div class="card-illustration">
+              ${renderFigures('domain', 8, c.id)}
+            </div>
+            <div class="card-info">
+              <div class="card-type">Domain</div>
+              <div class="card-title">${c.name}</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('wellbeingDeck').innerHTML = cardData.wellbeing.map(c => `
+        <div class="card card--wellbeing card--sm" onclick="select('wellbeing','${c.id}')">
+          <div class="card-inner">
+            <div class="card-illustration">
+              ${renderFigures('wellbeing', 6, c.id)}
+            </div>
+            <div class="card-info">
+              <div class="card-type">Wellbeing</div>
+              <div class="card-title">${c.name}</div>
+              <div class="card-subtitle">${c.subtitle}</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('techDeck').innerHTML = cardData.technology.map(c => `
+        <div class="card card--tech card--sm" onclick="select('tech','${c.id}')">
+          <div class="card-inner">
+            <div class="card-illustration">
+              ${renderFigures('tech', 5, c.id)}
+            </div>
+            <div class="card-info">
+              <div class="card-type">Technology</div>
+              <div class="card-title">${c.short_name}</div>
+              <div class="card-year">${c.baseline_year}</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('modifierDeck').innerHTML = cardData.modifiers.map(c => `
+        <div class="card card--modifier card--sm" onclick="select('modifier','${c.id}')">
+          <div class="card-inner">
+            <div class="card-illustration">
+              ${renderFigures('modifier', 4)}
+            </div>
+            <div class="card-info">
+              <div class="card-type">Modifier</div>
+              <div class="card-number">${c.value > 0 ? '+' : ''}${c.value}</div>
+              <div class="card-subtitle">${c.label}</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('wildcardDeck').innerHTML = cardData.wildcards.map(c => `
+        <div class="card card--wildcard card--sm">
+          <div class="card-inner">
+            <div class="card-illustration">
+              ${renderFigures('wildcard', 9)}
+            </div>
+            <div class="card-info">
+              <div class="card-type">Wildcard</div>
+              <div class="card-title">${c.name}</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function getCard(type, id) {
+      const map = { domain: 'domains', wellbeing: 'wellbeing', tech: 'technology', modifier: 'modifiers' };
+      return cardData[map[type]].find(c => c.id === id);
+    }
+
+    function select(type, id) {
+      scenario[type] = getCard(type, id);
+      if (!scenario.outcome) scenario.outcome = Math.random() > 0.5 ? 'positive' : 'negative';
+      renderSpread();
+      renderPrompt();
+    }
+
+    function drawRandom(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function drawFullHand() {
+      scenario = {
+        domain: drawRandom(cardData.domains),
+        wellbeing: drawRandom(cardData.wellbeing),
+        tech: drawRandom(cardData.technology),
+        modifier: drawRandom(cardData.modifiers),
+        outcome: Math.random() > 0.5 ? 'positive' : 'negative'
+      };
+      renderSpread();
+      renderPrompt();
+    }
+
+    function flipOutcome() {
+      scenario.outcome = scenario.outcome === 'positive' ? 'negative' : 'positive';
+      renderSpread();
+      renderPrompt();
+    }
+
+    function clearBoard() {
+      scenario = { domain: null, wellbeing: null, tech: null, modifier: null, outcome: null };
+      document.getElementById('spread').innerHTML = '';
+      document.getElementById('prompt').classList.remove('visible');
+    }
+
+    function renderSpread() {
+      const el = document.getElementById('spread');
+      let html = '';
+
+      if (scenario.domain) {
+        html += `
+          <div class="card card--domain">
+            <div class="card-inner">
+              <div class="card-illustration">${renderFigures('domain', 8, scenario.domain.id)}</div>
+              <div class="card-info">
+                <div class="card-type">Domain</div>
+                <div class="card-title">${scenario.domain.name}</div>
+              </div>
+            </div>
+          </div>`;
+      }
+
+      if (scenario.wellbeing) {
+        html += `
+          <div class="card card--wellbeing">
+            <div class="card-inner">
+              <div class="card-illustration">${renderFigures('wellbeing', 6, scenario.wellbeing.id)}</div>
+              <div class="card-info">
+                <div class="card-type">Wellbeing</div>
+                <div class="card-title">${scenario.wellbeing.name}</div>
+              </div>
+            </div>
+          </div>`;
+      }
+
+      if (scenario.tech) {
+        const year = scenario.modifier
+          ? scenario.tech.baseline_year + scenario.modifier.value
+          : scenario.tech.baseline_year;
+        html += `
+          <div class="card card--tech">
+            <div class="card-inner">
+              <div class="card-illustration">${renderFigures('tech', 5, scenario.tech.id)}</div>
+              <div class="card-info">
+                <div class="card-type">Technology</div>
+                <div class="card-title">${scenario.tech.short_name}</div>
+                <div class="card-year">${year}</div>
+              </div>
+            </div>
+          </div>`;
+      }
+
+      if (scenario.modifier) {
+        html += `
+          <div class="card card--modifier" style="width: 180px;">
+            <div class="card-inner">
+              <div class="card-illustration">${renderFigures('modifier', 3, scenario.modifier.id)}</div>
+              <div class="card-info">
+                <div class="card-number">${scenario.modifier.value > 0 ? '+' : ''}${scenario.modifier.value}</div>
+                <div class="card-subtitle">${scenario.modifier.label}</div>
+              </div>
+            </div>
+          </div>`;
+      }
+
+      if (scenario.outcome) {
+        html += `
+          <div class="outcome">
+            <div class="coin ${scenario.outcome}" onclick="flipOutcome()">
+              ${scenario.outcome === 'positive' ? '+' : '−'}
+            </div>
+            <div class="outcome-label">${scenario.outcome}</div>
+          </div>`;
+      }
+
+      el.innerHTML = html;
+    }
+
+    function renderPrompt() {
+      const { domain, wellbeing, tech, modifier, outcome } = scenario;
+      if (!domain || !wellbeing || !tech || !outcome) {
+        document.getElementById('prompt').classList.remove('visible');
+        return;
+      }
+
+      const year = modifier ? tech.baseline_year + modifier.value : tech.baseline_year;
+      const timing = modifier?.value < 0 ? 'arrived early' : modifier?.value > 0 ? 'been delayed' : 'arrived';
+
+      document.getElementById('promptText').innerHTML = `
+        It's <span class="hl">${year}</span>.
+        <span class="hl">${tech.short_name}</span> has ${timing}
+        in <span class="hl">${domain.name}</span>.
+        The outcome for <span class="hl">${wellbeing.name}</span> is
+        <span class="hl">${outcome}</span>.
+        What happened? What does this world look like?
+      `;
+      document.getElementById('prompt').classList.add('visible');
+    }
+  </script>
+</body>
+</html>

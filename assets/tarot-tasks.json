@@ -1,0 +1,81 @@
+{
+  "generated_at": "2025-12-15T16:32:50.211Z",
+  "style": "Tarot / Dense Symbology",
+  "results": [
+    {
+      "id": "domain-01",
+      "name": "Finance & Banking",
+      "type": "domain",
+      "prompt": "intricate tarot card illustration, dense esoteric symbology, mystical occult imagery, ornate decorative border, rich layered composition, sacred geometry patterns, alchemical symbols, celestial elements, gold leaf accents, deep jewel tones, Rider-Waite meets art nouveau style, detailed linework, arcane mysticism, hermetic symbolism, high detail, symmetrical composition, the domain of FINANCE AND COMMERCE, central figure of robed merchant holding scales and golden coins, background filled with: flowing rivers of gold coins, the ouroboros eating its tail representing cycles of wealth, alchemical symbols for gold and silver, ascending and descending staircases of prosperity, the wheel of fortune turning, scattered tarot coins suit symbols, vaults and keys, the caduceus of Mercury god of commerce, astrological symbol for Jupiter abundance, intricate celtic knotwork border in gold and deep green, moonlit marble columns, mystical atmosphere --ar 5:7 --style raw --s 750 --v 6.1",
+      "status": "submitted",
+      "response": {
+        "task_info": {
+          "id": "3764bc0f-b916-44a5-b043-b3e86eb4960f",
+          "status": "pending",
+          "created_at": "2025-12-15T16:32:43.354114+00:00",
+          "updated_at": "2025-12-15T16:32:43.354114+00:00"
+        }
+      }
+    },
+    {
+      "id": "domain-02",
+      "name": "Healthcare & Pharma",
+      "type": "domain",
+      "prompt": "intricate tarot card illustration, dense esoteric symbology, mystical occult imagery, ornate decorative border, rich layered composition, sacred geometry patterns, alchemical symbols, celestial elements, gold leaf accents, deep jewel tones, Rider-Waite meets art nouveau style, detailed linework, arcane mysticism, hermetic symbolism, high detail, symmetrical composition, the domain of HEALING AND MEDICINE, central caduceus staff with twin serpents glowing with life force, surrounded by: the sacred heart radiating light, anatomical drawings in da Vinci style, the Rod of Asclepius, healing herbs and botanical illustrations, the philosopher's stone of transformation, DNA double helix as sacred spiral, the vessel of Hygeia, eye of providence watching over, crystals and elixirs in ornate bottles, phases of the moon governing health, hands of the healer emanating energy, deep crimson and healing green palette, elaborate art nouveau floral border --ar 5:7 --style raw --s 750 --v 6.1",
+      "status": "submitted",
+      "response": {
+        "task_info": {
+          "id": "abd34f60-e0c5-476e-b3a4-d7ceebc9a2a9",
+          "status": "pending",
+          "created_at": "2025-12-15T16:32:44.832276+00:00",
+          "updated_at": "2025-12-15T16:32:44.832276+00:00"
+        }
+      }
+    },
+    {
+      "id": "well-01",
+      "name": "Autonomy / Agency",
+      "type": "wellbeing",
+      "prompt": "intricate tarot card illustration, dense esoteric symbology, mystical occult imagery, ornate decorative border, rich layered composition, sacred geometry patterns, alchemical symbols, celestial elements, gold leaf accents, deep jewel tones, Rider-Waite meets art nouveau style, detailed linework, arcane mysticism, hermetic symbolism, high detail, symmetrical composition, the virtue of AUTONOMY AND FREE WILL, solitary figure standing at crossroads holding lantern of inner wisdom, surrounded by: broken chains falling away, the chariot of self-determination, compass rose pointing all directions, keys to locked doors, the magician's tools of self-mastery, eagle in flight representing freedom, the tower card lightning bolt of liberation, personal sigil glowing on forehead, labyrinth with figure finding own path, astrological symbols for Uranus independence, burning phoenix of self-reinvention, deep purple and gold autonomy palette, geometric border of interlocking choices --ar 5:7 --style raw --s 750 --v 6.1",
+      "status": "submitted",
+      "response": {
+        "task_info": {
+          "id": "4ca80394-c170-4a79-9c84-3014f6a9b635",
+          "status": "pending",
+          "created_at": "2025-12-15T16:32:46.289809+00:00",
+          "updated_at": "2025-12-15T16:32:46.289809+00:00"
+        }
+      }
+    },
+    {
+      "id": "well-06",
+      "name": "Equity / Fairness",
+      "type": "wellbeing",
+      "prompt": "intricate tarot card illustration, dense esoteric symbology, mystical occult imagery, ornate decorative border, rich layered composition, sacred geometry patterns, alchemical symbols, celestial elements, gold leaf accents, deep jewel tones, Rider-Waite meets art nouveau style, detailed linework, arcane mysticism, hermetic symbolism, high detail, symmetrical composition, the virtue of EQUITY AND JUSTICE, central figure of blindfolded Justice holding perfectly balanced scales, surrounded by: the sword of truth cutting through deception, equal weights on each side, the two pillars of law Jachin and Boaz, Ma'at's feather of truth, the level and plumb line of masonry, hands of many skin tones reaching toward center, the equalizing sun shining on all equally, broken chains of oppression, the world card showing unified humanity, geometric patterns of fair distribution, the hexagram of balance, rich gold and royal blue justice palette, elaborate symmetrical border of scales --ar 5:7 --style raw --s 750 --v 6.1",
+      "status": "submitted",
+      "response": {
+        "task_info": {
+          "id": "b0e6bb4e-4603-4dc2-b4ac-13e8699ecd9c",
+          "status": "pending",
+          "created_at": "2025-12-15T16:32:47.749045+00:00",
+          "updated_at": "2025-12-15T16:32:47.749045+00:00"
+        }
+      }
+    },
+    {
+      "id": "tech-01",
+      "name": "Fault-Tolerant Quantum Computing",
+      "type": "tech",
+      "prompt": "intricate tarot card illustration, dense esoteric symbology, mystical occult imagery, ornate decorative border, rich layered composition, sacred geometry patterns, alchemical symbols, celestial elements, gold leaf accents, deep jewel tones, Rider-Waite meets art nouveau style, detailed linework, arcane mysticism, hermetic symbolism, high detail, symmetrical composition, the technology of QUANTUM COMPUTATION, central glowing quantum processor as sacred altar, surrounded by: superposition symbols showing states existing simultaneously, entangled particle pairs connected by golden threads, wave function collapse visualized as crystallizing patterns, qubits as spinning orbs of light, error correction codes as protective sigils, the infinity symbol of quantum coherence, Schrodinger's cat alive and dead simultaneously, probability clouds as mystical fog, circuit diagrams as sacred geometry, binary code transforming into golden spirals, the tree of knowledge with quantum fruit, deep electric blue and magenta quantum palette, border of interlocking circuit-mandala patterns, year 2029 in roman numerals --ar 5:7 --style raw --s 750 --v 6.1",
+      "status": "submitted",
+      "response": {
+        "task_info": {
+          "id": "04695651-b51c-4a2e-98f1-9132b1e9bd98",
+          "status": "pending",
+          "created_at": "2025-12-15T16:32:49.207531+00:00",
+          "updated_at": "2025-12-15T16:32:49.207531+00:00"
+        }
+      }
+    }
+  ]
+}

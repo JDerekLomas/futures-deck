@@ -1,0 +1,401 @@
+{
+  "meta": {
+    "name": "Futures Deck",
+    "version": "1.0.0",
+    "description": "A speculative futures card game for imagining quantum technology impacts",
+    "designSystem": "Dutch Design / De Stijl"
+  },
+
+  "domains": [
+    {
+      "id": "domain-01",
+      "name": "Finance & Banking",
+      "icon": "bank",
+      "color": "#1565C0",
+      "prompt_context": "financial systems, banking infrastructure, markets, transactions, monetary policy",
+      "examples": ["Stock exchanges", "Central banks", "Cryptocurrency", "Insurance", "Credit systems"]
+    },
+    {
+      "id": "domain-02",
+      "name": "Healthcare & Pharma",
+      "icon": "health",
+      "color": "#1565C0",
+      "prompt_context": "hospitals, drug development, patient care, medical research, health insurance",
+      "examples": ["Drug discovery", "Diagnostics", "Telemedicine", "Medical records", "Clinical trials"]
+    },
+    {
+      "id": "domain-03",
+      "name": "Energy & Climate",
+      "icon": "energy",
+      "color": "#1565C0",
+      "prompt_context": "power grids, renewable energy, emissions, resource extraction, climate modeling",
+      "examples": ["Solar/wind farms", "Grid optimization", "Carbon capture", "Battery storage", "Nuclear fusion"]
+    },
+    {
+      "id": "domain-04",
+      "name": "Education & Learning",
+      "icon": "education",
+      "color": "#1565C0",
+      "prompt_context": "schools, universities, online learning, credentials, research institutions",
+      "examples": ["Universities", "EdTech", "Vocational training", "Research funding", "Credentials"]
+    },
+    {
+      "id": "domain-05",
+      "name": "Governance & Democracy",
+      "icon": "governance",
+      "color": "#1565C0",
+      "prompt_context": "elections, policy-making, civic participation, international relations, regulation",
+      "examples": ["Voting systems", "Public services", "Legislation", "International treaties", "Bureaucracy"]
+    },
+    {
+      "id": "domain-06",
+      "name": "Labor & Work",
+      "icon": "work",
+      "color": "#1565C0",
+      "prompt_context": "employment, automation, wages, worker rights, gig economy, remote work",
+      "examples": ["Job markets", "Automation", "Unions", "Benefits", "Skills training"]
+    },
+    {
+      "id": "domain-07",
+      "name": "Communication & Media",
+      "icon": "media",
+      "color": "#1565C0",
+      "prompt_context": "news, social media, telecommunications, entertainment, advertising",
+      "examples": ["Social platforms", "News outlets", "Telecom networks", "Streaming", "Journalism"]
+    },
+    {
+      "id": "domain-08",
+      "name": "Security & Defense",
+      "icon": "security",
+      "color": "#1565C0",
+      "prompt_context": "military, cybersecurity, intelligence, border control, emergency response",
+      "examples": ["Military systems", "Cyber defense", "Intelligence", "Law enforcement", "Emergency services"]
+    },
+    {
+      "id": "domain-09",
+      "name": "Transportation & Logistics",
+      "icon": "transport",
+      "color": "#1565C0",
+      "prompt_context": "supply chains, shipping, autonomous vehicles, urban mobility, infrastructure",
+      "examples": ["Shipping routes", "Autonomous vehicles", "Air travel", "Urban transit", "Warehousing"]
+    },
+    {
+      "id": "domain-10",
+      "name": "Food & Agriculture",
+      "icon": "food",
+      "color": "#1565C0",
+      "prompt_context": "farming, food production, distribution, nutrition, agricultural technology",
+      "examples": ["Precision farming", "Food distribution", "GMOs", "Vertical farms", "Food safety"]
+    }
+  ],
+
+  "wellbeing": [
+    {
+      "id": "well-01",
+      "name": "Autonomy",
+      "subtitle": "Agency",
+      "icon": "compass",
+      "color": "#FFC107",
+      "description": "The capacity for self-determination and independent choice",
+      "positive_signals": ["Expanded choices", "Self-governance", "Personal freedom", "Informed consent"],
+      "negative_signals": ["Coerced decisions", "Dependency", "Manipulation", "Loss of control"]
+    },
+    {
+      "id": "well-02",
+      "name": "Connection",
+      "subtitle": "Belonging",
+      "icon": "network",
+      "color": "#FFC107",
+      "description": "Meaningful relationships and sense of community",
+      "positive_signals": ["Community bonds", "Social cohesion", "Mutual support", "Shared identity"],
+      "negative_signals": ["Isolation", "Alienation", "Fragmented communities", "Distrust"]
+    },
+    {
+      "id": "well-03",
+      "name": "Meaning",
+      "subtitle": "Purpose",
+      "icon": "star",
+      "color": "#FFC107",
+      "description": "Sense of significance and contribution to something larger",
+      "positive_signals": ["Fulfilling work", "Shared goals", "Legacy", "Transcendence"],
+      "negative_signals": ["Existential void", "Meaningless labor", "Nihilism", "Disconnection from values"]
+    },
+    {
+      "id": "well-04",
+      "name": "Security",
+      "subtitle": "Safety",
+      "icon": "shield",
+      "color": "#FFC107",
+      "description": "Freedom from threat and confidence in the future",
+      "positive_signals": ["Stability", "Protection", "Predictability", "Risk mitigation"],
+      "negative_signals": ["Anxiety", "Precarity", "Vulnerability", "Constant threat"]
+    },
+    {
+      "id": "well-05",
+      "name": "Health",
+      "subtitle": "Vitality",
+      "icon": "heart",
+      "color": "#FFC107",
+      "description": "Physical and mental flourishing",
+      "positive_signals": ["Longevity", "Wellness access", "Disease prevention", "Mental health"],
+      "negative_signals": ["Illness burden", "Health inequality", "Chronic stress", "Environmental harm"]
+    },
+    {
+      "id": "well-06",
+      "name": "Equity",
+      "subtitle": "Fairness",
+      "icon": "scale",
+      "color": "#FFC107",
+      "description": "Just distribution of resources and opportunities",
+      "positive_signals": ["Equal access", "Fair treatment", "Reduced gaps", "Inclusive systems"],
+      "negative_signals": ["Widening gaps", "Discrimination", "Hoarding", "Systemic barriers"]
+    },
+    {
+      "id": "well-07",
+      "name": "Privacy",
+      "subtitle": "Dignity",
+      "icon": "eye-off",
+      "color": "#FFC107",
+      "description": "Control over personal information and boundaries",
+      "positive_signals": ["Data sovereignty", "Anonymity options", "Consent", "Boundary respect"],
+      "negative_signals": ["Surveillance", "Data exploitation", "Exposure", "Boundary violation"]
+    },
+    {
+      "id": "well-08",
+      "name": "Creativity",
+      "subtitle": "Expression",
+      "icon": "paintbrush",
+      "color": "#FFC107",
+      "description": "Capacity for imagination and self-expression",
+      "positive_signals": ["New art forms", "Innovation", "Diverse voices", "Creative tools"],
+      "negative_signals": ["Homogenization", "Suppression", "Automation of expression", "Creative precarity"]
+    },
+    {
+      "id": "well-09",
+      "name": "Knowledge",
+      "subtitle": "Understanding",
+      "icon": "lightbulb",
+      "color": "#FFC107",
+      "description": "Access to truth and comprehension of the world",
+      "positive_signals": ["Open information", "Scientific literacy", "Education access", "Transparency"],
+      "negative_signals": ["Misinformation", "Knowledge hoarding", "Complexity overwhelm", "Epistemic collapse"]
+    },
+    {
+      "id": "well-10",
+      "name": "Trust",
+      "subtitle": "Cooperation",
+      "icon": "handshake",
+      "color": "#FFC107",
+      "description": "Confidence in others and capacity for collective action",
+      "positive_signals": ["Institutional integrity", "Social contracts", "Reliability", "Good faith"],
+      "negative_signals": ["Institutional decay", "Betrayal", "Zero-sum thinking", "Paranoia"]
+    }
+  ],
+
+  "technology": [
+    {
+      "id": "tech-01",
+      "name": "Fault-Tolerant Quantum Computing",
+      "short_name": "Fault-Tolerant QC",
+      "baseline_year": 2029,
+      "icon": "processor",
+      "color": "#D32F2F",
+      "description": "Error-corrected quantum computers capable of sustained, reliable computation",
+      "implications": [
+        "Breaks most current encryption",
+        "Enables complex molecular simulations",
+        "Transforms optimization problems",
+        "New computational paradigms"
+      ]
+    },
+    {
+      "id": "tech-02",
+      "name": "Cryptographically-Relevant Quantum",
+      "short_name": "Crypto-Relevant QC",
+      "baseline_year": 2030,
+      "icon": "lock-open",
+      "color": "#D32F2F",
+      "description": "Quantum systems capable of breaking RSA and ECC encryption at scale",
+      "implications": [
+        "Legacy encryption vulnerable",
+        "Harvest-now, decrypt-later attacks mature",
+        "Financial system transformation",
+        "National security implications"
+      ]
+    },
+    {
+      "id": "tech-03",
+      "name": "Quantum-AI Hybrid Systems",
+      "short_name": "Quantum-AI",
+      "baseline_year": 2028,
+      "icon": "brain",
+      "color": "#D32F2F",
+      "description": "Systems combining quantum speedups with machine learning capabilities",
+      "implications": [
+        "Accelerated ML training",
+        "Novel optimization approaches",
+        "Pattern recognition breakthroughs",
+        "New AI architectures"
+      ]
+    },
+    {
+      "id": "tech-04",
+      "name": "Quantum Sensing Networks",
+      "short_name": "Quantum Sensors",
+      "baseline_year": 2027,
+      "icon": "activity",
+      "color": "#D32F2F",
+      "description": "Distributed quantum sensors for ultra-precise measurement",
+      "implications": [
+        "Navigation without GPS",
+        "Underground/underwater detection",
+        "Medical imaging revolution",
+        "Environmental monitoring precision"
+      ]
+    },
+    {
+      "id": "tech-05",
+      "name": "Post-Quantum Cryptography Adoption",
+      "short_name": "Post-Quantum Crypto",
+      "baseline_year": 2026,
+      "icon": "shield-check",
+      "color": "#D32F2F",
+      "description": "Widespread implementation of quantum-resistant encryption standards",
+      "implications": [
+        "Infrastructure overhaul required",
+        "Legacy system vulnerabilities",
+        "Compliance mandates",
+        "Transition costs and complexity"
+      ]
+    },
+    {
+      "id": "tech-06",
+      "name": "Quantum Communication Infrastructure",
+      "short_name": "Quantum Comms",
+      "baseline_year": 2032,
+      "icon": "satellite",
+      "color": "#D32F2F",
+      "description": "Quantum key distribution networks and quantum internet backbone",
+      "implications": [
+        "Unhackable communication channels",
+        "New network topology requirements",
+        "Geopolitical infrastructure race",
+        "Distributed quantum computing enabled"
+      ]
+    },
+    {
+      "id": "tech-07",
+      "name": "Quantum Simulation for Drug Discovery",
+      "short_name": "Quantum Drug Discovery",
+      "baseline_year": 2027,
+      "icon": "flask",
+      "color": "#D32F2F",
+      "description": "Quantum computers modeling molecular interactions for pharmaceutical development",
+      "implications": [
+        "Accelerated drug development cycles",
+        "Personalized medicine advances",
+        "Novel materials discovery",
+        "Reduced clinical trial failures"
+      ]
+    },
+    {
+      "id": "tech-08",
+      "name": "Quantum Optimization at Scale",
+      "short_name": "Quantum Optimization",
+      "baseline_year": 2029,
+      "icon": "trending-up",
+      "color": "#D32F2F",
+      "description": "Quantum advantage in solving real-world optimization problems",
+      "implications": [
+        "Supply chain transformation",
+        "Financial modeling revolution",
+        "Traffic and logistics optimization",
+        "Resource allocation efficiency"
+      ]
+    }
+  ],
+
+  "modifiers": [
+    {
+      "id": "mod-01",
+      "value": -3,
+      "label": "Major Breakthrough",
+      "description": "Unexpected scientific leap, paradigm shift",
+      "color": "#2E7D32"
+    },
+    {
+      "id": "mod-02",
+      "value": -2,
+      "label": "Accelerated Funding",
+      "description": "Massive investment surge, wartime-level mobilization",
+      "color": "#388E3C"
+    },
+    {
+      "id": "mod-03",
+      "value": -1,
+      "label": "Steady Progress",
+      "description": "Consistent advances, optimistic projections met",
+      "color": "#4CAF50"
+    },
+    {
+      "id": "mod-04",
+      "value": 1,
+      "label": "Technical Setback",
+      "description": "Unexpected engineering challenges, scaling issues",
+      "color": "#F57C00"
+    },
+    {
+      "id": "mod-05",
+      "value": 2,
+      "label": "Funding Collapse",
+      "description": "Economic downturn, priorities shift, quantum winter",
+      "color": "#E64A19"
+    },
+    {
+      "id": "mod-06",
+      "value": 3,
+      "label": "Regulatory Delay",
+      "description": "Safety concerns, policy paralysis, international disputes",
+      "color": "#C62828"
+    }
+  ],
+
+  "wildcards": [
+    {
+      "id": "wild-01",
+      "name": "AGI Emergence",
+      "description": "Artificial General Intelligence arrives, reshaping all technology timelines",
+      "effect": "Draw 2 additional TECH cards. All baseline years shift by -2."
+    },
+    {
+      "id": "wild-02",
+      "name": "Global Pandemic II",
+      "description": "Another pandemic disrupts supply chains but accelerates certain research",
+      "effect": "Healthcare domain locked. All other domains: flip coin for +1 or -1 year modifier."
+    },
+    {
+      "id": "wild-03",
+      "name": "Great Power Conflict",
+      "description": "Major geopolitical conflict reorganizes technology development priorities",
+      "effect": "Security & Defense domain locked. Technology sharing restricted. Flip: +2 years (isolation) or -2 years (mobilization)."
+    },
+    {
+      "id": "wild-04",
+      "name": "Climate Tipping Point",
+      "description": "Irreversible climate threshold crossed, forcing rapid adaptation",
+      "effect": "Energy & Climate domain locked. All wellbeing cards skew negative until addressed."
+    },
+    {
+      "id": "wild-05",
+      "name": "Quantum Supremacy Shock",
+      "description": "A nation achieves unexpected quantum advantage, triggering global response",
+      "effect": "All quantum tech timelines: -2 years. Security implications mandatory."
+    },
+    {
+      "id": "wild-06",
+      "name": "Open Source Revolution",
+      "description": "Key quantum breakthroughs released as open source, democratizing access",
+      "effect": "Equity/Fairness outcome automatically positive. All tech cards: -1 year."
+    }
+  ]
+}

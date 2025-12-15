@@ -1,0 +1,701 @@
+{
+  "meta": {
+    "name": "Futures Deck",
+    "version": "3.0.0",
+    "description": "A speculative futures oracle for exploring emerging technologies"
+  },
+
+  "arc": [
+    {
+      "id": "arc-01",
+      "name": "Growth",
+      "description": "A future where 'progress' has continued",
+      "symbols": [
+        "Exponential curves",
+        "Expanding cities",
+        "Stock market highs",
+        "Population graphs",
+        "Corporate headquarters"
+      ],
+      "context": "A world of continuous expansion, technological advancement, and economic growth. The logic of more, faster, bigger continues to drive civilization forward."
+    },
+    {
+      "id": "arc-02",
+      "name": "Collapse",
+      "description": "A future where society has crumbled",
+      "symbols": [
+        "Abandoned buildings",
+        "Overgrown highways",
+        "Empty shelves",
+        "Broken infrastructure",
+        "Scattered populations"
+      ],
+      "context": "A world where the systems that held society together have failed. Whether through disaster, decay, or deliberate destruction, the old order is gone."
+    },
+    {
+      "id": "arc-03",
+      "name": "Discipline",
+      "description": "A future of strict control and order",
+      "symbols": [
+        "Surveillance cameras",
+        "Uniform populations",
+        "Checkpoint barriers",
+        "Algorithmic schedules",
+        "Compliance systems"
+      ],
+      "context": "A world of strict control, whether by governments, corporations, or algorithms. Order is maintained through monitoring, regulation, and enforcement."
+    },
+    {
+      "id": "arc-04",
+      "name": "Transformation",
+      "description": "A future fundamentally different from today",
+      "symbols": [
+        "New social structures",
+        "Alien technologies",
+        "Changed biology",
+        "Different values",
+        "Unrecognizable landscapes"
+      ],
+      "context": "A world so fundamentally changed that people from today would barely recognize it. The basic assumptions of how society works have shifted entirely."
+    }
+  ],
+
+  "terrain": [
+    {
+      "id": "terrain-01",
+      "name": "Agriculture",
+      "description": "Food production and farming",
+      "symbols": [
+        "Vertical farms",
+        "Seed vaults",
+        "Irrigation systems",
+        "Harvest drones",
+        "Lab-grown meat"
+      ],
+      "context": "How we grow, process, and distribute food. The fundamental challenge of feeding humanity shapes technology, land use, and social organization."
+    },
+    {
+      "id": "terrain-02",
+      "name": "Warfare",
+      "description": "Conflict and security",
+      "symbols": [
+        "Autonomous weapons",
+        "Cyber command centers",
+        "Defense shields",
+        "Military drones",
+        "Strategic bunkers"
+      ],
+      "context": "How violence is organized, threatened, and defended against. The tools and techniques of conflict shape power relations and national priorities."
+    },
+    {
+      "id": "terrain-03",
+      "name": "Healthcare",
+      "description": "Medicine, body, and mind",
+      "symbols": [
+        "Hospital wards",
+        "Diagnostic AI",
+        "Gene therapy clinics",
+        "Mental health apps",
+        "Pharmaceutical labs"
+      ],
+      "context": "How we maintain, repair, and enhance human bodies and minds. Healthcare systems shape who lives, who suffers, and what counts as normal."
+    },
+    {
+      "id": "terrain-04",
+      "name": "Education",
+      "description": "Learning and knowledge transfer",
+      "symbols": [
+        "Virtual classrooms",
+        "Skill certification badges",
+        "AI tutors",
+        "University campuses",
+        "Lifelong learning platforms"
+      ],
+      "context": "How knowledge and skills are transmitted across generations and distributed across society. Education shapes opportunity and capability."
+    },
+    {
+      "id": "terrain-05",
+      "name": "The Ocean",
+      "description": "Life on, in, or near the sea",
+      "symbols": [
+        "Floating cities",
+        "Aquaculture farms",
+        "Shipping lanes",
+        "Offshore platforms",
+        "Marine sanctuaries"
+      ],
+      "context": "The vast blue frontier covering most of Earth's surface. The ocean is food source, transport corridor, energy reservoir, and ecological system."
+    },
+    {
+      "id": "terrain-06",
+      "name": "Governance",
+      "description": "Politics and decision making",
+      "symbols": [
+        "Voting systems",
+        "Parliamentary chambers",
+        "Regulatory agencies",
+        "Public consultations",
+        "Algorithmic governance"
+      ],
+      "context": "How collective decisions are made and enforced. Governance structures determine whose voice counts and how power flows through society."
+    },
+    {
+      "id": "terrain-07",
+      "name": "Entertainment",
+      "description": "Leisure, art, and distraction",
+      "symbols": [
+        "Streaming platforms",
+        "VR headsets",
+        "Concert venues",
+        "Game consoles",
+        "Social media feeds"
+      ],
+      "context": "How we spend our free time, seek pleasure, and express creativity. Entertainment shapes culture, attention, and shared experience."
+    },
+    {
+      "id": "terrain-08",
+      "name": "Transport",
+      "description": "Movement of people and goods",
+      "symbols": [
+        "Hyperloop tunnels",
+        "Autonomous vehicles",
+        "Shipping containers",
+        "Airport terminals",
+        "Bike-sharing stations"
+      ],
+      "context": "How people and goods move through space. Transportation systems shape geography, trade, and the fabric of daily life."
+    },
+    {
+      "id": "terrain-09",
+      "name": "Religion",
+      "description": "Faith, cults, and spirituality",
+      "symbols": [
+        "Places of worship",
+        "Sacred texts",
+        "Religious leaders",
+        "Ritual objects",
+        "Pilgrimage sites"
+      ],
+      "context": "How humans seek meaning, transcendence, and community through belief. Religion shapes values, identity, and the boundaries of the sacred."
+    },
+    {
+      "id": "terrain-10",
+      "name": "Commerce",
+      "description": "Money, trade, and value",
+      "symbols": [
+        "Digital currencies",
+        "Stock exchanges",
+        "Retail spaces",
+        "Supply chain networks",
+        "Payment systems"
+      ],
+      "context": "How value is created, exchanged, and accumulated. Commerce shapes who has resources, what gets made, and how people relate to each other."
+    },
+    {
+      "id": "terrain-11",
+      "name": "Startups",
+      "description": "Entrepreneurship and innovation",
+      "symbols": [
+        "Pitch decks",
+        "Coworking spaces",
+        "Term sheets",
+        "MVP launches",
+        "Accelerator programs"
+      ],
+      "context": "How new ventures emerge, grow, and disrupt. Startups are engines of innovation, job creation, and creative destruction."
+    },
+    {
+      "id": "terrain-12",
+      "name": "Arts & Culture",
+      "description": "Creative expression and heritage",
+      "symbols": [
+        "Museum exhibitions",
+        "Film festivals",
+        "Publishing houses",
+        "Street art murals",
+        "Cultural archives"
+      ],
+      "context": "How societies express, preserve, and transmit meaning through creative works. Arts and culture shape identity, values, and collective memory."
+    },
+    {
+      "id": "terrain-13",
+      "name": "Energy",
+      "description": "Power generation and distribution",
+      "symbols": [
+        "Power grid maps",
+        "Solar panel arrays",
+        "Battery storage facilities",
+        "Oil refineries",
+        "Smart meter dashboards"
+      ],
+      "context": "How we generate, store, and distribute power. Energy systems underpin everything—every other terrain depends on reliable energy."
+    },
+    {
+      "id": "terrain-14",
+      "name": "Housing",
+      "description": "Shelter and urban life",
+      "symbols": [
+        "Apartment blueprints",
+        "Zoning maps",
+        "Mortgage documents",
+        "Construction cranes",
+        "Smart home interfaces"
+      ],
+      "context": "Where and how people live. Housing shapes wealth, community, commutes, and the physical texture of daily life."
+    },
+    {
+      "id": "terrain-15",
+      "name": "Labor",
+      "description": "Work and employment",
+      "symbols": [
+        "Employment contracts",
+        "Gig platform apps",
+        "Union halls",
+        "Remote work setups",
+        "Automation timelines"
+      ],
+      "context": "How work is organized, compensated, and experienced. Labor systems determine who does what, for whom, and under what conditions."
+    },
+    {
+      "id": "terrain-16",
+      "name": "Climate",
+      "description": "Environment and sustainability",
+      "symbols": [
+        "Carbon dashboards",
+        "Weather satellites",
+        "Rewilding zones",
+        "Emissions trading screens",
+        "Climate adaptation plans"
+      ],
+      "context": "Earth's changing climate and our response to it. Climate shapes migration, agriculture, conflict, and the long-term viability of civilization."
+    }
+  ],
+
+  "object": [
+    {
+      "id": "object-01",
+      "name": "Device",
+      "description": "A piece of hardware",
+      "symbols": [
+        "Smartphone",
+        "Wearable sensor",
+        "Home assistant",
+        "Medical implant",
+        "Smart appliance"
+      ],
+      "context": "A tangible technological artifact. Devices mediate our interaction with information, each other, and the physical world."
+    },
+    {
+      "id": "object-02",
+      "name": "Law",
+      "description": "A regulation or decree",
+      "symbols": [
+        "Legislative document",
+        "Court ruling",
+        "Corporate policy",
+        "International treaty",
+        "Municipal ordinance"
+      ],
+      "context": "A formal rule governing behavior. Laws shape what is permitted, punished, and possible within society."
+    },
+    {
+      "id": "object-03",
+      "name": "Ritual",
+      "description": "A ceremonial action",
+      "symbols": [
+        "Wedding ceremony",
+        "Coming-of-age rite",
+        "Corporate tradition",
+        "Daily routine",
+        "Memorial service"
+      ],
+      "context": "A repeated meaningful action marking transitions or creating belonging. Rituals bind communities and give shape to time."
+    },
+    {
+      "id": "object-04",
+      "name": "Beverage",
+      "description": "Something to drink",
+      "symbols": [
+        "Functional drink",
+        "Social beverage",
+        "Medicinal tonic",
+        "Cultural brew",
+        "Performance enhancer"
+      ],
+      "context": "A liquid consumed for sustenance, pleasure, or effect. Beverages carry cultural meaning and shape social interaction."
+    },
+    {
+      "id": "object-05",
+      "name": "Vehicle",
+      "description": "A mode of transport",
+      "symbols": [
+        "Personal pod",
+        "Public transit",
+        "Cargo carrier",
+        "Emergency transport",
+        "Recreational craft"
+      ],
+      "context": "A machine for moving through space. Vehicles shape how far we can go and how we experience the journey."
+    },
+    {
+      "id": "object-06",
+      "name": "Building",
+      "description": "A structure",
+      "symbols": [
+        "Residential tower",
+        "Public institution",
+        "Commercial space",
+        "Industrial facility",
+        "Sacred structure"
+      ],
+      "context": "An architectural creation enclosing space for human activity. Buildings shape how we live, work, and gather."
+    },
+    {
+      "id": "object-07",
+      "name": "Garment",
+      "description": "Clothing or wearable",
+      "symbols": [
+        "Smart clothing",
+        "Protective gear",
+        "Status symbol",
+        "Functional uniform",
+        "Expressive fashion"
+      ],
+      "context": "Something worn on the body. Garments protect, identify, and express who we are and where we belong."
+    },
+    {
+      "id": "object-08",
+      "name": "Game",
+      "description": "A form of play",
+      "symbols": [
+        "Competitive sport",
+        "Board game",
+        "Video game",
+        "Gambling system",
+        "Educational game"
+      ],
+      "context": "A structured form of play with rules and goals. Games entertain, teach, and reveal what a culture values."
+    },
+    {
+      "id": "object-09",
+      "name": "Plant",
+      "description": "Organic flora",
+      "symbols": [
+        "Food crop",
+        "Ornamental species",
+        "Medicinal plant",
+        "Engineered organism",
+        "Invasive species"
+      ],
+      "context": "A living organism from the plant kingdom. Plants feed, heal, beautify, and transform landscapes."
+    },
+    {
+      "id": "object-10",
+      "name": "Advertisement",
+      "description": "Commercial messaging",
+      "symbols": [
+        "Targeted ad",
+        "Public billboard",
+        "Sponsored content",
+        "Product placement",
+        "Brand experience"
+      ],
+      "context": "A message designed to influence behavior for commercial ends. Advertisements shape desire and fund media."
+    }
+  ],
+
+  "wellbeing": [
+    {
+      "id": "well-01",
+      "name": "Autonomy",
+      "description": "Independence and self-direction",
+      "symbols": [
+        "Personal calendar apps",
+        "Home ownership deeds",
+        "Resignation letters",
+        "Solo travel itineraries",
+        "Self-employment tax forms"
+      ],
+      "context": "The freedom to act according to your own will and make your own choices. Being the author of your own life rather than following others' scripts.",
+      "positive": "Expanded choices, self-governance tools, freedom to opt out",
+      "negative": "Algorithmic manipulation, forced dependencies, illusory choices"
+    },
+    {
+      "id": "well-02",
+      "name": "Beauty",
+      "description": "Aesthetic pleasure and harmony",
+      "symbols": [
+        "Art gallery passes",
+        "Sunset photographs",
+        "Interior design magazines",
+        "Concert tickets",
+        "Botanical garden maps"
+      ],
+      "context": "The experience of aesthetic pleasure—from nature, art, music, design. The human need to encounter and create harmony, elegance, and wonder.",
+      "positive": "Beauty accessible to all, new aesthetic forms, environments designed for delight",
+      "negative": "Uglification of spaces, beauty commodified, aesthetic homogenization"
+    },
+    {
+      "id": "well-03",
+      "name": "Comfort",
+      "description": "Physical ease and relaxation",
+      "symbols": [
+        "Ergonomic chair manuals",
+        "Climate control interfaces",
+        "Mattress warranties",
+        "Noise-canceling headphones",
+        "Spa appointment cards"
+      ],
+      "context": "Physical ease, relaxation, and freedom from discomfort. The baseline conditions that let us feel at ease in our bodies and environments.",
+      "positive": "Effortless environments, pain eliminated, rest optimized",
+      "negative": "Comfort addiction, atrophied resilience, numbing excess"
+    },
+    {
+      "id": "well-04",
+      "name": "Community",
+      "description": "Group belonging and identity",
+      "symbols": [
+        "Neighborhood association flyers",
+        "Team uniforms",
+        "Church bulletins",
+        "Union membership cards",
+        "Alumni directories"
+      ],
+      "context": "Being part of a group with shared identity and purpose. The need to belong to something larger than yourself and your immediate relationships.",
+      "positive": "New tribes form, solidarity strengthened, collective identity renewed",
+      "negative": "Atomization, communities dissolved, belonging commodified"
+    },
+    {
+      "id": "well-05",
+      "name": "Competence",
+      "description": "Mastery and effectiveness",
+      "symbols": [
+        "Professional certifications",
+        "Skill assessment results",
+        "Tool collections",
+        "Practice logs",
+        "Craft workshop receipts"
+      ],
+      "context": "Being capable and effective at what you do. The satisfaction of developing skills, solving problems, and achieving mastery through effort.",
+      "positive": "Skills augmented, mastery accelerated, capability expanded",
+      "negative": "Skills obsoleted, learned helplessness, competence outsourced"
+    },
+    {
+      "id": "well-06",
+      "name": "Fitness",
+      "description": "Physical health and vitality",
+      "symbols": [
+        "Gym membership cards",
+        "Health screening results",
+        "Running shoe receipts",
+        "Nutrition tracking apps",
+        "Sleep quality reports"
+      ],
+      "context": "Physical health, energy, and bodily capability. The foundation of vitality that enables everything else we want to do.",
+      "positive": "Disease conquered, vitality enhanced, aging slowed",
+      "negative": "New ailments, sedentary traps, health inequality"
+    },
+    {
+      "id": "well-07",
+      "name": "Impact",
+      "description": "Influence and making a difference",
+      "symbols": [
+        "Petition signatures",
+        "Donation receipts",
+        "Performance reviews",
+        "Volunteer hour logs",
+        "Project completion reports"
+      ],
+      "context": "Having influence on your environment and the people around you. The need to make a difference, to matter, to leave a mark.",
+      "positive": "Agency amplified, voices heard, contributions visible",
+      "negative": "Powerlessness, futility, impact washing"
+    },
+    {
+      "id": "well-08",
+      "name": "Morality",
+      "description": "Living by your values",
+      "symbols": [
+        "Ethical sourcing labels",
+        "Charity pledge forms",
+        "Voting receipts",
+        "Conscience journals",
+        "Fair trade certifications"
+      ],
+      "context": "Acting in accordance with your moral values. The need to live with integrity, to do what you believe is right, to be a good person.",
+      "positive": "Values aligned with actions, ethical choices easy, integrity supported",
+      "negative": "Moral compromise forced, values monetized, ethics bypassed"
+    },
+    {
+      "id": "well-09",
+      "name": "Purpose",
+      "description": "Direction and meaning in life",
+      "symbols": [
+        "Mission statements",
+        "Five-year plans",
+        "Vision boards",
+        "Career roadmaps",
+        "Life goal checklists"
+      ],
+      "context": "Having direction and goals that feel meaningful. The sense that your life is going somewhere, that your efforts add up to something.",
+      "positive": "New purposes emerge, paths clarified, meaning abundant",
+      "negative": "Existential drift, purpose commodified, goals rendered meaningless"
+    },
+    {
+      "id": "well-10",
+      "name": "Recognition",
+      "description": "Being seen and respected",
+      "symbols": [
+        "Award certificates",
+        "Social media notifications",
+        "Performance bonuses",
+        "Thank you cards",
+        "Promotion announcements"
+      ],
+      "context": "Being acknowledged, appreciated, and respected by others. The need to be seen, valued, and have your contributions recognized.",
+      "positive": "Merit recognized, contributions visible, respect distributed",
+      "negative": "Invisibility, recognition hoarded, attention economies"
+    },
+    {
+      "id": "well-11",
+      "name": "Relatedness",
+      "description": "Close caring relationships",
+      "symbols": [
+        "Family photo albums",
+        "Anniversary cards",
+        "Contact lists",
+        "Shared calendar invites",
+        "Gift receipts"
+      ],
+      "context": "Having close, warm relationships with people who care about you. Intimate bonds of friendship, family, and love that sustain us.",
+      "positive": "Bonds deepened, intimacy enabled, care abundant",
+      "negative": "Isolation, relationships mediated, intimacy simulated"
+    },
+    {
+      "id": "well-12",
+      "name": "Security",
+      "description": "Safety and predictability",
+      "symbols": [
+        "Insurance policies",
+        "Emergency fund statements",
+        "Home security systems",
+        "Employment contracts",
+        "Savings account balances"
+      ],
+      "context": "Feeling safe and having a predictable, stable environment. The foundation of security that lets us plan and take risks.",
+      "positive": "Risks managed, stability increased, safety nets strengthened",
+      "negative": "New vulnerabilities, precarity normalized, security theater"
+    },
+    {
+      "id": "well-13",
+      "name": "Stimulation",
+      "description": "Novelty and excitement",
+      "symbols": [
+        "Travel bookings",
+        "Event tickets",
+        "New release notifications",
+        "Adventure gear receipts",
+        "Learning platform subscriptions"
+      ],
+      "context": "Mental and physical stimulation through novelty, challenge, and variety. The need for excitement, new experiences, and escape from boredom.",
+      "positive": "Wonder renewed, novelty abundant, engagement sustained",
+      "negative": "Overstimulation, addiction loops, novelty exhaustion"
+    }
+  ],
+
+  "timeframe": [
+    {
+      "id": "time-01",
+      "name": "Now",
+      "description": "The present moment",
+      "symbols": ["Today's date", "Breaking news", "Current status"],
+      "context": "This is happening right now. The future is already here."
+    },
+    {
+      "id": "time-02",
+      "name": "6 Months",
+      "description": "Half a year ahead",
+      "symbols": ["Next quarter plans", "Upcoming seasons", "Near-term forecasts"],
+      "context": "Just around the corner. Close enough to feel real, plan for, worry about."
+    },
+    {
+      "id": "time-03",
+      "name": "1 Year",
+      "description": "One year from now",
+      "symbols": ["Annual reviews", "Next year calendars", "12-month projections"],
+      "context": "A single orbit around the sun. Long enough for significant change, short enough to imagine clearly."
+    },
+    {
+      "id": "time-04",
+      "name": "2 Years",
+      "description": "Two years ahead",
+      "symbols": ["Product roadmaps", "Election cycles", "Lease agreements"],
+      "context": "The near future. Plans made today will have played out. Trends visible now will have matured."
+    },
+    {
+      "id": "time-05",
+      "name": "5 Years",
+      "description": "Five years from now",
+      "symbols": ["Strategic plans", "Mortgage terms", "Career trajectories"],
+      "context": "The medium term. Children grow up, companies transform, technologies mature. Recognizable but different."
+    },
+    {
+      "id": "time-06",
+      "name": "10 Years",
+      "description": "A decade ahead",
+      "symbols": ["Generational shifts", "Infrastructure projects", "Long-term investments"],
+      "context": "A full decade. Enough time for fundamental transformation. The world your future self will inhabit."
+    },
+    {
+      "id": "time-07",
+      "name": "20 Years",
+      "description": "Two decades into the future",
+      "symbols": ["Generational change", "Climate projections", "Retirement horizons"],
+      "context": "A generation away. Today's children will be adults. Today's adults will be elders. A genuinely different world."
+    }
+  ],
+
+  "modifiers": [
+    {
+      "id": "mod-01",
+      "value": -3,
+      "label": "Major Breakthrough",
+      "symbols": ["Lab eureka moments", "Patent filings", "Press conference announcements"],
+      "context": "An unexpected scientific leap accelerates everything."
+    },
+    {
+      "id": "mod-02",
+      "value": -2,
+      "label": "Accelerated Funding",
+      "symbols": ["Government budget allocations", "Venture capital term sheets", "Defense contract awards"],
+      "context": "Massive investment surge—wartime-level mobilization of resources."
+    },
+    {
+      "id": "mod-03",
+      "value": -1,
+      "label": "Steady Progress",
+      "symbols": ["Quarterly progress reports", "Milestone completion notices", "Team expansion announcements"],
+      "context": "Everything goes according to plan."
+    },
+    {
+      "id": "mod-04",
+      "value": 1,
+      "label": "Technical Setback",
+      "symbols": ["Bug tracking systems", "Failed test reports", "Engineering post-mortems"],
+      "context": "Unexpected engineering challenges."
+    },
+    {
+      "id": "mod-05",
+      "value": 2,
+      "label": "Funding Collapse",
+      "symbols": ["Layoff announcements", "Project cancellation notices", "Budget cut memos"],
+      "context": "The money dries up."
+    },
+    {
+      "id": "mod-06",
+      "value": 3,
+      "label": "Regulatory Delay",
+      "symbols": ["Compliance review notices", "Safety audit requirements", "Ethics committee deliberations"],
+      "context": "Regulatory bodies slow deployment."
+    }
+  ]
+}

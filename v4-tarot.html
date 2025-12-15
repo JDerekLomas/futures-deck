@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FUTURES DECK — Tarot Edition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Space+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* === MYSTICAL PALETTE === */
+      --void: #0a0908;
+      --deep: #12110f;
+      --surface: #1a1916;
+      --gold: #c9a227;
+      --gold-light: #e8d48b;
+      --gold-dark: #8b6914;
+      --crimson: #8b1538;
+      --emerald: #1a5f4a;
+      --purple: #4a1a5f;
+      --cosmic: #1a2a4a;
+
+      /* === DECK COLORS === */
+      --domain: #1a5f5f;
+      --wellbeing: #c9a227;
+      --tech: #5f1a4a;
+      --modifier: #3a2a5f;
+
+      /* === TYPE === */
+      --font-display: 'Cinzel', serif;
+      --font-body: 'Cormorant Garamond', serif;
+      --font-mono: 'Space Mono', monospace;
+
+      --text-gold: var(--gold-light);
+      --text-dim: #6a6a5a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--void);
+      color: var(--text-gold);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* === MYSTICAL BACKGROUND === */
+    .bg-pattern {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0L80 40L40 80L0 40Z' fill='none' stroke='%23c9a227' stroke-width='0.5'/%3E%3Ccircle cx='40' cy='40' r='20' fill='none' stroke='%23c9a227' stroke-width='0.5'/%3E%3C/svg%3E");
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    /* === HEADER === */
+    .header {
+      text-align: center;
+      margin-bottom: 64px;
+      padding: 48px;
+      border: 1px solid var(--gold-dark);
+      position: relative;
+      background: linear-gradient(180deg, rgba(201,162,39,0.05) 0%, transparent 100%);
+    }
+
+    .header::before,
+    .header::after {
+      content: '✧';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      color: var(--gold);
+    }
+    .header::before { left: 24px; }
+    .header::after { right: 24px; }
+
+    .header-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+
+    .header-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 8vw, 64px);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      text-shadow: 0 0 40px rgba(201,162,39,0.3);
+    }
+
+    .header-sub {
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-style: italic;
+      color: var(--text-dim);
+      margin-top: 12px;
+    }
+
+    /* === ORACLE === */
+    .oracle {
+      background: var(--surface);
+      border: 1px solid var(--gold-dark);
+      padding: 40px;
+      margin-bottom: 64px;
+      position: relative;
+    }
+
+    /* Corner decorations */
+    .oracle::before { content: '◈'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); font-size: 20px; color: var(--gold); background: var(--void); padding: 0 16px; }
+
+    .oracle-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(201,162,39,0.2);
+    }
+
+    .oracle-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      letter-spacing: 0.15em;
+    }
+
+    .draw-btn {
+      font-family: var(--font-display);
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .draw-btn:hover {
+      background: var(--gold);
+      color: var(--void);
+      box-shadow: 0 0 30px rgba(201,162,39,0.4);
+    }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+    }
+
+    .control-btn {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      padding: 8px 16px;
+      background: transparent;
+      color: var(--text-dim);
+      border: 1px solid var(--text-dim);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .control-btn:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    /* === SPREAD === */
+    .spread {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      min-height: 400px;
+      align-items: center;
+      padding: 32px;
+    }
+
+    .spread:empty::before {
+      content: 'Draw from the arcana...';
+      font-family: var(--font-body);
+      font-size: 20px;
+      font-style: italic;
+      color: var(--text-dim);
+    }
+
+    /* === TAROT CARD === */
+    .card {
+      width: 220px;
+      height: 340px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+    }
+
+    .card-frame {
+      position: absolute;
+      inset: 0;
+      border: 2px solid var(--gold-dark);
+      background: var(--deep);
+      overflow: hidden;
+    }
+
+    /* Ornate corner decorations */
+    .card-frame::before,
+    .card-frame::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 1px solid var(--gold);
+    }
+    .card-frame::before { top: 8px; left: 8px; border-right: none; border-bottom: none; }
+    .card-frame::after { bottom: 8px; right: 8px; border-left: none; border-top: none; }
+
+    .card-illustration {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      right: 8px;
+      bottom: 72px;
+      overflow: hidden;
+      background: var(--void);
+    }
+
+    .card-illustration img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 12px;
+      background: linear-gradient(180deg, transparent, var(--deep) 20%);
+      text-align: center;
+    }
+
+    .card-type {
+      font-family: var(--font-mono);
+      font-size: 8px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+    }
+
+    .card-year {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      color: var(--gold);
+      margin-top: 4px;
+    }
+
+    .card-number {
+      font-family: var(--font-display);
+      font-size: 36px;
+      color: var(--gold);
+    }
+
+    /* === CARD TYPE ACCENTS === */
+    .card--domain .card-frame { border-color: var(--domain); }
+    .card--domain .card-type { color: var(--domain); }
+
+    .card--wellbeing .card-frame { border-color: var(--wellbeing); }
+    .card--wellbeing .card-type { color: var(--wellbeing); }
+
+    .card--tech .card-frame { border-color: var(--tech); }
+    .card--tech .card-type { color: var(--tech); }
+
+    .card--modifier .card-frame { border-color: var(--modifier); }
+    .card--modifier .card-type { color: var(--modifier); }
+
+    /* === OUTCOME === */
+    .outcome {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .coin {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 28px;
+      cursor: pointer;
+      transition: all 0.3s;
+      background: radial-gradient(circle at 30% 30%, var(--gold-dark), var(--void));
+    }
+
+    .coin:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px rgba(201,162,39,0.5);
+    }
+
+    .coin.positive { color: var(--emerald); border-color: var(--emerald); }
+    .coin.negative { color: var(--crimson); border-color: var(--crimson); }
+
+    .outcome-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    /* === PROMPT === */
+    .prompt {
+      margin-top: 40px;
+      padding: 32px;
+      border: 1px solid rgba(201,162,39,0.3);
+      background: rgba(201,162,39,0.03);
+      display: none;
+    }
+
+    .prompt.visible { display: block; }
+
+    .prompt-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+
+    .prompt-text {
+      font-family: var(--font-body);
+      font-size: 22px;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    .prompt-text .hl {
+      color: var(--gold);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    /* === DECK SECTIONS === */
+    .deck-section {
+      margin-bottom: 64px;
+    }
+
+    .deck-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(201,162,39,0.2);
+    }
+
+    .deck-numeral {
+      font-family: var(--font-display);
+      font-size: 14px;
+      color: var(--gold);
+      opacity: 0.6;
+    }
+
+    .deck-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      letter-spacing: 0.1em;
+    }
+
+    .deck-count {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-left: auto;
+    }
+
+    .deck-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 24px;
+    }
+
+    .card--sm {
+      width: 100%;
+      height: 300px;
+    }
+
+    .card--sm .card-illustration {
+      bottom: 64px;
+    }
+
+    /* === PLACEHOLDER === */
+    .placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--void), var(--deep));
+      color: var(--text-dim);
+      font-family: var(--font-display);
+      font-size: 12px;
+      letter-spacing: 0.2em;
+    }
+
+    /* === FOOTER === */
+    .footer {
+      margin-top: 80px;
+      padding: 32px;
+      border-top: 1px solid rgba(201,162,39,0.2);
+      text-align: center;
+    }
+
+    .footer-text {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 0.2em;
+    }
+
+    /* === ANIMATIONS === */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .spread .card {
+      animation: fadeIn 0.6s ease-out backwards;
+    }
+
+    .spread .card:nth-child(1) { animation-delay: 0.1s; }
+    .spread .card:nth-child(2) { animation-delay: 0.2s; }
+    .spread .card:nth-child(3) { animation-delay: 0.3s; }
+    .spread .card:nth-child(4) { animation-delay: 0.4s; }
+  </style>
+</head>
+<body>
+  <div class="bg-pattern"></div>
+
+  <div class="container">
+    <header class="header">
+      <div class="header-eyebrow">A Speculative Oracle</div>
+      <h1 class="header-title">FUTURES DECK</h1>
+      <p class="header-sub">Quantum Horizons Through the Arcana</p>
+    </header>
+
+    <section class="oracle">
+      <div class="oracle-header">
+        <h2 class="oracle-title">THE SPREAD</h2>
+        <span id="quantumIndicator" style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;">◯ Loading...</span>
+        <div class="controls">
+          <button class="control-btn" onclick="flipOutcome()">Flip</button>
+          <button class="control-btn" onclick="clearBoard()">Clear</button>
+        </div>
+        <button class="draw-btn" onclick="drawFullHand()">Divine the Future</button>
+      </div>
+
+      <div class="spread" id="spread"></div>
+
+      <div class="prompt" id="prompt">
+        <div class="prompt-label">The Vision</div>
+        <div class="prompt-text" id="promptText"></div>
+      </div>
+    </section>
+
+    <section class="deck-section">
+      <div class="deck-header">
+        <span class="deck-numeral">I</span>
+        <h2 class="deck-title">Domains</h2>
+        <span class="deck-count">X cards</span>
+      </div>
+      <div class="deck-grid" id="domainDeck"></div>
+    </section>
+
+    <section class="deck-section">
+      <div class="deck-header">
+        <span class="deck-numeral">II</span>
+        <h2 class="deck-title">Wellbeing</h2>
+        <span class="deck-count">X cards</span>
+      </div>
+      <div class="deck-grid" id="wellbeingDeck"></div>
+    </section>
+
+    <section class="deck-section">
+      <div class="deck-header">
+        <span class="deck-numeral">III</span>
+        <h2 class="deck-title">Technology</h2>
+        <span class="deck-count">VIII cards</span>
+      </div>
+      <div class="deck-grid" id="techDeck"></div>
+    </section>
+
+    <section class="deck-section">
+      <div class="deck-header">
+        <span class="deck-numeral">IV</span>
+        <h2 class="deck-title">Modifiers</h2>
+        <span class="deck-count">VI cards</span>
+      </div>
+      <div class="deck-grid" id="modifierDeck"></div>
+    </section>
+
+    <footer class="footer">
+      <p class="footer-text">Futures Deck ✧ MMXXV</p>
+    </footer>
+  </div>
+
+  <script>
+    let cardData = null;
+    let scenario = { domain: null, wellbeing: null, tech: null, modifier: null, outcome: null };
+
+    // ANU Quantum Random Number Generator
+    // Rate limited: 1 req/sec, 100 req/month — use ONE number for entire spread
+    const QRNG_API = 'https://quantumnumbers.anu.edu.au';
+    const QRNG_KEY = 'sfgoC9w2Jb1tb6RuJfF7x2yonB8gAjV343TK4aVk';
+
+    async function fetchOneQuantumNumber() {
+      try {
+        const response = await fetch(`${QRNG_API}/API/jsonI.php?length=1&type=uint16`, {
+          headers: { 'x-api-key': QRNG_KEY }
+        });
+        const data = await response.json();
+        if (data.success && data.data && data.data.length > 0) {
+          console.log(`⚛ Quantum entropy: ${data.data[0]}`);
+          updateQuantumIndicator(true);
+          return data.data[0]; // Single uint16: 0-65535
+        }
+      } catch (e) {
+        console.log('⚠️ Quantum API unavailable, using classical randomness');
+        updateQuantumIndicator(false);
+      }
+      return null;
+    }
+
+    // Extract entire spread from ONE quantum number using modular arithmetic
+    // uint16 gives us 65536 possibilities — plenty for:
+    // 10 domains × 10 wellbeing × 8 tech × 6 modifiers × 2 outcomes = 9600 combinations
+    function spreadFromQuantum(q) {
+      // Use different "digits" of the number in mixed radix
+      const domainIdx = q % 10;           // 0-9
+      const wellbeingIdx = Math.floor(q / 10) % 10;    // 0-9
+      const techIdx = Math.floor(q / 100) % 8;         // 0-7
+      const modifierIdx = Math.floor(q / 800) % 6;     // 0-5
+      const outcomeIdx = Math.floor(q / 4800) % 2;     // 0-1
+
+      return { domainIdx, wellbeingIdx, techIdx, modifierIdx, outcomeIdx };
+    }
+
+    function updateQuantumIndicator(isQuantum) {
+      const indicator = document.getElementById('quantumIndicator');
+      if (indicator) {
+        indicator.textContent = isQuantum ? '⚛ Quantum' : '◯ Classical';
+        indicator.style.color = isQuantum ? 'var(--gold)' : 'var(--text-dim)';
+      }
+    }
+
+    const generatedImages = {
+      'domain-01': 'assets/tarot/domain-01.png',
+      'domain-02': 'assets/tarot/domain-02.png',
+      'well-01': 'assets/tarot/well-01.png',
+      'well-06': 'assets/tarot/well-06.png',
+      'tech-01': 'assets/tarot/tech-01.png'
+    };
+
+    function renderIllustration(cardId) {
+      if (generatedImages[cardId]) {
+        return `<img src="${generatedImages[cardId]}" alt="${cardId}">`;
+      }
+      return `<div class="placeholder">✧</div>`;
+    }
+
+    fetch('src/cards.json')
+      .then(r => r.json())
+      .then(data => {
+        cardData = data;
+        renderDecks();
+      });
+
+    function renderDecks() {
+      document.getElementById('domainDeck').innerHTML = cardData.domains.map(c => `
+        <div class="card card--domain card--sm" onclick="select('domain','${c.id}')">
+          <div class="card-frame">
+            <div class="card-illustration">${renderIllustration(c.id)}</div>
+            <div class="card-info">
+              <div class="card-type">Domain</div>
+              <div class="card-title">${c.name}</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('wellbeingDeck').innerHTML = cardData.wellbeing.map(c => `
+        <div class="card card--wellbeing card--sm" onclick="select('wellbeing','${c.id}')">
+          <div class="card-frame">
+            <div class="card-illustration">${renderIllustration(c.id)}</div>
+            <div class="card-info">
+              <div class="card-type">Wellbeing</div>
+              <div class="card-title">${c.name}</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('techDeck').innerHTML = cardData.technology.map(c => `
+        <div class="card card--tech card--sm" onclick="select('tech','${c.id}')">
+          <div class="card-frame">
+            <div class="card-illustration">${renderIllustration(c.id)}</div>
+            <div class="card-info">
+              <div class="card-type">Technology</div>
+              <div class="card-title">${c.short_name}</div>
+              <div class="card-year">${c.baseline_year}</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('modifierDeck').innerHTML = cardData.modifiers.map(c => `
+        <div class="card card--modifier card--sm" onclick="select('modifier','${c.id}')">
+          <div class="card-frame">
+            <div class="card-illustration"><div class="placeholder">${c.value > 0 ? '+' : ''}${c.value}</div></div>
+            <div class="card-info">
+              <div class="card-type">Modifier</div>
+              <div class="card-title">${c.label}</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function getCard(type, id) {
+      const map = { domain: 'domains', wellbeing: 'wellbeing', tech: 'technology', modifier: 'modifiers' };
+      return cardData[map[type]].find(c => c.id === id);
+    }
+
+    function select(type, id) {
+      scenario[type] = getCard(type, id);
+      if (!scenario.outcome) scenario.outcome = Math.random() > 0.5 ? 'positive' : 'negative';
+      renderSpread();
+      renderPrompt();
+    }
+
+    async function drawFullHand() {
+      // Fetch ONE quantum number and extract entire spread from it
+      const q = await fetchOneQuantumNumber();
+
+      if (q !== null) {
+        // Use quantum entropy
+        const indices = spreadFromQuantum(q);
+        scenario = {
+          domain: cardData.domains[indices.domainIdx],
+          wellbeing: cardData.wellbeing[indices.wellbeingIdx],
+          tech: cardData.technology[indices.techIdx],
+          modifier: cardData.modifiers[indices.modifierIdx],
+          outcome: indices.outcomeIdx === 0 ? 'positive' : 'negative'
+        };
+        console.log(`⚛ Spread from quantum ${q}:`, indices);
+      } else {
+        // Classical fallback
+        const classicalQ = Math.floor(Math.random() * 65536);
+        const indices = spreadFromQuantum(classicalQ);
+        scenario = {
+          domain: cardData.domains[indices.domainIdx],
+          wellbeing: cardData.wellbeing[indices.wellbeingIdx],
+          tech: cardData.technology[indices.techIdx],
+          modifier: cardData.modifiers[indices.modifierIdx],
+          outcome: indices.outcomeIdx === 0 ? 'positive' : 'negative'
+        };
+        console.log(`◯ Spread from classical ${classicalQ}:`, indices);
+      }
+
+      renderSpread();
+      renderPrompt();
+    }
+
+    function flipOutcome() {
+      scenario.outcome = scenario.outcome === 'positive' ? 'negative' : 'positive';
+      renderSpread();
+      renderPrompt();
+    }
+
+    function clearBoard() {
+      scenario = { domain: null, wellbeing: null, tech: null, modifier: null, outcome: null };
+      document.getElementById('spread').innerHTML = '';
+      document.getElementById('prompt').classList.remove('visible');
+    }
+
+    function renderSpread() {
+      const el = document.getElementById('spread');
+      let html = '';
+
+      if (scenario.domain) {
+        html += `
+          <div class="card card--domain">
+            <div class="card-frame">
+              <div class="card-illustration">${renderIllustration(scenario.domain.id)}</div>
+              <div class="card-info">
+                <div class="card-type">Domain</div>
+                <div class="card-title">${scenario.domain.name}</div>
+              </div>
+            </div>
+          </div>`;
+      }
+
+      if (scenario.wellbeing) {
+        html += `
+          <div class="card card--wellbeing">
+            <div class="card-frame">
+              <div class="card-illustration">${renderIllustration(scenario.wellbeing.id)}</div>
+              <div class="card-info">
+                <div class="card-type">Wellbeing</div>
+                <div class="card-title">${scenario.wellbeing.name}</div>
+              </div>
+            </div>
+          </div>`;
+      }
+
+      if (scenario.tech) {
+        const year = scenario.modifier
+          ? scenario.tech.baseline_year + scenario.modifier.value
+          : scenario.tech.baseline_year;
+        html += `
+          <div class="card card--tech">
+            <div class="card-frame">
+              <div class="card-illustration">${renderIllustration(scenario.tech.id)}</div>
+              <div class="card-info">
+                <div class="card-type">Technology</div>
+                <div class="card-title">${scenario.tech.short_name}</div>
+                <div class="card-year">${year}</div>
+              </div>
+            </div>
+          </div>`;
+      }
+
+      if (scenario.modifier) {
+        html += `
+          <div class="card card--modifier" style="width: 160px;">
+            <div class="card-frame">
+              <div class="card-illustration"><div class="placeholder" style="font-size: 32px;">${scenario.modifier.value > 0 ? '+' : ''}${scenario.modifier.value}</div></div>
+              <div class="card-info">
+                <div class="card-type">Modifier</div>
+                <div class="card-title">${scenario.modifier.label}</div>
+              </div>
+            </div>
+          </div>`;
+      }
+
+      if (scenario.outcome) {
+        html += `
+          <div class="outcome">
+            <div class="coin ${scenario.outcome}" onclick="flipOutcome()">
+              ${scenario.outcome === 'positive' ? '☉' : '☽'}
+            </div>
+            <div class="outcome-label">${scenario.outcome}</div>
+          </div>`;
+      }
+
+      el.innerHTML = html;
+    }
+
+    function renderPrompt() {
+      const { domain, wellbeing, tech, modifier, outcome } = scenario;
+      if (!domain || !wellbeing || !tech || !outcome) {
+        document.getElementById('prompt').classList.remove('visible');
+        return;
+      }
+
+      const year = modifier ? tech.baseline_year + modifier.value : tech.baseline_year;
+      const timing = modifier?.value < 0 ? 'arrived early' : modifier?.value > 0 ? 'been delayed' : 'arrived';
+
+      document.getElementById('promptText').innerHTML = `
+        The year is <span class="hl">${year}</span>.
+        <span class="hl">${tech.short_name}</span> has ${timing}
+        within the realm of <span class="hl">${domain.name}</span>.
+        The fate of <span class="hl">${wellbeing.name}</span> is
+        <span class="hl">${outcome}</span>.
+        <br><br>What world emerges from this convergence?
+      `;
+      document.getElementById('prompt').classList.add('visible');
+    }
+  </script>
+</body>
+</html>

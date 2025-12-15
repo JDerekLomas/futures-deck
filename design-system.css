@@ -1,0 +1,354 @@
+/*
+ * FUTURES DECK — Design System
+ * Dutch Design Aesthetic: De Stijl meets Information Design
+ *
+ * Principles:
+ * - Grid-based composition
+ * - Primary color blocks as structural elements
+ * - Grotesque sans-serif typography
+ * - Asymmetric balance
+ * - Functional minimalism
+ */
+
+:root {
+  /* === DE STIJL PALETTE === */
+  --mondrian-red: #D32F2F;
+  --mondrian-blue: #1565C0;
+  --mondrian-yellow: #FFC107;
+  --mondrian-black: #1A1A1A;
+  --mondrian-white: #FAFAFA;
+
+  /* === DECK-SPECIFIC COLORS === */
+  --domain-primary: var(--mondrian-blue);
+  --domain-accent: #0D47A1;
+
+  --wellbeing-primary: var(--mondrian-yellow);
+  --wellbeing-accent: #FF8F00;
+
+  --tech-primary: var(--mondrian-red);
+  --tech-accent: #B71C1C;
+
+  --number-positive: #2E7D32;
+  --number-negative: #C62828;
+  --number-neutral: #616161;
+
+  /* === WILDCARD === */
+  --wildcard-gradient: linear-gradient(135deg, var(--mondrian-red), var(--mondrian-blue));
+
+  /* === TYPOGRAPHY === */
+  --font-display: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Inter', 'Helvetica', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  /* === SPACING (8px grid) === */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* === CARD DIMENSIONS === */
+  --card-width: 250px;
+  --card-height: 350px;
+  --card-radius: 8px;
+  --card-border: 3px;
+}
+
+/* === BASE CARD === */
+.card {
+  width: var(--card-width);
+  height: var(--card-height);
+  border-radius: var(--card-radius);
+  background: var(--mondrian-white);
+  border: var(--card-border) solid var(--mondrian-black);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+  font-family: var(--font-body);
+  position: relative;
+  box-shadow: 4px 4px 0 var(--mondrian-black);
+}
+
+/* === CARD HEADER === */
+.card-header {
+  padding: var(--space-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: var(--card-border) solid var(--mondrian-black);
+}
+
+.card-type {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.card-number {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+/* === CARD BODY === */
+.card-body {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+}
+
+.card-subtitle {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* === CARD FOOTER === */
+.card-footer {
+  padding: var(--space-md);
+  border-top: var(--card-border) solid var(--mondrian-black);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* === GEOMETRIC ACCENTS (Dutch Design) === */
+.geo-block {
+  position: absolute;
+  z-index: 0;
+}
+
+.geo-block--top-right {
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+}
+
+.geo-block--bottom-left {
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 80px;
+}
+
+/* === DOMAIN CARDS === */
+.card--domain {
+  --accent: var(--domain-primary);
+}
+
+.card--domain .card-header {
+  background: var(--domain-primary);
+  color: var(--mondrian-white);
+}
+
+.card--domain .geo-block {
+  background: var(--domain-primary);
+  opacity: 0.15;
+}
+
+/* === WELLBEING CARDS === */
+.card--wellbeing {
+  --accent: var(--wellbeing-primary);
+}
+
+.card--wellbeing .card-header {
+  background: var(--wellbeing-primary);
+  color: var(--mondrian-black);
+}
+
+.card--wellbeing .geo-block {
+  background: var(--wellbeing-primary);
+  opacity: 0.2;
+}
+
+/* === TECHNOLOGY CARDS === */
+.card--tech {
+  --accent: var(--tech-primary);
+}
+
+.card--tech .card-header {
+  background: var(--tech-primary);
+  color: var(--mondrian-white);
+}
+
+.card--tech .card-year {
+  font-family: var(--font-mono);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--tech-primary);
+  margin-top: var(--space-sm);
+}
+
+.card--tech .geo-block {
+  background: var(--tech-primary);
+  opacity: 0.1;
+}
+
+/* === NUMBER CARDS === */
+.card--number {
+  text-align: center;
+}
+
+.card--number .card-value {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.card--number.positive .card-value {
+  color: var(--number-negative); /* + years = delay = "bad" red */
+}
+
+.card--number.negative .card-value {
+  color: var(--number-positive); /* - years = earlier = "good" green */
+}
+
+.card--number .card-header {
+  background: var(--mondrian-black);
+  color: var(--mondrian-white);
+}
+
+/* === WILDCARD === */
+.card--wildcard {
+  background: var(--wildcard-gradient);
+  color: var(--mondrian-white);
+}
+
+.card--wildcard .card-header {
+  background: rgba(0,0,0,0.3);
+  border-color: rgba(255,255,255,0.3);
+}
+
+.card--wildcard .card-title {
+  color: var(--mondrian-white);
+}
+
+/* === ICONS (SVG placeholders) === */
+.card-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* === GRID OVERLAY (visible on hover for debugging) === */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 8px 8px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* === OUTCOME INDICATOR === */
+.outcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.outcome-badge--positive {
+  background: #E8F5E9;
+  color: #2E7D32;
+}
+
+.outcome-badge--negative {
+  background: #FFEBEE;
+  color: #C62828;
+}
+
+/* === PROMPT CARD (special) === */
+.prompt-card {
+  width: 100%;
+  max-width: 600px;
+  padding: var(--space-xl);
+  background: var(--mondrian-white);
+  border: var(--card-border) solid var(--mondrian-black);
+  border-radius: var(--card-radius);
+  box-shadow: 6px 6px 0 var(--mondrian-black);
+}
+
+.prompt-card__header {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.prompt-card__tag {
+  padding: var(--space-xs) var(--space-sm);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 2px;
+}
+
+.prompt-card__tag--domain {
+  background: var(--domain-primary);
+  color: white;
+}
+
+.prompt-card__tag--wellbeing {
+  background: var(--wellbeing-primary);
+  color: var(--mondrian-black);
+}
+
+.prompt-card__tag--tech {
+  background: var(--tech-primary);
+  color: white;
+}
+
+.prompt-card__tag--year {
+  background: var(--mondrian-black);
+  color: white;
+  font-family: var(--font-mono);
+}
+
+.prompt-card__text {
+  font-family: var(--font-display);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.prompt-card__text em {
+  font-style: normal;
+  font-weight: 700;
+}

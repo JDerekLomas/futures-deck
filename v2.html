@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FUTURES DECK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* === COSMIC PALETTE === */
+      --void: #0a0a0f;
+      --deep: #12121a;
+      --surface: #1a1a24;
+      --mist: #2a2a3a;
+
+      /* === QUANTUM COLORS === */
+      --probability-pink: #ff6b9d;
+      --superposition-blue: #4ecdc4;
+      --entanglement-purple: #a855f7;
+      --collapse-orange: #ff8c42;
+      --emergence-gold: #ffd93d;
+
+      /* === DECK COLORS === */
+      --domain: #4ecdc4;
+      --domain-glow: rgba(78, 205, 196, 0.3);
+      --wellbeing: #ffd93d;
+      --wellbeing-glow: rgba(255, 217, 61, 0.3);
+      --tech: #ff6b9d;
+      --tech-glow: rgba(255, 107, 157, 0.3);
+      --modifier: #a855f7;
+      --modifier-glow: rgba(168, 85, 247, 0.3);
+      --wildcard: #ff8c42;
+
+      /* === TYPE === */
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-body: 'DM Sans', sans-serif;
+
+      --text-primary: #f0f0f5;
+      --text-secondary: #8888a0;
+      --text-dim: #555566;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--void);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* === COSMIC BACKGROUND === */
+    .cosmos {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(78, 205, 196, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(255, 107, 157, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 70%),
+        var(--void);
+    }
+
+    /* Subtle grid */
+    .cosmos::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+    }
+
+    /* Floating particles */
+    .particle {
+      position: fixed;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: float 20s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+      50% { transform: translateY(-100px) translateX(50px); opacity: 0.6; }
+    }
+
+    /* === MAIN CONTAINER === */
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    /* === HEADER === */
+    .header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .header-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .header-title {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 10vw, 96px);
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header-sub {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-top: 20px;
+      letter-spacing: 0.1em;
+    }
+
+    /* === ORACLE SECTION === */
+    .oracle {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--deep) 100%);
+      border: 1px solid var(--mist);
+      border-radius: 24px;
+      padding: 48px;
+      margin-bottom: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .oracle::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.03), transparent 30%);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      to { transform: rotate(360deg); }
+    }
+
+    .oracle-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .oracle-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .oracle-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-style: italic;
+    }
+
+    .draw-btn {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--mist);
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .draw-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--probability-pink), var(--superposition-blue));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .draw-btn:hover {
+      border-color: var(--probability-pink);
+      box-shadow: 0 0 30px var(--tech-glow);
+    }
+
+    .draw-btn:hover::before {
+      opacity: 0.1;
+    }
+
+    .draw-btn span {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* === DRAWN CARDS AREA === */
+    .spread {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      min-height: 320px;
+      align-items: center;
+    }
+
+    .spread:empty::before {
+      content: 'Draw from the probability field...';
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-style: italic;
+      color: var(--text-dim);
+    }
+
+    /* === CARD BASE === */
+    .card {
+      width: 200px;
+      height: 280px;
+      border-radius: 16px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Holographic sheen */
+    .card-inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        transparent 0%,
+        rgba(255,255,255,0.1) 50%,
+        transparent 100%
+      );
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .card:hover .card-inner::before {
+      opacity: 1;
+    }
+
+    /* Wave pattern overlay */
+    .card-inner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 Q15 20 30 30 T60 30' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='1'/%3E%3C/svg%3E");
+      background-size: 60px 60px;
+      opacity: 0.5;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .card-type {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: auto;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-style: italic;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .card-subtitle {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      opacity: 0.6;
+    }
+
+    .card-year {
+      font-family: var(--font-mono);
+      font-size: 36px;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    .card-number {
+      font-family: var(--font-display);
+      font-size: 64px;
+      font-style: italic;
+    }
+
+    /* === DOMAIN CARDS (Teal/Cyan) === */
+    .card--domain .card-inner {
+      background: linear-gradient(165deg, #1a3a38 0%, #0d1f1e 100%);
+      border: 1px solid var(--domain);
+      box-shadow:
+        0 0 0 1px rgba(78, 205, 196, 0.1),
+        0 20px 40px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+
+    .card--domain .card-type,
+    .card--domain .card-title { color: var(--domain); }
+
+    .card--domain:hover {
+      box-shadow: 0 0 40px var(--domain-glow);
+    }
+
+    /* === WELLBEING CARDS (Gold) === */
+    .card--wellbeing .card-inner {
+      background: linear-gradient(165deg, #3a351a 0%, #1f1c0d 100%);
+      border: 1px solid var(--wellbeing);
+      box-shadow:
+        0 0 0 1px rgba(255, 217, 61, 0.1),
+        0 20px 40px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+
+    .card--wellbeing .card-type { color: var(--wellbeing); }
+    .card--wellbeing .card-title { color: #fff8e0; }
+
+    .card--wellbeing:hover {
+      box-shadow: 0 0 40px var(--wellbeing-glow);
+    }
+
+    /* === TECH CARDS (Pink) === */
+    .card--tech .card-inner {
+      background: linear-gradient(165deg, #3a1a2a 0%, #1f0d15 100%);
+      border: 1px solid var(--tech);
+      box-shadow:
+        0 0 0 1px rgba(255, 107, 157, 0.1),
+        0 20px 40px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+
+    .card--tech .card-type,
+    .card--tech .card-year { color: var(--tech); }
+    .card--tech .card-title { color: #ffe0eb; }
+
+    .card--tech:hover {
+      box-shadow: 0 0 40px var(--tech-glow);
+    }
+
+    /* === MODIFIER CARDS (Purple) === */
+    .card--modifier .card-inner {
+      background: linear-gradient(165deg, #2a1a3a 0%, #150d1f 100%);
+      border: 1px solid var(--modifier);
+      box-shadow:
+        0 0 0 1px rgba(168, 85, 247, 0.1),
+        0 20px 40px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+
+    .card--modifier .card-type { color: var(--modifier); }
+    .card--modifier .card-number { color: var(--modifier); }
+    .card--modifier .card-title { color: #e8d0ff; }
+
+    .card--modifier:hover {
+      box-shadow: 0 0 40px var(--modifier-glow);
+    }
+
+    /* === OUTCOME COIN === */
+    .outcome {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .coin {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-style: italic;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .coin::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      padding: 2px;
+      background: linear-gradient(135deg, var(--superposition-blue), var(--probability-pink));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+    }
+
+    .coin.positive {
+      background: linear-gradient(135deg, #1a3a2a, #0d1f15);
+      color: #4ade80;
+    }
+
+    .coin.negative {
+      background: linear-gradient(135deg, #3a1a1a, #1f0d0d);
+      color: #f87171;
+    }
+
+    .coin:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px rgba(255,255,255,0.2);
+    }
+
+    .outcome-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    /* === PROMPT OUTPUT === */
+    .prompt {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--mist);
+      display: none;
+    }
+
+    .prompt.visible {
+      display: block;
+    }
+
+    .prompt-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .prompt-text {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 3vw, 28px);
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--text-primary);
+    }
+
+    .prompt-text .hl {
+      color: var(--probability-pink);
+    }
+
+    .prompt-text .hl-domain { color: var(--domain); }
+    .prompt-text .hl-wellbeing { color: var(--wellbeing); }
+    .prompt-text .hl-tech { color: var(--tech); }
+    .prompt-text .hl-year { color: var(--modifier); }
+
+    .prompt-question {
+      display: block;
+      margin-top: 24px;
+      font-style: normal;
+      color: var(--text-secondary);
+    }
+
+    /* === DECK SECTIONS === */
+    .decks {
+      display: grid;
+      gap: 60px;
+    }
+
+    .deck-section {
+      position: relative;
+    }
+
+    .deck-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .deck-title {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-style: italic;
+    }
+
+    .deck-count {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+    }
+
+    .deck-description {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      max-width: 500px;
+    }
+
+    .deck-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    /* === SMALL CARD VARIANT === */
+    .card--sm {
+      width: 100%;
+      height: 260px;
+    }
+
+    /* === WILDCARD === */
+    .card--wildcard .card-inner {
+      background: linear-gradient(165deg, #2a2a1a 0%, #1a1510 100%);
+      border: 1px solid var(--wildcard);
+      box-shadow:
+        0 0 0 1px rgba(255, 140, 66, 0.1),
+        0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .card--wildcard .card-type,
+    .card--wildcard .card-title { color: var(--wildcard); }
+
+    /* === CONTROLS === */
+    .controls {
+      display: flex;
+      gap: 12px;
+    }
+
+    .control-btn {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--mist);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .control-btn:hover {
+      border-color: var(--text-secondary);
+      color: var(--text-primary);
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .oracle {
+        padding: 24px;
+      }
+
+      .oracle-header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .spread {
+        gap: 16px;
+      }
+
+      .card {
+        width: 160px;
+        height: 224px;
+      }
+
+      .card-title {
+        font-size: 18px;
+      }
+    }
+
+    /* === ANIMATIONS === */
+    @keyframes cardIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px) rotateX(-10deg);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+      }
+    }
+
+    .card {
+      animation: cardIn 0.5s ease-out backwards;
+    }
+
+    .spread .card:nth-child(1) { animation-delay: 0.1s; }
+    .spread .card:nth-child(2) { animation-delay: 0.2s; }
+    .spread .card:nth-child(3) { animation-delay: 0.3s; }
+    .spread .card:nth-child(4) { animation-delay: 0.4s; }
+
+    /* === FOOTER === */
+    .footer {
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid var(--mist);
+      text-align: center;
+    }
+
+    .footer-text {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="cosmos">
+    <!-- Floating particles -->
+    <div class="particle" style="top: 20%; left: 10%;"></div>
+    <div class="particle" style="top: 60%; left: 80%; animation-delay: -5s;"></div>
+    <div class="particle" style="top: 80%; left: 30%; animation-delay: -10s;"></div>
+    <div class="particle" style="top: 40%; left: 60%; animation-delay: -15s;"></div>
+  </div>
+
+  <div class="container">
+    <header class="header">
+      <div class="header-eyebrow">Speculative Futures Oracle</div>
+      <h1 class="header-title">Futures Deck</h1>
+      <div class="header-sub">Quantum Horizons / 2025-2035</div>
+    </header>
+
+    <!-- ORACLE / GAME AREA -->
+    <section class="oracle">
+      <div class="oracle-inner">
+        <div class="oracle-header">
+          <h2 class="oracle-title">The Spread</h2>
+          <div class="controls">
+            <button class="control-btn" onclick="flipOutcome()">Flip Outcome</button>
+            <button class="control-btn" onclick="clearBoard()">Clear</button>
+          </div>
+          <button class="draw-btn" onclick="drawFullHand()">
+            <span>Collapse the Wave Function</span>
+          </button>
+        </div>
+
+        <div class="spread" id="spread"></div>
+
+        <div class="prompt" id="prompt">
+          <div class="prompt-label">Your Future</div>
+          <div class="prompt-text" id="promptText"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARD DECKS -->
+    <div class="decks">
+      <!-- DOMAIN -->
+      <section class="deck-section">
+        <div class="deck-header">
+          <h2 class="deck-title" style="color: var(--domain);">Domains</h2>
+          <span class="deck-count">10 cards</span>
+        </div>
+        <p class="deck-description">Where does the technology land? Which system absorbs the shock?</p>
+        <div class="deck-grid" id="domainDeck"></div>
+      </section>
+
+      <!-- WELLBEING -->
+      <section class="deck-section">
+        <div class="deck-header">
+          <h2 class="deck-title" style="color: var(--wellbeing);">Wellbeing</h2>
+          <span class="deck-count">10 cards</span>
+        </div>
+        <p class="deck-description">What dimension of human flourishing is at stake?</p>
+        <div class="deck-grid" id="wellbeingDeck"></div>
+      </section>
+
+      <!-- TECHNOLOGY -->
+      <section class="deck-section">
+        <div class="deck-header">
+          <h2 class="deck-title" style="color: var(--tech);">Technology</h2>
+          <span class="deck-count">8 cards</span>
+        </div>
+        <p class="deck-description">Which quantum capability emerges? When does reality shift?</p>
+        <div class="deck-grid" id="techDeck"></div>
+      </section>
+
+      <!-- MODIFIERS -->
+      <section class="deck-section">
+        <div class="deck-header">
+          <h2 class="deck-title" style="color: var(--modifier);">Modifiers</h2>
+          <span class="deck-count">6 cards</span>
+        </div>
+        <p class="deck-description">What accelerates or delays the timeline?</p>
+        <div class="deck-grid" id="modifierDeck"></div>
+      </section>
+
+      <!-- WILDCARDS -->
+      <section class="deck-section">
+        <div class="deck-header">
+          <h2 class="deck-title" style="color: var(--wildcard);">Wildcards</h2>
+          <span class="deck-count">6 cards</span>
+        </div>
+        <p class="deck-description">The black swans. The phase transitions. The things we didn't see coming.</p>
+        <div class="deck-grid" id="wildcardDeck"></div>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <p class="footer-text">Futures Deck — Imagining what's next</p>
+    </footer>
+  </div>
+
+  <script>
+    let cardData = null;
+    let scenario = { domain: null, wellbeing: null, tech: null, modifier: null, outcome: null };
+
+    fetch('src/cards.json')
+      .then(r => r.json())
+      .then(data => {
+        cardData = data;
+        renderDecks();
+      });
+
+    function renderDecks() {
+      document.getElementById('domainDeck').innerHTML = cardData.domains.map(c => `
+        <div class="card card--domain card--sm" onclick="select('domain','${c.id}')">
+          <div class="card-inner">
+            <div class="card-content">
+              <div class="card-type">Domain</div>
+              <div style="margin-top: auto;">
+                <div class="card-title">${c.name}</div>
+                <div class="card-subtitle">${c.examples.slice(0,2).join(' / ')}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('wellbeingDeck').innerHTML = cardData.wellbeing.map(c => `
+        <div class="card card--wellbeing card--sm" onclick="select('wellbeing','${c.id}')">
+          <div class="card-inner">
+            <div class="card-content">
+              <div class="card-type">Wellbeing</div>
+              <div style="margin-top: auto;">
+                <div class="card-title">${c.name}</div>
+                <div class="card-subtitle">${c.subtitle}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('techDeck').innerHTML = cardData.technology.map(c => `
+        <div class="card card--tech card--sm" onclick="select('tech','${c.id}')">
+          <div class="card-inner">
+            <div class="card-content">
+              <div class="card-type">Technology</div>
+              <div style="margin-top: auto;">
+                <div class="card-title">${c.short_name}</div>
+                <div class="card-year">${c.baseline_year}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('modifierDeck').innerHTML = cardData.modifiers.map(c => `
+        <div class="card card--modifier card--sm" onclick="select('modifier','${c.id}')">
+          <div class="card-inner">
+            <div class="card-content">
+              <div class="card-type">Modifier</div>
+              <div style="margin-top: auto; text-align: center;">
+                <div class="card-number">${c.value > 0 ? '+' : ''}${c.value}</div>
+                <div class="card-title" style="font-size: 16px;">${c.label}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('wildcardDeck').innerHTML = cardData.wildcards.map(c => `
+        <div class="card card--wildcard card--sm">
+          <div class="card-inner">
+            <div class="card-content">
+              <div class="card-type">Wildcard</div>
+              <div style="margin-top: auto;">
+                <div class="card-title">${c.name}</div>
+                <div class="card-subtitle" style="margin-top: 8px; line-height: 1.4;">${c.description.slice(0,60)}...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function getCard(type, id) {
+      const map = { domain: 'domains', wellbeing: 'wellbeing', tech: 'technology', modifier: 'modifiers' };
+      return cardData[map[type]].find(c => c.id === id);
+    }
+
+    function select(type, id) {
+      scenario[type] = getCard(type, id);
+      if (!scenario.outcome) scenario.outcome = Math.random() > 0.5 ? 'positive' : 'negative';
+      renderSpread();
+      renderPrompt();
+    }
+
+    function drawRandom(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function drawFullHand() {
+      scenario = {
+        domain: drawRandom(cardData.domains),
+        wellbeing: drawRandom(cardData.wellbeing),
+        tech: drawRandom(cardData.technology),
+        modifier: drawRandom(cardData.modifiers),
+        outcome: Math.random() > 0.5 ? 'positive' : 'negative'
+      };
+      renderSpread();
+      renderPrompt();
+    }
+
+    function flipOutcome() {
+      scenario.outcome = scenario.outcome === 'positive' ? 'negative' : 'positive';
+      renderSpread();
+      renderPrompt();
+    }
+
+    function clearBoard() {
+      scenario = { domain: null, wellbeing: null, tech: null, modifier: null, outcome: null };
+      document.getElementById('spread').innerHTML = '';
+      document.getElementById('prompt').classList.remove('visible');
+    }
+
+    function renderSpread() {
+      const el = document.getElementById('spread');
+      let html = '';
+
+      if (scenario.domain) {
+        html += `
+          <div class="card card--domain">
+            <div class="card-inner">
+              <div class="card-content">
+                <div class="card-type">Domain</div>
+                <div style="margin-top: auto;">
+                  <div class="card-title">${scenario.domain.name}</div>
+                </div>
+              </div>
+            </div>
+          </div>`;
+      }
+
+      if (scenario.wellbeing) {
+        html += `
+          <div class="card card--wellbeing">
+            <div class="card-inner">
+              <div class="card-content">
+                <div class="card-type">Wellbeing</div>
+                <div style="margin-top: auto;">
+                  <div class="card-title">${scenario.wellbeing.name}</div>
+                  <div class="card-subtitle">${scenario.wellbeing.subtitle}</div>
+                </div>
+              </div>
+            </div>
+          </div>`;
+      }
+
+      if (scenario.tech) {
+        const year = scenario.modifier
+          ? scenario.tech.baseline_year + scenario.modifier.value
+          : scenario.tech.baseline_year;
+        html += `
+          <div class="card card--tech">
+            <div class="card-inner">
+              <div class="card-content">
+                <div class="card-type">Technology</div>
+                <div style="margin-top: auto;">
+                  <div class="card-title">${scenario.tech.short_name}</div>
+                  <div class="card-year">${year}</div>
+                </div>
+              </div>
+            </div>
+          </div>`;
+      }
+
+      if (scenario.modifier) {
+        html += `
+          <div class="card card--modifier" style="width: 140px;">
+            <div class="card-inner">
+              <div class="card-content">
+                <div class="card-type">Modifier</div>
+                <div style="margin-top: auto; text-align: center;">
+                  <div class="card-number">${scenario.modifier.value > 0 ? '+' : ''}${scenario.modifier.value}</div>
+                  <div class="card-subtitle">${scenario.modifier.label}</div>
+                </div>
+              </div>
+            </div>
+          </div>`;
+      }
+
+      if (scenario.outcome) {
+        html += `
+          <div class="outcome">
+            <div class="coin ${scenario.outcome}" onclick="flipOutcome()">
+              ${scenario.outcome === 'positive' ? '+' : '−'}
+            </div>
+            <div class="outcome-label">${scenario.outcome}</div>
+          </div>`;
+      }
+
+      el.innerHTML = html;
+    }
+
+    function renderPrompt() {
+      const { domain, wellbeing, tech, modifier, outcome } = scenario;
+      if (!domain || !wellbeing || !tech || !outcome) {
+        document.getElementById('prompt').classList.remove('visible');
+        return;
+      }
+
+      const year = modifier ? tech.baseline_year + modifier.value : tech.baseline_year;
+      const timing = modifier?.value < 0 ? 'arrived early' : modifier?.value > 0 ? 'been delayed' : 'arrived';
+
+      document.getElementById('promptText').innerHTML = `
+        It's <span class="hl-year">${year}</span>.
+        <span class="hl-tech">${tech.short_name}</span> has ${timing}
+        in <span class="hl-domain">${domain.name}</span>.
+        The outcome for <span class="hl-wellbeing">${wellbeing.name}</span> is
+        <span class="hl" style="color: ${outcome === 'positive' ? '#4ade80' : '#f87171'}">${outcome}</span>.
+        <span class="prompt-question">What happened? What does this world look like?</span>
+      `;
+      document.getElementById('prompt').classList.add('visible');
+    }
+  </script>
+</body>
+</html>

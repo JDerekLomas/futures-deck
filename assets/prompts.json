@@ -1,0 +1,260 @@
+{
+  "meta": {
+    "style": "Dutch Design / De Stijl",
+    "aspectRatio": "5:7",
+    "resolution": "750x1050",
+    "format": "PNG or SVG"
+  },
+  "cards": {
+    "domain": [
+      {
+        "id": "domain-01",
+        "name": "Finance & Banking",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, rectangular color block accent in blue #1565C0, icon representing Finance & Banking: Stock exchanges, Central banks, Cryptocurrency, Insurance, Credit systems, abstract geometric interpretation, professional and institutional feel, label \"DOMAIN\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, gradient backgrounds, rounded organic shapes, photography, realistic textures"
+      },
+      {
+        "id": "domain-02",
+        "name": "Healthcare & Pharma",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, rectangular color block accent in blue #1565C0, icon representing Healthcare & Pharma: Drug discovery, Diagnostics, Telemedicine, Medical records, Clinical trials, abstract geometric interpretation, professional and institutional feel, label \"DOMAIN\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, gradient backgrounds, rounded organic shapes, photography, realistic textures"
+      },
+      {
+        "id": "domain-03",
+        "name": "Energy & Climate",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, rectangular color block accent in blue #1565C0, icon representing Energy & Climate: Solar/wind farms, Grid optimization, Carbon capture, Battery storage, Nuclear fusion, abstract geometric interpretation, professional and institutional feel, label \"DOMAIN\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, gradient backgrounds, rounded organic shapes, photography, realistic textures"
+      },
+      {
+        "id": "domain-04",
+        "name": "Education & Learning",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, rectangular color block accent in blue #1565C0, icon representing Education & Learning: Universities, EdTech, Vocational training, Research funding, Credentials, abstract geometric interpretation, professional and institutional feel, label \"DOMAIN\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, gradient backgrounds, rounded organic shapes, photography, realistic textures"
+      },
+      {
+        "id": "domain-05",
+        "name": "Governance & Democracy",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, rectangular color block accent in blue #1565C0, icon representing Governance & Democracy: Voting systems, Public services, Legislation, International treaties, Bureaucracy, abstract geometric interpretation, professional and institutional feel, label \"DOMAIN\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, gradient backgrounds, rounded organic shapes, photography, realistic textures"
+      },
+      {
+        "id": "domain-06",
+        "name": "Labor & Work",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, rectangular color block accent in blue #1565C0, icon representing Labor & Work: Job markets, Automation, Unions, Benefits, Skills training, abstract geometric interpretation, professional and institutional feel, label \"DOMAIN\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, gradient backgrounds, rounded organic shapes, photography, realistic textures"
+      },
+      {
+        "id": "domain-07",
+        "name": "Communication & Media",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, rectangular color block accent in blue #1565C0, icon representing Communication & Media: Social platforms, News outlets, Telecom networks, Streaming, Journalism, abstract geometric interpretation, professional and institutional feel, label \"DOMAIN\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, gradient backgrounds, rounded organic shapes, photography, realistic textures"
+      },
+      {
+        "id": "domain-08",
+        "name": "Security & Defense",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, rectangular color block accent in blue #1565C0, icon representing Security & Defense: Military systems, Cyber defense, Intelligence, Law enforcement, Emergency services, abstract geometric interpretation, professional and institutional feel, label \"DOMAIN\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, gradient backgrounds, rounded organic shapes, photography, realistic textures"
+      },
+      {
+        "id": "domain-09",
+        "name": "Transportation & Logistics",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, rectangular color block accent in blue #1565C0, icon representing Transportation & Logistics: Shipping routes, Autonomous vehicles, Air travel, Urban transit, Warehousing, abstract geometric interpretation, professional and institutional feel, label \"DOMAIN\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, gradient backgrounds, rounded organic shapes, photography, realistic textures"
+      },
+      {
+        "id": "domain-10",
+        "name": "Food & Agriculture",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, rectangular color block accent in blue #1565C0, icon representing Food & Agriculture: Precision farming, Food distribution, GMOs, Vertical farms, Food safety, abstract geometric interpretation, professional and institutional feel, label \"DOMAIN\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, gradient backgrounds, rounded organic shapes, photography, realistic textures"
+      }
+    ],
+    "wellbeing": [
+      {
+        "id": "well-01",
+        "name": "Autonomy",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, warm yellow #FFC107 as accent color, human-centered iconography for \"Autonomy\" / \"Agency\", abstract representation of The capacity for self-determination and independent choice, psychological diagram aesthetic, label \"WELLBEING\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, gradient backgrounds, rounded organic shapes, photography, realistic textures"
+      },
+      {
+        "id": "well-02",
+        "name": "Connection",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, warm yellow #FFC107 as accent color, human-centered iconography for \"Connection\" / \"Belonging\", abstract representation of Meaningful relationships and sense of community, psychological diagram aesthetic, label \"WELLBEING\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, gradient backgrounds, rounded organic shapes, photography, realistic textures"
+      },
+      {
+        "id": "well-03",
+        "name": "Meaning",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, warm yellow #FFC107 as accent color, human-centered iconography for \"Meaning\" / \"Purpose\", abstract representation of Sense of significance and contribution to something larger, psychological diagram aesthetic, label \"WELLBEING\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, gradient backgrounds, rounded organic shapes, photography, realistic textures"
+      },
+      {
+        "id": "well-04",
+        "name": "Security",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, warm yellow #FFC107 as accent color, human-centered iconography for \"Security\" / \"Safety\", abstract representation of Freedom from threat and confidence in the future, psychological diagram aesthetic, label \"WELLBEING\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, gradient backgrounds, rounded organic shapes, photography, realistic textures"
+      },
+      {
+        "id": "well-05",
+        "name": "Health",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, warm yellow #FFC107 as accent color, human-centered iconography for \"Health\" / \"Vitality\", abstract representation of Physical and mental flourishing, psychological diagram aesthetic, label \"WELLBEING\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, gradient backgrounds, rounded organic shapes, photography, realistic textures"
+      },
+      {
+        "id": "well-06",
+        "name": "Equity",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, warm yellow #FFC107 as accent color, human-centered iconography for \"Equity\" / \"Fairness\", abstract representation of Just distribution of resources and opportunities, psychological diagram aesthetic, label \"WELLBEING\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, gradient backgrounds, rounded organic shapes, photography, realistic textures"
+      },
+      {
+        "id": "well-07",
+        "name": "Privacy",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, warm yellow #FFC107 as accent color, human-centered iconography for \"Privacy\" / \"Dignity\", abstract representation of Control over personal information and boundaries, psychological diagram aesthetic, label \"WELLBEING\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, gradient backgrounds, rounded organic shapes, photography, realistic textures"
+      },
+      {
+        "id": "well-08",
+        "name": "Creativity",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, warm yellow #FFC107 as accent color, human-centered iconography for \"Creativity\" / \"Expression\", abstract representation of Capacity for imagination and self-expression, psychological diagram aesthetic, label \"WELLBEING\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, gradient backgrounds, rounded organic shapes, photography, realistic textures"
+      },
+      {
+        "id": "well-09",
+        "name": "Knowledge",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, warm yellow #FFC107 as accent color, human-centered iconography for \"Knowledge\" / \"Understanding\", abstract representation of Access to truth and comprehension of the world, psychological diagram aesthetic, label \"WELLBEING\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, gradient backgrounds, rounded organic shapes, photography, realistic textures"
+      },
+      {
+        "id": "well-10",
+        "name": "Trust",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, warm yellow #FFC107 as accent color, human-centered iconography for \"Trust\" / \"Cooperation\", abstract representation of Confidence in others and capacity for collective action, psychological diagram aesthetic, label \"WELLBEING\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, gradient backgrounds, rounded organic shapes, photography, realistic textures"
+      }
+    ],
+    "tech": [
+      {
+        "id": "tech-01",
+        "name": "Fault-Tolerant Quantum Computing",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, bold red #D32F2F as primary accent, quantum computing visualization, circuit board patterns mixed with De Stijl geometry, futuristic but grounded in modernist design, year \"2029\" prominently displayed in monospace, technology: Fault-Tolerant Quantum Computing, label \"TECHNOLOGY\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, soft gradients, organic shapes, photography"
+      },
+      {
+        "id": "tech-02",
+        "name": "Cryptographically-Relevant Quantum",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, bold red #D32F2F as primary accent, quantum computing visualization, circuit board patterns mixed with De Stijl geometry, futuristic but grounded in modernist design, year \"2030\" prominently displayed in monospace, technology: Cryptographically-Relevant Quantum, label \"TECHNOLOGY\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, soft gradients, organic shapes, photography"
+      },
+      {
+        "id": "tech-03",
+        "name": "Quantum-AI Hybrid Systems",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, bold red #D32F2F as primary accent, quantum computing visualization, circuit board patterns mixed with De Stijl geometry, futuristic but grounded in modernist design, year \"2028\" prominently displayed in monospace, technology: Quantum-AI Hybrid Systems, label \"TECHNOLOGY\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, soft gradients, organic shapes, photography"
+      },
+      {
+        "id": "tech-04",
+        "name": "Quantum Sensing Networks",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, bold red #D32F2F as primary accent, quantum computing visualization, circuit board patterns mixed with De Stijl geometry, futuristic but grounded in modernist design, year \"2027\" prominently displayed in monospace, technology: Quantum Sensing Networks, label \"TECHNOLOGY\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, soft gradients, organic shapes, photography"
+      },
+      {
+        "id": "tech-05",
+        "name": "Post-Quantum Cryptography Adoption",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, bold red #D32F2F as primary accent, quantum computing visualization, circuit board patterns mixed with De Stijl geometry, futuristic but grounded in modernist design, year \"2026\" prominently displayed in monospace, technology: Post-Quantum Cryptography Adoption, label \"TECHNOLOGY\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, soft gradients, organic shapes, photography"
+      },
+      {
+        "id": "tech-06",
+        "name": "Quantum Communication Infrastructure",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, bold red #D32F2F as primary accent, quantum computing visualization, circuit board patterns mixed with De Stijl geometry, futuristic but grounded in modernist design, year \"2032\" prominently displayed in monospace, technology: Quantum Communication Infrastructure, label \"TECHNOLOGY\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, soft gradients, organic shapes, photography"
+      },
+      {
+        "id": "tech-07",
+        "name": "Quantum Simulation for Drug Discovery",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, bold red #D32F2F as primary accent, quantum computing visualization, circuit board patterns mixed with De Stijl geometry, futuristic but grounded in modernist design, year \"2027\" prominently displayed in monospace, technology: Quantum Simulation for Drug Discovery, label \"TECHNOLOGY\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, soft gradients, organic shapes, photography"
+      },
+      {
+        "id": "tech-08",
+        "name": "Quantum Optimization at Scale",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, bold red #D32F2F as primary accent, quantum computing visualization, circuit board patterns mixed with De Stijl geometry, futuristic but grounded in modernist design, year \"2029\" prominently displayed in monospace, technology: Quantum Optimization at Scale, label \"TECHNOLOGY\" in uppercase tracking",
+        "negativePrompt": "photorealistic, 3D render, soft gradients, organic shapes, photography"
+      }
+    ],
+    "modifier": [
+      {
+        "id": "mod-01",
+        "label": "Major Breakthrough",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, timeline visualization, number \"-3\" as hero element, green #2E7D32 for acceleration, abstract clock or calendar motif, \"Major Breakthrough\" as subtitle, label \"MODIFIER\" in uppercase tracking",
+        "negativePrompt": "photorealistic, complex illustrations, organic shapes"
+      },
+      {
+        "id": "mod-02",
+        "label": "Accelerated Funding",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, timeline visualization, number \"-2\" as hero element, green #2E7D32 for acceleration, abstract clock or calendar motif, \"Accelerated Funding\" as subtitle, label \"MODIFIER\" in uppercase tracking",
+        "negativePrompt": "photorealistic, complex illustrations, organic shapes"
+      },
+      {
+        "id": "mod-03",
+        "label": "Steady Progress",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, timeline visualization, number \"-1\" as hero element, green #2E7D32 for acceleration, abstract clock or calendar motif, \"Steady Progress\" as subtitle, label \"MODIFIER\" in uppercase tracking",
+        "negativePrompt": "photorealistic, complex illustrations, organic shapes"
+      },
+      {
+        "id": "mod-04",
+        "label": "Technical Setback",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, timeline visualization, number \"+1\" as hero element, orange/red for delay, abstract clock or calendar motif, \"Technical Setback\" as subtitle, label \"MODIFIER\" in uppercase tracking",
+        "negativePrompt": "photorealistic, complex illustrations, organic shapes"
+      },
+      {
+        "id": "mod-05",
+        "label": "Funding Collapse",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, timeline visualization, number \"+2\" as hero element, orange/red for delay, abstract clock or calendar motif, \"Funding Collapse\" as subtitle, label \"MODIFIER\" in uppercase tracking",
+        "negativePrompt": "photorealistic, complex illustrations, organic shapes"
+      },
+      {
+        "id": "mod-06",
+        "label": "Regulatory Delay",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, timeline visualization, number \"+3\" as hero element, orange/red for delay, abstract clock or calendar motif, \"Regulatory Delay\" as subtitle, label \"MODIFIER\" in uppercase tracking",
+        "negativePrompt": "photorealistic, complex illustrations, organic shapes"
+      }
+    ],
+    "wildcard": [
+      {
+        "id": "wild-01",
+        "name": "AGI Emergence",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, gradient from red to blue (rare exception to no-gradient rule), chaotic but composed arrangement, disruption symbolism, \"AGI Emergence\" as dramatic title, lightning bolt or fracture patterns, label \"WILDCARD\" in uppercase tracking",
+        "negativePrompt": "photorealistic, calm, orderly, simple"
+      },
+      {
+        "id": "wild-02",
+        "name": "Global Pandemic II",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, gradient from red to blue (rare exception to no-gradient rule), chaotic but composed arrangement, disruption symbolism, \"Global Pandemic II\" as dramatic title, lightning bolt or fracture patterns, label \"WILDCARD\" in uppercase tracking",
+        "negativePrompt": "photorealistic, calm, orderly, simple"
+      },
+      {
+        "id": "wild-03",
+        "name": "Great Power Conflict",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, gradient from red to blue (rare exception to no-gradient rule), chaotic but composed arrangement, disruption symbolism, \"Great Power Conflict\" as dramatic title, lightning bolt or fracture patterns, label \"WILDCARD\" in uppercase tracking",
+        "negativePrompt": "photorealistic, calm, orderly, simple"
+      },
+      {
+        "id": "wild-04",
+        "name": "Climate Tipping Point",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, gradient from red to blue (rare exception to no-gradient rule), chaotic but composed arrangement, disruption symbolism, \"Climate Tipping Point\" as dramatic title, lightning bolt or fracture patterns, label \"WILDCARD\" in uppercase tracking",
+        "negativePrompt": "photorealistic, calm, orderly, simple"
+      },
+      {
+        "id": "wild-05",
+        "name": "Quantum Supremacy Shock",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, gradient from red to blue (rare exception to no-gradient rule), chaotic but composed arrangement, disruption symbolism, \"Quantum Supremacy Shock\" as dramatic title, lightning bolt or fracture patterns, label \"WILDCARD\" in uppercase tracking",
+        "negativePrompt": "photorealistic, calm, orderly, simple"
+      },
+      {
+        "id": "wild-06",
+        "name": "Open Source Revolution",
+        "prompt": "Dutch design aesthetic, De Stijl influence, Piet Mondrian style geometric blocks, bold primary colors (red #D32F2F, blue #1565C0, yellow #FFC107), clean grid-based composition, grotesque sans-serif typography, asymmetric balance, functional minimalism, strong black borders, high contrast, print-ready card design, no gradients except geometric fills, sharp edges and corners, gradient from red to blue (rare exception to no-gradient rule), chaotic but composed arrangement, disruption symbolism, \"Open Source Revolution\" as dramatic title, lightning bolt or fracture patterns, label \"WILDCARD\" in uppercase tracking",
+        "negativePrompt": "photorealistic, calm, orderly, simple"
+      }
+    ]
+  }
+}

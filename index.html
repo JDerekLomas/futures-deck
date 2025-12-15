@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FUTURES DECK — Quantum Horizons</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="design-system.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: #F5F5F5;
+      min-height: 100vh;
+      padding: var(--space-xl);
+    }
+
+    /* === HEADER === */
+    .site-header {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: var(--space-lg);
+      padding-bottom: var(--space-xl);
+      border-bottom: 3px solid var(--mondrian-black);
+      margin-bottom: var(--space-2xl);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .logo-blocks {
+      display: grid;
+      grid-template-columns: 24px 24px;
+      grid-template-rows: 24px 24px;
+      gap: 3px;
+    }
+
+    .logo-blocks span {
+      display: block;
+    }
+
+    .logo-blocks span:nth-child(1) { background: var(--mondrian-red); }
+    .logo-blocks span:nth-child(2) { background: var(--mondrian-blue); }
+    .logo-blocks span:nth-child(3) { background: var(--mondrian-yellow); }
+    .logo-blocks span:nth-child(4) { background: var(--mondrian-black); }
+
+    .logo-text {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .tagline {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* === DRAW BUTTON === */
+    .draw-btn {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      padding: var(--space-md) var(--space-xl);
+      background: var(--mondrian-black);
+      color: var(--mondrian-white);
+      border: none;
+      cursor: pointer;
+      transition: transform 0.1s, box-shadow 0.1s;
+      box-shadow: 4px 4px 0 var(--mondrian-red);
+    }
+
+    .draw-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--mondrian-red);
+    }
+
+    .draw-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--mondrian-red);
+    }
+
+    /* === SECTIONS === */
+    .section {
+      margin-bottom: var(--space-2xl);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+
+    .section-marker {
+      width: 8px;
+      height: 32px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .section-count {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #999;
+      margin-left: auto;
+    }
+
+    /* === CARD GRID === */
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-lg);
+    }
+
+    /* === GAME AREA === */
+    .game-area {
+      background: white;
+      border: 3px solid var(--mondrian-black);
+      padding: var(--space-xl);
+      margin-bottom: var(--space-2xl);
+      min-height: 200px;
+    }
+
+    .game-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-md);
+      border-bottom: 2px solid #EEE;
+    }
+
+    .game-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .game-controls {
+      display: flex;
+      gap: var(--space-sm);
+    }
+
+    .control-btn {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      padding: var(--space-xs) var(--space-sm);
+      background: #F5F5F5;
+      border: 2px solid var(--mondrian-black);
+      cursor: pointer;
+    }
+
+    .control-btn:hover {
+      background: var(--mondrian-black);
+      color: white;
+    }
+
+    .drawn-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-lg);
+      align-items: flex-start;
+    }
+
+    .drawn-cards:empty::before {
+      content: 'Draw cards to begin imagining futures...';
+      font-family: var(--font-display);
+      font-size: 16px;
+      color: #CCC;
+    }
+
+    /* === PROMPT OUTPUT === */
+    .prompt-output {
+      margin-top: var(--space-xl);
+      padding-top: var(--space-lg);
+      border-top: 2px solid #EEE;
+      display: none;
+    }
+
+    .prompt-output.visible {
+      display: block;
+    }
+
+    .prompt-label {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: var(--space-md);
+    }
+
+    .prompt-text {
+      font-family: var(--font-display);
+      font-size: 20px;
+      line-height: 1.6;
+      max-width: 800px;
+    }
+
+    .prompt-text .highlight {
+      background: var(--mondrian-yellow);
+      padding: 0 4px;
+    }
+
+    .outcome-flip {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .outcome-flip.positive {
+      background: #E8F5E9;
+      color: #2E7D32;
+    }
+
+    .outcome-flip.negative {
+      background: #FFEBEE;
+      color: #C62828;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .site-header {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .logo {
+        justify-content: center;
+      }
+
+      .card {
+        --card-width: 100%;
+        --card-height: auto;
+        min-height: 280px;
+      }
+    }
+
+    /* === COIN FLIP ANIMATION === */
+    .coin {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #FFD700, #FFA000);
+      border: 3px solid var(--mondrian-black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 18px;
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+
+    .coin:hover {
+      transform: scale(1.1);
+    }
+
+    .coin.flipping {
+      animation: flip 0.6s ease-out;
+    }
+
+    @keyframes flip {
+      0% { transform: rotateY(0); }
+      50% { transform: rotateY(900deg); }
+      100% { transform: rotateY(1800deg); }
+    }
+
+    /* === DECK BACKS === */
+    .deck-stack {
+      position: relative;
+      width: calc(var(--card-width) + 16px);
+      height: calc(var(--card-height) + 16px);
+      cursor: pointer;
+    }
+
+    .deck-stack .card-back {
+      position: absolute;
+      width: var(--card-width);
+      height: var(--card-height);
+      border-radius: var(--card-radius);
+      border: 3px solid var(--mondrian-black);
+      box-shadow: 4px 4px 0 var(--mondrian-black);
+    }
+
+    .deck-stack .card-back:nth-child(1) { top: 0; left: 0; }
+    .deck-stack .card-back:nth-child(2) { top: 4px; left: 4px; }
+    .deck-stack .card-back:nth-child(3) { top: 8px; left: 8px; z-index: 1; }
+
+    .card-back--domain {
+      background: var(--domain-primary);
+    }
+
+    .card-back--wellbeing {
+      background: var(--wellbeing-primary);
+    }
+
+    .card-back--tech {
+      background: var(--tech-primary);
+    }
+
+    .card-back--number {
+      background: var(--mondrian-black);
+    }
+
+    .card-back-pattern {
+      position: absolute;
+      inset: 16px;
+      border: 2px solid rgba(255,255,255,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-back-label {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+
+    .card-back--wellbeing .card-back-label {
+      color: var(--mondrian-black);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">
+      <div class="logo-blocks">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span class="logo-text">FUTURES DECK</span>
+    </div>
+    <span class="tagline">Speculative futures through quantum horizons</span>
+    <button class="draw-btn" onclick="drawFullHand()">DRAW SCENARIO</button>
+  </header>
+
+  <!-- GAME AREA -->
+  <section class="game-area">
+    <div class="game-header">
+      <span class="game-title">Current Scenario</span>
+      <div class="game-controls">
+        <button class="control-btn" onclick="flipOutcome()">FLIP OUTCOME</button>
+        <button class="control-btn" onclick="clearBoard()">CLEAR</button>
+      </div>
+    </div>
+    <div class="drawn-cards" id="drawnCards"></div>
+    <div class="prompt-output" id="promptOutput">
+      <div class="prompt-label">Imagination Prompt</div>
+      <div class="prompt-text" id="promptText"></div>
+    </div>
+  </section>
+
+  <!-- DOMAIN DECK -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-marker" style="background: var(--domain-primary);"></div>
+      <h2 class="section-title">Domain Deck</h2>
+      <span class="section-count">10 cards</span>
+    </div>
+    <div class="card-grid" id="domainCards"></div>
+  </section>
+
+  <!-- WELLBEING DECK -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-marker" style="background: var(--wellbeing-primary);"></div>
+      <h2 class="section-title">Wellbeing Factors</h2>
+      <span class="section-count">10 cards</span>
+    </div>
+    <div class="card-grid" id="wellbeingCards"></div>
+  </section>
+
+  <!-- TECHNOLOGY DECK -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-marker" style="background: var(--tech-primary);"></div>
+      <h2 class="section-title">Technology Cards</h2>
+      <span class="section-count">8 cards</span>
+    </div>
+    <div class="card-grid" id="techCards"></div>
+  </section>
+
+  <!-- NUMBER MODIFIERS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-marker" style="background: var(--mondrian-black);"></div>
+      <h2 class="section-title">Timeline Modifiers</h2>
+      <span class="section-count">6 cards</span>
+    </div>
+    <div class="card-grid" id="modifierCards"></div>
+  </section>
+
+  <!-- WILDCARDS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-marker" style="background: linear-gradient(135deg, var(--mondrian-red), var(--mondrian-blue));"></div>
+      <h2 class="section-title">Wildcards</h2>
+      <span class="section-count">6 cards</span>
+    </div>
+    <div class="card-grid" id="wildcardCards"></div>
+  </section>
+
+  <script>
+    // Card data will be loaded from JSON
+    let cardData = null;
+    let currentScenario = {
+      domain: null,
+      wellbeing: null,
+      tech: null,
+      modifier: null,
+      outcome: null // 'positive' or 'negative'
+    };
+
+    // Load card data
+    fetch('src/cards.json')
+      .then(r => r.json())
+      .then(data => {
+        cardData = data;
+        renderAllDecks();
+      });
+
+    // Render functions
+    function renderDomainCard(card) {
+      return `
+        <div class="card card--domain" data-id="${card.id}" onclick="selectCard('domain', '${card.id}')">
+          <div class="geo-block geo-block--top-right"></div>
+          <div class="geo-block geo-block--bottom-left"></div>
+          <header class="card-header">
+            <span class="card-type">Domain</span>
+            <span class="card-number">${card.id.split('-')[1]}/10</span>
+          </header>
+          <div class="card-body">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a10 10 0 0 1 0 20"/>
+                <path d="M2 12h20"/>
+              </svg>
+            </div>
+            <h3 class="card-title">${card.name}</h3>
+            <p class="card-subtitle">${card.examples.slice(0, 3).join(' · ')}</p>
+          </div>
+          <footer class="card-footer">
+            <span style="font-size: 10px; color: #999; text-transform: uppercase; letter-spacing: 0.1em;">Where does it hit?</span>
+          </footer>
+        </div>
+      `;
+    }
+
+    function renderWellbeingCard(card) {
+      return `
+        <div class="card card--wellbeing" data-id="${card.id}" onclick="selectCard('wellbeing', '${card.id}')">
+          <div class="geo-block geo-block--top-right"></div>
+          <header class="card-header">
+            <span class="card-type">Wellbeing</span>
+            <span class="card-number">${card.id.split('-')[1]}/10</span>
+          </header>
+          <div class="card-body">
+            <h3 class="card-title">${card.name}</h3>
+            <p class="card-subtitle" style="font-weight: 600; margin-bottom: 8px;">${card.subtitle}</p>
+            <p class="card-subtitle">${card.description}</p>
+          </div>
+          <footer class="card-footer">
+            <span style="font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 0.1em;">Human dimension</span>
+          </footer>
+        </div>
+      `;
+    }
+
+    function renderTechCard(card) {
+      return `
+        <div class="card card--tech" data-id="${card.id}" onclick="selectCard('tech', '${card.id}')">
+          <div class="geo-block geo-block--top-right"></div>
+          <div class="geo-block geo-block--bottom-left"></div>
+          <header class="card-header">
+            <span class="card-type">Technology</span>
+            <span class="card-number">${card.id.split('-')[1]}/08</span>
+          </header>
+          <div class="card-body">
+            <h3 class="card-title">${card.short_name}</h3>
+            <div class="card-year">${card.baseline_year}</div>
+            <p class="card-subtitle">${card.description}</p>
+          </div>
+          <footer class="card-footer">
+            <span style="font-size: 10px; color: #999; text-transform: uppercase; letter-spacing: 0.1em;">Baseline timeline</span>
+          </footer>
+        </div>
+      `;
+    }
+
+    function renderModifierCard(card) {
+      const isNegative = card.value < 0;
+      return `
+        <div class="card card--number ${isNegative ? 'negative' : 'positive'}" data-id="${card.id}" onclick="selectCard('modifier', '${card.id}')">
+          <header class="card-header">
+            <span class="card-type">Modifier</span>
+          </header>
+          <div class="card-body">
+            <div class="card-value">${card.value > 0 ? '+' : ''}${card.value}</div>
+            <h3 class="card-title" style="font-size: 16px;">${card.label}</h3>
+            <p class="card-subtitle">${card.description}</p>
+          </div>
+          <footer class="card-footer">
+            <span style="font-size: 10px; color: #999; text-transform: uppercase; letter-spacing: 0.1em;">Years</span>
+          </footer>
+        </div>
+      `;
+    }
+
+    function renderWildcard(card) {
+      return `
+        <div class="card card--wildcard" data-id="${card.id}">
+          <header class="card-header">
+            <span class="card-type">Wildcard</span>
+          </header>
+          <div class="card-body">
+            <h3 class="card-title">${card.name}</h3>
+            <p class="card-subtitle">${card.description}</p>
+            <p class="card-subtitle" style="margin-top: 12px; font-style: italic; opacity: 0.9;">${card.effect}</p>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderAllDecks() {
+      document.getElementById('domainCards').innerHTML =
+        cardData.domains.map(renderDomainCard).join('');
+      document.getElementById('wellbeingCards').innerHTML =
+        cardData.wellbeing.map(renderWellbeingCard).join('');
+      document.getElementById('techCards').innerHTML =
+        cardData.technology.map(renderTechCard).join('');
+      document.getElementById('modifierCards').innerHTML =
+        cardData.modifiers.map(renderModifierCard).join('');
+      document.getElementById('wildcardCards').innerHTML =
+        cardData.wildcards.map(renderWildcard).join('');
+    }
+
+    // Game functions
+    function selectCard(type, id) {
+      const card = getCardById(type, id);
+      currentScenario[type] = card;
+      updateDrawnCards();
+      generatePrompt();
+    }
+
+    function getCardById(type, id) {
+      const deckMap = {
+        domain: cardData.domains,
+        wellbeing: cardData.wellbeing,
+        tech: cardData.technology,
+        modifier: cardData.modifiers
+      };
+      return deckMap[type].find(c => c.id === id);
+    }
+
+    function drawRandom(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function drawFullHand() {
+      currentScenario = {
+        domain: drawRandom(cardData.domains),
+        wellbeing: drawRandom(cardData.wellbeing),
+        tech: drawRandom(cardData.technology),
+        modifier: drawRandom(cardData.modifiers),
+        outcome: Math.random() > 0.5 ? 'positive' : 'negative'
+      };
+      updateDrawnCards();
+      generatePrompt();
+    }
+
+    function flipOutcome() {
+      currentScenario.outcome = currentScenario.outcome === 'positive' ? 'negative' : 'positive';
+      generatePrompt();
+    }
+
+    function clearBoard() {
+      currentScenario = { domain: null, wellbeing: null, tech: null, modifier: null, outcome: null };
+      document.getElementById('drawnCards').innerHTML = '';
+      document.getElementById('promptOutput').classList.remove('visible');
+    }
+
+    function updateDrawnCards() {
+      const container = document.getElementById('drawnCards');
+      let html = '';
+
+      if (currentScenario.domain) {
+        html += `<div class="card card--domain" style="width: 180px; height: 240px;">
+          <header class="card-header"><span class="card-type">Domain</span></header>
+          <div class="card-body"><h3 class="card-title" style="font-size: 16px;">${currentScenario.domain.name}</h3></div>
+        </div>`;
+      }
+
+      if (currentScenario.wellbeing) {
+        html += `<div class="card card--wellbeing" style="width: 180px; height: 240px;">
+          <header class="card-header"><span class="card-type">Wellbeing</span></header>
+          <div class="card-body">
+            <h3 class="card-title" style="font-size: 16px;">${currentScenario.wellbeing.name}</h3>
+            <p class="card-subtitle">${currentScenario.wellbeing.subtitle}</p>
+          </div>
+        </div>`;
+      }
+
+      if (currentScenario.tech) {
+        const year = currentScenario.modifier
+          ? currentScenario.tech.baseline_year + currentScenario.modifier.value
+          : currentScenario.tech.baseline_year;
+        html += `<div class="card card--tech" style="width: 180px; height: 240px;">
+          <header class="card-header"><span class="card-type">Technology</span></header>
+          <div class="card-body">
+            <h3 class="card-title" style="font-size: 14px;">${currentScenario.tech.short_name}</h3>
+            <div class="card-year" style="font-size: 28px;">${year}</div>
+          </div>
+        </div>`;
+      }
+
+      if (currentScenario.modifier) {
+        const isNeg = currentScenario.modifier.value < 0;
+        html += `<div class="card card--number ${isNeg ? 'negative' : 'positive'}" style="width: 120px; height: 240px;">
+          <header class="card-header"><span class="card-type">Mod</span></header>
+          <div class="card-body">
+            <div class="card-value" style="font-size: 48px;">${currentScenario.modifier.value > 0 ? '+' : ''}${currentScenario.modifier.value}</div>
+            <p class="card-subtitle" style="font-size: 11px;">${currentScenario.modifier.label}</p>
+          </div>
+        </div>`;
+      }
+
+      if (currentScenario.outcome) {
+        html += `<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px;">
+          <div class="coin">${currentScenario.outcome === 'positive' ? '+' : '−'}</div>
+          <span style="margin-top: 8px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;" class="${currentScenario.outcome}">${currentScenario.outcome}</span>
+        </div>`;
+      }
+
+      container.innerHTML = html;
+    }
+
+    function generatePrompt() {
+      const { domain, wellbeing, tech, modifier, outcome } = currentScenario;
+      if (!domain || !wellbeing || !tech || !outcome) {
+        document.getElementById('promptOutput').classList.remove('visible');
+        return;
+      }
+
+      const year = modifier ? tech.baseline_year + modifier.value : tech.baseline_year;
+      const outcomeWord = outcome === 'positive' ? 'positive' : 'negative';
+      const outcomeClass = outcome;
+
+      const prompt = `It's <span class="highlight">${year}</span>.
+        <span class="highlight">${tech.short_name}</span> has ${modifier && modifier.value < 0 ? 'arrived early' : modifier && modifier.value > 0 ? 'been delayed' : 'arrived on schedule'}
+        in <span class="highlight">${domain.name}</span>.
+        The outcome for <span class="highlight">${wellbeing.name}/${wellbeing.subtitle}</span> is
+        <span class="outcome-flip ${outcomeClass}">${outcomeWord}</span>.
+        <br><br><strong>What happened? What does this world look like?</strong>`;
+
+      document.getElementById('promptText').innerHTML = prompt;
+      document.getElementById('promptOutput').classList.add('visible');
+    }
+  </script>
+</body>
+</html>

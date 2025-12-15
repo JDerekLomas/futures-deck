@@ -1,0 +1,23 @@
+{
+  "name": "futures-deck",
+  "version": "1.0.0",
+  "description": "Speculative futures card game for imagining quantum technology impacts",
+  "type": "module",
+  "main": "src/generator.js",
+  "scripts": {
+    "generate:svg": "node src/generator.js svg",
+    "generate:prompts": "node src/generator.js prompts",
+    "generate:images": "node src/generator.js generate",
+    "dev": "npx serve .",
+    "build": "npm run generate:svg && npm run generate:prompts"
+  },
+  "keywords": [
+    "futures",
+    "speculative-design",
+    "quantum-computing",
+    "card-game",
+    "dutch-design"
+  ],
+  "author": "",
+  "license": "MIT"
+}
