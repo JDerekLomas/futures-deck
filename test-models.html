@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MuleRouter Model Comparison</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'SF Mono', 'Monaco', monospace;
+      background: #1a1a1a;
+      color: #fff;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 16px;
+      color: #ffd700;
+    }
+
+    .prompt {
+      background: #2a2a2a;
+      padding: 20px;
+      margin-bottom: 40px;
+      border-left: 4px solid #ffd700;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .prompt-label {
+      color: #888;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 1200px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 800px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: #2a2a2a;
+      border: 2px solid #333;
+      overflow: hidden;
+    }
+
+    .card-header {
+      padding: 16px;
+      background: #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .model-name {
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .model-vendor {
+      font-size: 11px;
+      color: #888;
+    }
+
+    .card-image {
+      aspect-ratio: 2/3;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .card-image.loading::after {
+      content: 'Generating...';
+      color: #666;
+      font-size: 14px;
+    }
+
+    .card-footer {
+      padding: 16px;
+      font-size: 12px;
+    }
+
+    .metric {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .metric-label { color: #888; }
+    .metric-value { color: #fff; }
+
+    .rating {
+      display: flex;
+      gap: 4px;
+      margin-top: 16px;
+    }
+
+    .rating button {
+      padding: 8px 16px;
+      background: #333;
+      border: 1px solid #444;
+      color: #fff;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .rating button:hover {
+      background: #444;
+    }
+
+    .rating button.selected {
+      background: #ffd700;
+      color: #000;
+      border-color: #ffd700;
+    }
+
+    .criteria {
+      margin-top: 40px;
+      padding: 24px;
+      background: #2a2a2a;
+      border: 2px solid #333;
+    }
+
+    .criteria h2 {
+      font-size: 16px;
+      margin-bottom: 16px;
+      color: #ffd700;
+    }
+
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .criterion {
+      text-align: center;
+      padding: 16px;
+      background: #333;
+    }
+
+    .criterion-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .criterion-name {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .notes {
+      margin-top: 40px;
+      padding: 24px;
+      background: #2a2a2a;
+    }
+
+    .notes h2 {
+      font-size: 16px;
+      margin-bottom: 16px;
+      color: #ffd700;
+    }
+
+    .notes textarea {
+      width: 100%;
+      height: 150px;
+      background: #1a1a1a;
+      border: 1px solid #444;
+      color: #fff;
+      padding: 16px;
+      font-family: inherit;
+      font-size: 14px;
+      resize: vertical;
+    }
+  </style>
+</head>
+<body>
+  <h1>MuleRouter Model Comparison</h1>
+
+  <div class="prompt">
+    <div class="prompt-label">Test Prompt</div>
+    <div id="promptText">Tarot card titled GROWTH with the word GROWTH in gold letters at the bottom, featuring a mystical tree with roots and branches forming an infinity symbol, ornate art nouveau border with Celtic knotwork, rich jewel tones, professional card game art, high detail</div>
+  </div>
+
+  <div class="criteria">
+    <h2>Evaluation Criteria</h2>
+    <div class="criteria-grid">
+      <div class="criterion">
+        <div class="criterion-icon">Aa</div>
+        <div class="criterion-name">Text Legibility</div>
+      </div>
+      <div class="criterion">
+        <div class="criterion-icon">✧</div>
+        <div class="criterion-name">Fine Detail</div>
+      </div>
+      <div class="criterion">
+        <div class="criterion-icon">◐</div>
+        <div class="criterion-name">Color Richness</div>
+      </div>
+      <div class="criterion">
+        <div class="criterion-icon">▭</div>
+        <div class="criterion-name">Aspect Ratio</div>
+      </div>
+      <div class="criterion">
+        <div class="criterion-icon">☆</div>
+        <div class="criterion-name">Print Ready</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top: 40px;">
+    <div class="card">
+      <div class="card-header">
+        <span class="model-name">Nano Banana Pro</span>
+        <span class="model-vendor">Google</span>
+      </div>
+      <div class="card-image" id="img-nano">
+        <img src="assets/test-models/nano-banana-pro.png" alt="Nano Banana Pro"
+             onerror="this.parentElement.classList.add('loading'); this.style.display='none';">
+      </div>
+      <div class="card-footer">
+        <div class="metric">
+          <span class="metric-label">Text</span>
+          <span class="metric-value" id="text-nano">-</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Detail</span>
+          <span class="metric-value" id="detail-nano">-</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Colors</span>
+          <span class="metric-value" id="color-nano">-</span>
+        </div>
+        <div class="rating">
+          <button onclick="rate('nano', 1)">1</button>
+          <button onclick="rate('nano', 2)">2</button>
+          <button onclick="rate('nano', 3)">3</button>
+          <button onclick="rate('nano', 4)">4</button>
+          <button onclick="rate('nano', 5)">5</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="model-name">Wan 2.5</span>
+        <span class="model-vendor">Alibaba</span>
+      </div>
+      <div class="card-image" id="img-wan">
+        <img src="assets/test-models/wan-2.5.png" alt="Wan 2.5"
+             onerror="this.parentElement.classList.add('loading'); this.style.display='none';">
+      </div>
+      <div class="card-footer">
+        <div class="metric">
+          <span class="metric-label">Text</span>
+          <span class="metric-value" id="text-wan">-</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Detail</span>
+          <span class="metric-value" id="detail-wan">-</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Colors</span>
+          <span class="metric-value" id="color-wan">-</span>
+        </div>
+        <div class="rating">
+          <button onclick="rate('wan', 1)">1</button>
+          <button onclick="rate('wan', 2)">2</button>
+          <button onclick="rate('wan', 3)">3</button>
+          <button onclick="rate('wan', 4)">4</button>
+          <button onclick="rate('wan', 5)">5</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="model-name">Midjourney</span>
+        <span class="model-vendor">Midjourney</span>
+      </div>
+      <div class="card-image" id="img-mj">
+        <img src="assets/test-models/midjourney.png" alt="Midjourney"
+             onerror="this.parentElement.classList.add('loading'); this.style.display='none';">
+      </div>
+      <div class="card-footer">
+        <div class="metric">
+          <span class="metric-label">Text</span>
+          <span class="metric-value" id="text-mj">-</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Detail</span>
+          <span class="metric-value" id="detail-mj">-</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Colors</span>
+          <span class="metric-value" id="color-mj">-</span>
+        </div>
+        <div class="rating">
+          <button onclick="rate('mj', 1)">1</button>
+          <button onclick="rate('mj', 2)">2</button>
+          <button onclick="rate('mj', 3)">3</button>
+          <button onclick="rate('mj', 4)">4</button>
+          <button onclick="rate('mj', 5)">5</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <h2>Notes</h2>
+    <textarea placeholder="Compare the outputs... Which model best handles text? Which has the richest colors for printing?"></textarea>
+  </div>
+
+  <script>
+    const ratings = {};
+
+    function rate(model, score) {
+      ratings[model] = score;
+      document.querySelectorAll(`.card:has(#img-${model}) .rating button`).forEach((btn, i) => {
+        btn.classList.toggle('selected', i + 1 <= score);
+      });
+      console.log('Ratings:', ratings);
+    }
+
+    // Auto-refresh images every 10 seconds until loaded
+    function checkImages() {
+      document.querySelectorAll('.card-image.loading img').forEach(img => {
+        img.src = img.src.split('?')[0] + '?t=' + Date.now();
+        img.style.display = '';
+        img.onerror = () => {
+          img.style.display = 'none';
+          img.parentElement.classList.add('loading');
+        };
+        img.onload = () => {
+          img.parentElement.classList.remove('loading');
+        };
+      });
+    }
+
+    setInterval(checkImages, 10000);
+  </script>
+</body>
+</html>

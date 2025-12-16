@@ -1,0 +1,20 @@
+{
+  "prompt": "Tarot card titled GROWTH with the word GROWTH in gold letters at the bottom, featuring a mystical tree with roots and branches forming an infinity symbol, ornate art nouveau border with Celtic knotwork, rich jewel tones, professional card game art, high detail",
+  "results": [
+    {
+      "name": "wan-2.5",
+      "file": "/Users/dereklomas/new/futures-deck/assets/test-models/wan-2.5.png",
+      "url": "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/0e08e0f2-0de7-4c3b-90ea-834e4ebe0b50/result_00.png"
+    },
+    {
+      "name": "nano-banana-pro",
+      "file": "/Users/dereklomas/new/futures-deck/assets/test-models/nano-banana-pro.png",
+      "url": "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/05b6ea39-7b8a-4af3-809c-dff11941e9f8/result_00.png"
+    },
+    {
+      "name": "midjourney",
+      "file": "/Users/dereklomas/new/futures-deck/assets/test-models/midjourney.png",
+      "url": "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/7377dd1e-7059-4ce6-a4b3-4527e8ca73bf/result_00.png"
+    }
+  ]
+}
