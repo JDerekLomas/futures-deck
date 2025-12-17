@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futures Deck - Card Template</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #1a1a1a;
+      padding: 40px;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+
+    h1 {
+      color: #c9a227;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .card {
+      width: 300px;
+      height: 420px;
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      background: linear-gradient(to top,
+        rgba(0,0,0,0.85) 0%,
+        rgba(0,0,0,0.6) 50%,
+        rgba(0,0,0,0) 100%
+      );
+    }
+
+    .card-category {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    /* Category-specific accent colors */
+    .card[data-category="wellbeing"] .card-category { color: #FFD93D; }
+    .card[data-category="arc"] .card-category { color: #a855f7; }
+    .card[data-category="terrain"] .card-category { color: #4ECDC4; }
+    .card[data-category="object"] .card-category { color: #FF8C42; }
+    .card[data-category="timeframe"] .card-category { color: #60a5fa; }
+    .card[data-category="modifier"] .card-category { color: #f87171; }
+
+    /* Print styles */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+    }
+
+    /* Alternate style: top banner */
+    .card.style-banner .card-overlay {
+      top: 0;
+      bottom: auto;
+      background: linear-gradient(to bottom,
+        rgba(0,0,0,0.85) 0%,
+        rgba(0,0,0,0.6) 50%,
+        rgba(0,0,0,0) 100%
+      );
+      padding: 16px 20px;
+    }
+
+    /* Alternate style: minimal */
+    .card.style-minimal .card-overlay {
+      background: rgba(0,0,0,0.75);
+      padding: 12px 16px;
+    }
+
+    .card.style-minimal .card-title {
+      font-size: 20px;
+    }
+
+    /* Alternate style: centered */
+    .card.style-centered .card-overlay {
+      top: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(to top,
+        rgba(0,0,0,0.9) 0%,
+        rgba(0,0,0,0.3) 40%,
+        rgba(0,0,0,0) 60%
+      );
+    }
+  </style>
+</head>
+<body>
+  <h1>Futures Deck - Card Templates</h1>
+
+  <div class="card-grid">
+    <!-- Autonomy -->
+    <div class="card" data-category="wellbeing">
+      <img class="card-image" src="assets/artdeco-engraving/autonomy.png" alt="Autonomy">
+      <div class="card-overlay">
+        <div class="card-category">Wellbeing</div>
+        <div class="card-title">Autonomy</div>
+      </div>
+    </div>
+
+    <!-- Impact -->
+    <div class="card" data-category="wellbeing">
+      <img class="card-image" src="assets/artdeco-engraving/impact.png" alt="Impact">
+      <div class="card-overlay">
+        <div class="card-category">Wellbeing</div>
+        <div class="card-title">Impact</div>
+      </div>
+    </div>
+
+    <!-- Relatedness -->
+    <div class="card" data-category="wellbeing">
+      <img class="card-image" src="assets/artdeco-engraving/relatedness.png" alt="Relatedness">
+      <div class="card-overlay">
+        <div class="card-category">Wellbeing</div>
+        <div class="card-title">Relatedness</div>
+      </div>
+    </div>
+
+    <!-- Stimulation -->
+    <div class="card" data-category="wellbeing">
+      <img class="card-image" src="assets/artdeco-engraving/stimulation.png" alt="Stimulation">
+      <div class="card-overlay">
+        <div class="card-category">Wellbeing</div>
+        <div class="card-title">Stimulation</div>
+      </div>
+    </div>
+  </div>
+
+  <h1 style="margin-top: 60px;">Style Variations</h1>
+
+  <div class="card-grid">
+    <!-- Banner style -->
+    <div class="card style-banner" data-category="wellbeing">
+      <img class="card-image" src="assets/artdeco-engraving/autonomy.png" alt="Autonomy">
+      <div class="card-overlay">
+        <div class="card-category">Wellbeing</div>
+        <div class="card-title">Autonomy</div>
+      </div>
+    </div>
+
+    <!-- Minimal style -->
+    <div class="card style-minimal" data-category="wellbeing">
+      <img class="card-image" src="assets/artdeco-engraving/impact.png" alt="Impact">
+      <div class="card-overlay">
+        <div class="card-category">Wellbeing</div>
+        <div class="card-title">Impact</div>
+      </div>
+    </div>
+
+    <!-- Centered style -->
+    <div class="card style-centered" data-category="wellbeing">
+      <img class="card-image" src="assets/artdeco-engraving/relatedness.png" alt="Relatedness">
+      <div class="card-overlay">
+        <div class="card-category">Wellbeing</div>
+        <div class="card-title">Relatedness</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

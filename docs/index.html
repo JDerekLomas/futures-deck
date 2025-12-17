@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futures Deck — Speculative Oracle</title>
+  <meta name="description" content="A card-based tool for exploring speculative futures. Lay out cards, photograph the spread, and let AI interpret possible futures.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Source+Sans+Pro:wght@300;400;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c9a227;
+      --dark: #0a0a12;
+      --light: #f8f6f0;
+      --text: #333;
+      --text-muted: #666;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: var(--dark);
+      color: #fff;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(48px, 10vw, 72px);
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    header p {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-style: italic;
+      color: rgba(255,255,255,0.7);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+    nav {
+      background: #1a1a1a;
+      padding: 16px 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    /* Main content */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    section {
+      margin-bottom: 80px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: var(--dark);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    h3 {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      margin: 32px 0 16px;
+      color: var(--dark);
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .lead {
+      font-size: 20px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    /* Steps */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 32px;
+      margin: 40px 0;
+    }
+
+    .step {
+      background: #fff;
+      padding: 32px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .step-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .step h4 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .step p {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Card grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 20px;
+      margin: 32px 0;
+    }
+
+    .card-preview {
+      text-align: center;
+    }
+
+    .card-preview img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      transition: transform 0.2s;
+    }
+
+    .card-preview img:hover {
+      transform: scale(1.05);
+    }
+
+    .card-preview span {
+      display: block;
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Categories */
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin: 32px 0;
+    }
+
+    .category {
+      padding: 24px;
+      border-radius: 8px;
+      color: #fff;
+    }
+
+    .category h4 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .category p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      margin: 0;
+    }
+
+    .category.arc { background: #a855f7; }
+    .category.terrain { background: #4ECDC4; }
+    .category.object { background: #FF8C42; }
+    .category.wellbeing { background: #e6b800; }
+    .category.timeframe { background: #60a5fa; }
+    .category.modifier { background: #f87171; }
+
+    /* Buttons */
+    .buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin: 32px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    .btn-primary:hover {
+      background: #d4b32a;
+    }
+
+    .btn-secondary {
+      background: var(--dark);
+      color: #fff;
+    }
+
+    .btn-secondary:hover {
+      background: #2a2a2a;
+    }
+
+    /* Code blocks */
+    .prompt-example {
+      background: var(--dark);
+      color: #fff;
+      padding: 24px;
+      border-radius: 8px;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 24px 0;
+      white-space: pre-wrap;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.6);
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: var(--gold);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header { padding: 60px 20px; }
+      main { padding: 40px 20px; }
+      nav a { margin: 0 12px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>FUTURES DECK</h1>
+    <p>A speculative oracle for exploring possible futures</p>
+  </header>
+
+  <nav>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#methodology">Methodology</a>
+    <a href="#cards">The Cards</a>
+    <a href="#download">Download</a>
+  </nav>
+
+  <main>
+
+    <section id="intro">
+      <p class="lead">
+        Futures Deck is a card-based foresight tool. Draw cards to create a "spread" representing a possible future,
+        photograph it, and use AI to interpret the combination into a vivid scenario.
+      </p>
+      <p>
+        Designed for workshops, strategic planning, and speculative design sessions. The deck helps teams
+        explore futures that might otherwise remain unimagined—surfacing assumptions, sparking conversations,
+        and making abstract possibilities concrete.
+      </p>
+    </section>
+
+    <section id="how-it-works">
+      <h2>How It Works</h2>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h4>Draw Cards</h4>
+          <p>Select cards from different categories to build a future scenario: an Arc (trajectory), Terrain (domain), Object (artifact), Wellbeing dimension, and Timeframe.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h4>Lay the Spread</h4>
+          <p>Arrange the cards on a table. Add a Prompt Card to guide the interpretation—"Describe this future" or "A day in the life."</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h4>Photograph</h4>
+          <p>Take a photo of your spread. Each card includes machine-readable text that helps AI understand its meaning.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h4>AI Interprets</h4>
+          <p>Share the photo with ChatGPT, Claude, or another AI. It reads the cards and weaves them into a coherent future scenario.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="methodology">
+      <h2>Methodology</h2>
+
+      <h3>The Oracle Pattern</h3>
+      <p>
+        Futures Deck adapts the structure of tarot and oracle cards for strategic foresight. Like tarot,
+        the cards don't predict—they provoke. Each draw creates a unique combination that forces
+        consideration of futures you might not have imagined on your own.
+      </p>
+
+      <h3>Combinatorial Exploration</h3>
+      <p>
+        With cards across multiple categories, the deck generates thousands of possible combinations.
+        A "Growth" arc in "Healthcare" with "Ritual" as key object and "Autonomy" as the wellbeing
+        dimension creates a very different future than "Collapse" in "Education" with "Device"
+        and "Security." The combinations surface non-obvious scenarios.
+      </p>
+
+      <h3>AI as Interpreter</h3>
+      <p>
+        Each card carries embedded context—not just a name, but semantic cues that help AI understand
+        its role in the spread. When you photograph a spread, the AI reads these cues and synthesizes
+        them into narrative. The AI doesn't replace human judgment; it accelerates the imaginative leap
+        from abstract combination to concrete scenario.
+      </p>
+
+      <h3>Example Prompt Flow</h3>
+      <div class="prompt-example">You: [Photo of spread showing: Growth (Arc), Healthcare (Terrain),
+Ritual (Object), Autonomy (Wellbeing), 5 Years (Timeframe),
++ "Describe This Future" prompt card]
+
+AI: In this 2029 healthcare landscape, growth has transformed medicine
+into a deeply personal ritual. Daily health check-ins have become
+meditative practices—morning biosensor readings paired with breathing
+exercises, evening supplement routines that families perform together...
+
+[AI continues with specific details, characters, tensions, and implications]</div>
+
+      <h3>Workshop Applications</h3>
+      <p>
+        <strong>Scenario Generation:</strong> Teams draw cards and generate multiple futures quickly,
+        then compare and discuss which feel most plausible, most concerning, most desirable.
+      </p>
+      <p>
+        <strong>Assumption Surfacing:</strong> When a combination feels "impossible," explore why.
+        What assumptions make it seem unlikely? Are those assumptions valid?
+      </p>
+      <p>
+        <strong>Strategy Stress-Testing:</strong> Draw a random future and ask: "How would our current
+        strategy perform in this world?" Repeat with different draws.
+      </p>
+
+      <h3>Design Principles</h3>
+      <p>
+        <strong>Evocative, not prescriptive:</strong> Card imagery triggers associations without
+        dictating specific interpretations. The same card means different things in different spreads.
+      </p>
+      <p>
+        <strong>Machine-readable:</strong> Each card includes text context so AI can interpret photos
+        accurately. The text explains the card's semantic role without repeating the visible title.
+      </p>
+      <p>
+        <strong>Print-ready:</strong> Cards are designed with proper bleed margins for professional
+        printing. Physical cards create shared artifacts that digital tools can't replicate.
+      </p>
+    </section>
+
+    <section id="cards">
+      <h2>The Cards</h2>
+
+      <div class="categories">
+        <div class="category arc">
+          <h4>Arc</h4>
+          <p>The trajectory—Growth, Collapse, Transformation, Discipline. Sets the overall direction.</p>
+        </div>
+        <div class="category terrain">
+          <h4>Terrain</h4>
+          <p>The domain—Healthcare, Education, Ocean, Commerce. Where this future plays out.</p>
+        </div>
+        <div class="category object">
+          <h4>Object</h4>
+          <p>The artifact—Ritual, Device, Vehicle. A tangible thing that matters in this future.</p>
+        </div>
+        <div class="category wellbeing">
+          <h4>Wellbeing</h4>
+          <p>Human needs—Autonomy, Impact, Security, Purpose. How this future affects people.</p>
+        </div>
+        <div class="category timeframe">
+          <h4>Timeframe</h4>
+          <p>The horizon—Now, 5 Years, 10 Years. When this future arrives.</p>
+        </div>
+        <div class="category modifier">
+          <h4>Modifier</h4>
+          <p>Pace changers—Breakthrough, Setback. Accelerates or delays the timeline.</p>
+        </div>
+      </div>
+
+      <h3>Sample Cards</h3>
+      <div class="card-grid">
+        <div class="card-preview">
+          <img src="cards/well-01-front.png" alt="Autonomy">
+          <span>Autonomy</span>
+        </div>
+        <div class="card-preview">
+          <img src="cards/arc-01-front.png" alt="Growth">
+          <span>Growth</span>
+        </div>
+        <div class="card-preview">
+          <img src="cards/terrain-01-front.png" alt="The Ocean">
+          <span>The Ocean</span>
+        </div>
+        <div class="card-preview">
+          <img src="cards/object-01-front.png" alt="Ritual">
+          <span>Ritual</span>
+        </div>
+        <div class="card-preview">
+          <img src="cards/well-05-front.png" alt="Security">
+          <span>Security</span>
+        </div>
+        <div class="card-preview">
+          <img src="cards/arc-02-front.png" alt="Collapse">
+          <span>Collapse</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="download">
+      <h2>Download & Print</h2>
+
+      <p>
+        The deck is available as print-ready files. For home printing, use the PDF with cut marks.
+        For professional printing services (MakePlayingCards, The Game Crafter), use the individual PNG files.
+      </p>
+
+      <div class="buttons">
+        <a href="print.html" class="btn btn-primary">Print Cards (HTML)</a>
+        <a href="cards/" class="btn btn-secondary">Individual PNGs (Pro Print)</a>
+      </div>
+
+      <h3>Print Specifications</h3>
+      <p>
+        <strong>Card size:</strong> 2.5" × 3.5" (poker size)<br>
+        <strong>With bleed:</strong> 2.75" × 3.75"<br>
+        <strong>Resolution:</strong> 300 DPI<br>
+        <strong>Format:</strong> PNG (individual cards), PDF (print sheets)
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      Futures Deck is open source.
+      <a href="https://github.com/JDerekLomas/futures-deck">View on GitHub</a>
+    </p>
+  </footer>
+
+</body>
+</html>

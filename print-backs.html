@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futures Deck - Card Backs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    @page {
+      size: letter;
+      margin: 0.5in;
+    }
+
+    body {
+      background: #fff;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+
+    .print-controls {
+      background: #2a2a2a;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .print-controls h1 {
+      font-family: 'Playfair Display', serif;
+      color: #c9a227;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    .print-controls p {
+      color: #888;
+      margin-bottom: 15px;
+    }
+
+    .print-controls button {
+      background: #c9a227;
+      color: #1a1a1a;
+      border: none;
+      padding: 12px 30px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .print-controls button:hover {
+      background: #d4ad2e;
+    }
+
+    .print-page {
+      width: 8.5in;
+      height: 11in;
+      margin: 20px auto;
+      padding: 0.5in;
+      background: #fff;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 0.15in;
+      height: 100%;
+    }
+
+    .card-back {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .card-back img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Print styles */
+    @media print {
+      .print-controls {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      .print-page {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        page-break-after: always;
+      }
+
+      .card-grid {
+        padding: 0.25in;
+      }
+
+      .card-back {
+        box-shadow: none;
+        border: 0.5px solid #ddd;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-controls">
+    <h1>Futures Deck - Card Backs</h1>
+    <p>Print this page on the reverse side of your card fronts. Align carefully for double-sided printing.</p>
+    <button onclick="window.print()">Print Backs</button>
+  </div>
+
+  <div class="print-page">
+    <div class="card-grid">
+      <div class="card-back"><img src="assets/artdeco-4x5/card-back.png" alt="Card Back"></div>
+      <div class="card-back"><img src="assets/artdeco-4x5/card-back.png" alt="Card Back"></div>
+      <div class="card-back"><img src="assets/artdeco-4x5/card-back.png" alt="Card Back"></div>
+      <div class="card-back"><img src="assets/artdeco-4x5/card-back.png" alt="Card Back"></div>
+      <div class="card-back"><img src="assets/artdeco-4x5/card-back.png" alt="Card Back"></div>
+      <div class="card-back"><img src="assets/artdeco-4x5/card-back.png" alt="Card Back"></div>
+      <div class="card-back"><img src="assets/artdeco-4x5/card-back.png" alt="Card Back"></div>
+      <div class="card-back"><img src="assets/artdeco-4x5/card-back.png" alt="Card Back"></div>
+      <div class="card-back"><img src="assets/artdeco-4x5/card-back.png" alt="Card Back"></div>
+    </div>
+  </div>
+
+</body>
+</html>

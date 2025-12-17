@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futures Deck - Print Edition</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* Card dimensions - poker size */
+      --card-width: 2.5in;
+      --card-height: 3.5in;
+      --cards-per-row: 3;
+      --cards-per-page: 9;
+      --cut-mark-length: 0.25in;
+      --cut-mark-offset: 0.125in;
+      --page-margin: 0.5in;
+    }
+
+    body {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      background: #f5f5f5;
+      color: #1a1a1a;
+    }
+
+    /* Screen styles */
+    @media screen {
+      .controls {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #1a1a1a;
+        color: white;
+        padding: 1rem 2rem;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        z-index: 100;
+        flex-wrap: wrap;
+      }
+
+      .controls h1 {
+        font-family: 'Cinzel', serif;
+        font-size: 1.2rem;
+        margin-right: auto;
+      }
+
+      .controls button {
+        background: #c9a227;
+        color: #1a1a1a;
+        border: none;
+        padding: 0.5rem 1rem;
+        font-family: inherit;
+        font-size: 0.9rem;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .controls button:hover {
+        background: #d4b342;
+      }
+
+      .controls label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .controls select {
+        padding: 0.4rem;
+        font-family: inherit;
+      }
+
+      .print-container {
+        padding-top: 80px;
+        padding-bottom: 2rem;
+      }
+
+      .page {
+        background: white;
+        margin: 1rem auto;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: relative;
+      }
+
+      .page-number {
+        position: absolute;
+        bottom: 0.25in;
+        right: 0.5in;
+        font-size: 10pt;
+        color: #999;
+      }
+    }
+
+    /* Print styles */
+    @media print {
+      .controls {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+      }
+
+      .print-container {
+        padding: 0;
+      }
+
+      .page {
+        page-break-after: always;
+        margin: 0;
+        box-shadow: none;
+      }
+
+      .page:last-child {
+        page-break-after: avoid;
+      }
+
+      .page-number {
+        display: none;
+      }
+    }
+
+    /* Page layout */
+    .page {
+      width: 8.5in;
+      height: 11in;
+      padding: var(--page-margin);
+      position: relative;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(var(--cards-per-row), var(--card-width));
+      grid-template-rows: repeat(3, var(--card-height));
+      gap: 0;
+      justify-content: center;
+      align-content: center;
+      height: 100%;
+    }
+
+    /* Card styles */
+    .card {
+      width: var(--card-width);
+      height: var(--card-height);
+      position: relative;
+      overflow: hidden;
+      background: #0a0908;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.9));
+      color: #c9a227;
+      padding: 0.5rem;
+      padding-top: 1.5rem;
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 11pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .card-type {
+      display: block;
+      font-size: 8pt;
+      font-weight: 400;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 2px;
+      letter-spacing: 0.15em;
+    }
+
+    /* Cut marks */
+    .cut-marks {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+    }
+
+    .cut-mark {
+      position: absolute;
+      background: #999;
+    }
+
+    .cut-mark.horizontal {
+      width: var(--cut-mark-length);
+      height: 0.5px;
+    }
+
+    .cut-mark.vertical {
+      width: 0.5px;
+      height: var(--cut-mark-length);
+    }
+
+    /* Category colors */
+    .card[data-type="arc"] .card-label { color: #9b59b6; }
+    .card[data-type="terrain"] .card-label { color: #4ECDC4; }
+    .card[data-type="object"] .card-label { color: #e67e22; }
+    .card[data-type="wellbeing"] .card-label { color: #FFD93D; }
+    .card[data-type="timeframe"] .card-label { color: #3498db; }
+    .card[data-type="modifier"] .card-label { color: #e74c3c; }
+
+    /* Back of card */
+    .card-back {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid #c9a227;
+    }
+
+    .card-back-design {
+      width: 80%;
+      height: 80%;
+      border: 2px solid #c9a227;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .card-back-design::before {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(201, 162, 39, 0.5);
+      border-radius: 4px;
+    }
+
+    .card-back-title {
+      font-family: 'Cinzel', serif;
+      color: #c9a227;
+      font-size: 14pt;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+
+    .card-back-title span {
+      display: block;
+      font-size: 10pt;
+      letter-spacing: 0.3em;
+      margin-top: 4px;
+      opacity: 0.8;
+    }
+
+    /* Stats bar */
+    .stats {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.85rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <h1>Futures Deck - Print Edition</h1>
+    <div class="stats">
+      <span id="card-count">0 cards</span>
+      <span id="page-count">0 pages</span>
+    </div>
+    <label>
+      Show:
+      <select id="category-filter">
+        <option value="all">All Cards</option>
+        <option value="arc">Arcs (4)</option>
+        <option value="terrain">Terrain (16)</option>
+        <option value="object">Objects (10)</option>
+        <option value="wellbeing">Wellbeing (13)</option>
+        <option value="timeframe">Timeframe (7)</option>
+        <option value="modifier">Modifiers (6)</option>
+      </select>
+    </label>
+    <label>
+      <input type="checkbox" id="show-backs" />
+      Include Card Backs
+    </label>
+    <label>
+      <input type="checkbox" id="show-labels" checked />
+      Show Labels
+    </label>
+    <label>
+      <input type="checkbox" id="show-cut-marks" checked />
+      Cut Marks
+    </label>
+    <button onclick="window.print()">Print Deck</button>
+  </div>
+
+  <div class="print-container" id="print-container">
+    <!-- Pages will be generated here -->
+  </div>
+
+  <script>
+    // Card data mapping to images
+    const cardData = {
+      arc: [
+        { id: 'arc-01', name: 'Growth', image: 'assets/tarot/arc-01.png' },
+        { id: 'arc-02', name: 'Collapse', image: 'assets/tarot/arc-02.png' },
+        { id: 'arc-03', name: 'Discipline', image: 'assets/tarot/arc-03.png' },
+        { id: 'arc-04', name: 'Transformation', image: 'assets/tarot/arc-04.png' }
+      ],
+      terrain: [
+        { id: 'terrain-01', name: 'Agriculture', image: 'assets/tarot/terrain-01.png' },
+        { id: 'terrain-02', name: 'Warfare', image: 'assets/tarot/terrain-02.png' },
+        { id: 'terrain-03', name: 'Healthcare', image: 'assets/tarot/terrain-03.png' },
+        { id: 'terrain-04', name: 'Education', image: 'assets/tarot/terrain-04.png' },
+        { id: 'terrain-05', name: 'The Ocean', image: 'assets/tarot/terrain-05.png' },
+        { id: 'terrain-06', name: 'Governance', image: 'assets/tarot/terrain-06.png' },
+        { id: 'terrain-07', name: 'Entertainment', image: 'assets/tarot/terrain-07.png' },
+        { id: 'terrain-08', name: 'Transport', image: 'assets/tarot/terrain-08.png' },
+        { id: 'terrain-09', name: 'Religion', image: 'assets/tarot/terrain-09.png' },
+        { id: 'terrain-10', name: 'Commerce', image: 'assets/tarot/terrain-10.png' },
+        { id: 'terrain-11', name: 'Startups', image: 'assets/tarot/terrain-11.png' },
+        { id: 'terrain-12', name: 'Arts & Culture', image: 'assets/tarot/terrain-12.png' },
+        { id: 'terrain-13', name: 'Energy', image: 'assets/tarot/terrain-13.png' },
+        { id: 'terrain-14', name: 'Housing', image: 'assets/tarot/terrain-14.png' },
+        { id: 'terrain-15', name: 'Labor', image: 'assets/tarot/terrain-15.png' },
+        { id: 'terrain-16', name: 'Climate', image: 'assets/tarot/terrain-16.png' }
+      ],
+      object: [
+        { id: 'object-01', name: 'Device', image: 'assets/tarot/object-01.png' },
+        { id: 'object-02', name: 'Law', image: 'assets/tarot/object-02.png' },
+        { id: 'object-03', name: 'Ritual', image: 'assets/tarot/object-03.png' },
+        { id: 'object-04', name: 'Beverage', image: 'assets/tarot/object-04.png' },
+        { id: 'object-05', name: 'Vehicle', image: 'assets/tarot/object-05.png' },
+        { id: 'object-06', name: 'Building', image: 'assets/tarot/object-06.png' },
+        { id: 'object-07', name: 'Garment', image: 'assets/tarot/object-07.png' },
+        { id: 'object-08', name: 'Game', image: 'assets/tarot/object-08.png' },
+        { id: 'object-09', name: 'Plant', image: 'assets/tarot/object-09.png' },
+        { id: 'object-10', name: 'Advertisement', image: 'assets/tarot/object-10.png' }
+      ],
+      wellbeing: [
+        { id: 'well-01', name: 'Autonomy', image: 'assets/tarot/well-01.png' },
+        { id: 'well-02', name: 'Beauty', image: 'assets/tarot/well-02.png' },
+        { id: 'well-03', name: 'Comfort', image: 'assets/tarot/well-03.png' },
+        { id: 'well-04', name: 'Community', image: 'assets/tarot/well-04.png' },
+        { id: 'well-05', name: 'Competence', image: 'assets/tarot/well-05.png' },
+        { id: 'well-06', name: 'Fitness', image: 'assets/tarot/well-06.png' },
+        { id: 'well-07', name: 'Impact', image: 'assets/tarot/well-07.png' },
+        { id: 'well-08', name: 'Morality', image: 'assets/tarot/well-08.png' },
+        { id: 'well-09', name: 'Purpose', image: 'assets/tarot/well-09.png' },
+        { id: 'well-10', name: 'Recognition', image: 'assets/tarot/well-10.png' },
+        { id: 'well-11', name: 'Relatedness', image: 'assets/tarot/well-11.png' },
+        { id: 'well-12', name: 'Security', image: 'assets/tarot/well-12.png' },
+        { id: 'well-13', name: 'Stimulation', image: 'assets/tarot/well-13.png' }
+      ],
+      timeframe: [
+        { id: 'time-01', name: 'Now', image: 'assets/tarot/time-01.png' },
+        { id: 'time-02', name: '6 Months', image: 'assets/tarot/time-02.png' },
+        { id: 'time-03', name: '1 Year', image: 'assets/tarot/time-03.png' },
+        { id: 'time-04', name: '2 Years', image: 'assets/tarot/time-04.png' },
+        { id: 'time-05', name: '5 Years', image: 'assets/tarot/time-05.png' },
+        { id: 'time-06', name: '10 Years', image: 'assets/tarot/time-06.png' },
+        { id: 'time-07', name: '20 Years', image: 'assets/tarot/time-07.png' }
+      ],
+      modifier: [
+        { id: 'mod-01', name: 'Major Breakthrough', image: 'assets/tarot/mod-01.png' },
+        { id: 'mod-02', name: 'Accelerated Funding', image: 'assets/tarot/mod-02.png' },
+        { id: 'mod-03', name: 'Steady Progress', image: 'assets/tarot/mod-03.png' },
+        { id: 'mod-04', name: 'Technical Setback', image: 'assets/tarot/mod-04.png' },
+        { id: 'mod-05', name: 'Funding Collapse', image: 'assets/tarot/mod-05.png' },
+        { id: 'mod-06', name: 'Regulatory Delay', image: 'assets/tarot/mod-06.png' }
+      ]
+    };
+
+    const typeLabels = {
+      arc: 'Arc',
+      terrain: 'Terrain',
+      object: 'Object',
+      wellbeing: 'Wellbeing',
+      timeframe: 'Timeframe',
+      modifier: 'Modifier'
+    };
+
+    const CARDS_PER_PAGE = 9;
+
+    function createCardElement(card, type, showLabel) {
+      const div = document.createElement('div');
+      div.className = 'card';
+      div.dataset.type = type;
+
+      div.innerHTML = `
+        <img src="${card.image}" alt="${card.name}" loading="lazy" />
+        ${showLabel ? `
+          <div class="card-label">
+            <span class="card-type">${typeLabels[type]}</span>
+            ${card.name}
+          </div>
+        ` : ''}
+      `;
+
+      return div;
+    }
+
+    function createCardBack() {
+      const div = document.createElement('div');
+      div.className = 'card card-back';
+      div.innerHTML = `
+        <div class="card-back-design">
+          <div class="card-back-title">
+            Futures<span>Deck</span>
+          </div>
+        </div>
+      `;
+      return div;
+    }
+
+    function createCutMarks() {
+      const container = document.createElement('div');
+      container.className = 'cut-marks';
+
+      // Card dimensions in the grid
+      const cardWidth = 2.5; // inches
+      const cardHeight = 3.5; // inches
+      const pageMargin = 0.5; // inches
+      const markLength = 0.25; // inches
+      const markOffset = 0.125; // inches
+
+      // Calculate grid start position (centered on 8.5" page)
+      const gridWidth = cardWidth * 3;
+      const gridHeight = cardHeight * 3;
+      const startX = (8.5 - gridWidth) / 2;
+      const startY = (11 - gridHeight) / 2;
+
+      // Generate cut marks at card corners
+      for (let row = 0; row <= 3; row++) {
+        for (let col = 0; col <= 3; col++) {
+          const x = startX + (col * cardWidth);
+          const y = startY + (row * cardHeight);
+
+          // Top-left marks
+          if (col > 0 || row > 0) {
+            // Horizontal mark (left of intersection)
+            container.innerHTML += `
+              <div class="cut-mark horizontal" style="left: ${x - markLength - markOffset}in; top: ${y}in;"></div>
+            `;
+            // Vertical mark (above intersection)
+            container.innerHTML += `
+              <div class="cut-mark vertical" style="left: ${x}in; top: ${y - markLength - markOffset}in;"></div>
+            `;
+          }
+
+          // Top-right marks
+          if (col < 3 || row > 0) {
+            // Horizontal mark (right of intersection)
+            container.innerHTML += `
+              <div class="cut-mark horizontal" style="left: ${x + markOffset}in; top: ${y}in;"></div>
+            `;
+          }
+
+          // Bottom-left marks
+          if (col > 0 || row < 3) {
+            // Vertical mark (below intersection)
+            container.innerHTML += `
+              <div class="cut-mark vertical" style="left: ${x}in; top: ${y + markOffset}in;"></div>
+            `;
+          }
+        }
+      }
+
+      return container;
+    }
+
+    function createPage(cards, pageNum, showCutMarks, showLabel) {
+      const page = document.createElement('div');
+      page.className = 'page';
+
+      const grid = document.createElement('div');
+      grid.className = 'card-grid';
+
+      cards.forEach(({ card, type }) => {
+        if (card === 'back') {
+          grid.appendChild(createCardBack());
+        } else {
+          grid.appendChild(createCardElement(card, type, showLabel));
+        }
+      });
+
+      // Fill empty slots if needed
+      while (grid.children.length < CARDS_PER_PAGE) {
+        const empty = document.createElement('div');
+        empty.className = 'card';
+        empty.style.visibility = 'hidden';
+        grid.appendChild(empty);
+      }
+
+      page.appendChild(grid);
+
+      if (showCutMarks) {
+        page.appendChild(createCutMarks());
+      }
+
+      const pageNumber = document.createElement('div');
+      pageNumber.className = 'page-number';
+      pageNumber.textContent = `Page ${pageNum}`;
+      page.appendChild(pageNumber);
+
+      return page;
+    }
+
+    function renderDeck() {
+      const container = document.getElementById('print-container');
+      const filter = document.getElementById('category-filter').value;
+      const showBacks = document.getElementById('show-backs').checked;
+      const showLabels = document.getElementById('show-labels').checked;
+      const showCutMarks = document.getElementById('show-cut-marks').checked;
+
+      container.innerHTML = '';
+
+      // Collect cards based on filter
+      let allCards = [];
+
+      if (filter === 'all') {
+        Object.entries(cardData).forEach(([type, cards]) => {
+          cards.forEach(card => allCards.push({ card, type }));
+        });
+      } else {
+        cardData[filter].forEach(card => allCards.push({ card, type: filter }));
+      }
+
+      // Update stats
+      document.getElementById('card-count').textContent = `${allCards.length} cards`;
+
+      // Create pages for fronts
+      let pageNum = 1;
+      for (let i = 0; i < allCards.length; i += CARDS_PER_PAGE) {
+        const pageCards = allCards.slice(i, i + CARDS_PER_PAGE);
+        container.appendChild(createPage(pageCards, pageNum, showCutMarks, showLabels));
+        pageNum++;
+      }
+
+      // Create pages for backs if requested
+      if (showBacks) {
+        const backCards = Array(CARDS_PER_PAGE).fill({ card: 'back', type: 'back' });
+        const backPagesNeeded = Math.ceil(allCards.length / CARDS_PER_PAGE);
+
+        for (let i = 0; i < backPagesNeeded; i++) {
+          container.appendChild(createPage(backCards, pageNum, showCutMarks, false));
+          pageNum++;
+        }
+      }
+
+      document.getElementById('page-count').textContent = `${pageNum - 1} pages`;
+    }
+
+    // Event listeners
+    document.getElementById('category-filter').addEventListener('change', renderDeck);
+    document.getElementById('show-backs').addEventListener('change', renderDeck);
+    document.getElementById('show-labels').addEventListener('change', renderDeck);
+    document.getElementById('show-cut-marks').addEventListener('change', renderDeck);
+
+    // Initial render
+    renderDeck();
+  </script>
+</body>
+</html>

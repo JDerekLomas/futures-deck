@@ -1,0 +1,3768 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Futures Deck - AI Readable</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Source+Sans+Pro:wght@400;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    @page { size: letter; margin: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #444; font-family: 'Source Sans Pro', sans-serif; }
+    .card { position: relative; overflow: hidden; }
+
+    /* Cut marks */
+    .cut-mark {
+      position: absolute;
+      background: #000;
+      z-index: 100;
+    }
+    .cut-v {
+      width: 1px;
+      height: 0.15in;
+    }
+    .cut-h {
+      width: 0.15in;
+      height: 1px;
+    }
+
+    @media screen {
+      .page { margin: 20px auto; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+      .info {
+        max-width: 8.5in;
+        margin: 20px auto;
+        padding: 16px 20px;
+        background: #222;
+        color: #fff;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .info h1 { font-size: 16px; color: #c9a227; }
+      .info p { font-size: 12px; color: #888; margin-top: 4px; }
+      .info button {
+        background: #c9a227;
+        color: #000;
+        border: none;
+        padding: 10px 20px;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+    }
+
+    @media print {
+      body { background: white; }
+      .info { display: none; }
+      .page:last-child { page-break-after: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="info">
+    <div>
+      <h1>Futures Deck - AI Readable Cards</h1>
+      <p>18 vision cards + 4 prompt cards | With bleed for professional printing</p>
+    </div>
+    <button onclick="window.print()">Print</button>
+  </div>
+
+  
+    <!-- Page 1: Fronts -->
+    
+    <div class="page" style="
+      width: 8.5in;
+      height: 11in;
+      padding: 0.25in;
+      display: grid;
+      grid-template-columns: repeat(3, 2.75in);
+      grid-template-rows: repeat(3, 3.75in);
+      gap: 0.05in;
+      justify-content: center;
+      align-content: center;
+      page-break-after: always;
+      background: white;
+      position: relative;
+    ">
+      
+    <div class="card" style="width: 2.75in; height: 3.75in;">
+      <div class="card-content" style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #1a1a1a;
+        border-radius: 0.12in;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      ">
+        <div class="artwork" style="flex: 1; overflow: hidden;">
+          <img src="file:///Users/dereklomas/new/futures-deck/assets/deck-artwork/well-01.png" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="text-panel" style="
+          background: #1a1a1a;
+          padding: 0.08in 0.12in;
+          border-top: 1px solid #333;
+        ">
+          <div style="font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #FFD93D; margin-bottom: 2px;">
+            Wellbeing
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 16px; color: #fff;">
+            Autonomy
+          </div>
+        </div>
+        <div class="ai-prompt" style="
+          background: #fff;
+          padding: 0.06in 0.1in;
+          font-size: 6.5px;
+          line-height: 1.45;
+          color: #222;
+          font-family: 'Source Sans Pro', sans-serif;
+        ">
+          Independence, self-direction, freedom to choose. Control over decisions, personal agency, opt-out power.
+        </div>
+      </div>
+      <!-- Bleed extension - white at bottom for prompt area -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0.4in; background: #1a1a1a; z-index: -1;"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 0.4in; background: #fff; z-index: -1;"></div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in;">
+      <div class="card-content" style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #1a1a1a;
+        border-radius: 0.12in;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      ">
+        <div class="artwork" style="flex: 1; overflow: hidden;">
+          <img src="file:///Users/dereklomas/new/futures-deck/assets/deck-artwork/well-02.png" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="text-panel" style="
+          background: #1a1a1a;
+          padding: 0.08in 0.12in;
+          border-top: 1px solid #333;
+        ">
+          <div style="font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #FFD93D; margin-bottom: 2px;">
+            Wellbeing
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 16px; color: #fff;">
+            Impact
+          </div>
+        </div>
+        <div class="ai-prompt" style="
+          background: #fff;
+          padding: 0.06in 0.1in;
+          font-size: 6.5px;
+          line-height: 1.45;
+          color: #222;
+          font-family: 'Source Sans Pro', sans-serif;
+        ">
+          Making a difference, influence on outcomes. Leaving marks, changing systems, mattering to others.
+        </div>
+      </div>
+      <!-- Bleed extension - white at bottom for prompt area -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0.4in; background: #1a1a1a; z-index: -1;"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 0.4in; background: #fff; z-index: -1;"></div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in;">
+      <div class="card-content" style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #1a1a1a;
+        border-radius: 0.12in;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      ">
+        <div class="artwork" style="flex: 1; overflow: hidden;">
+          <img src="file:///Users/dereklomas/new/futures-deck/assets/deck-artwork/well-03.png" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="text-panel" style="
+          background: #1a1a1a;
+          padding: 0.08in 0.12in;
+          border-top: 1px solid #333;
+        ">
+          <div style="font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #FFD93D; margin-bottom: 2px;">
+            Wellbeing
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 16px; color: #fff;">
+            Relatedness
+          </div>
+        </div>
+        <div class="ai-prompt" style="
+          background: #fff;
+          padding: 0.06in 0.1in;
+          font-size: 6.5px;
+          line-height: 1.45;
+          color: #222;
+          font-family: 'Source Sans Pro', sans-serif;
+        ">
+          Close bonds, intimacy, caring relationships. Connection, belonging, being known and loved.
+        </div>
+      </div>
+      <!-- Bleed extension - white at bottom for prompt area -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0.4in; background: #1a1a1a; z-index: -1;"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 0.4in; background: #fff; z-index: -1;"></div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in;">
+      <div class="card-content" style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #1a1a1a;
+        border-radius: 0.12in;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      ">
+        <div class="artwork" style="flex: 1; overflow: hidden;">
+          <img src="file:///Users/dereklomas/new/futures-deck/assets/deck-artwork/well-04.png" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="text-panel" style="
+          background: #1a1a1a;
+          padding: 0.08in 0.12in;
+          border-top: 1px solid #333;
+        ">
+          <div style="font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #FFD93D; margin-bottom: 2px;">
+            Wellbeing
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 16px; color: #fff;">
+            Stimulation
+          </div>
+        </div>
+        <div class="ai-prompt" style="
+          background: #fff;
+          padding: 0.06in 0.1in;
+          font-size: 6.5px;
+          line-height: 1.45;
+          color: #222;
+          font-family: 'Source Sans Pro', sans-serif;
+        ">
+          Novelty, excitement, new experiences. Variety, adventure, escape from monotony, engaged attention.
+        </div>
+      </div>
+      <!-- Bleed extension - white at bottom for prompt area -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0.4in; background: #1a1a1a; z-index: -1;"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 0.4in; background: #fff; z-index: -1;"></div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in;">
+      <div class="card-content" style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #1a1a1a;
+        border-radius: 0.12in;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      ">
+        <div class="artwork" style="flex: 1; overflow: hidden;">
+          <img src="file:///Users/dereklomas/new/futures-deck/assets/deck-artwork/arc-01.png" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="text-panel" style="
+          background: #1a1a1a;
+          padding: 0.08in 0.12in;
+          border-top: 1px solid #333;
+        ">
+          <div style="font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #a855f7; margin-bottom: 2px;">
+            Arc
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 16px; color: #fff;">
+            Growth
+          </div>
+        </div>
+        <div class="ai-prompt" style="
+          background: #fff;
+          padding: 0.06in 0.1in;
+          font-size: 6.5px;
+          line-height: 1.45;
+          color: #222;
+          font-family: 'Source Sans Pro', sans-serif;
+        ">
+          Trajectory of expansion. More, faster, bigger. Progress continues. Development climbs upward.
+        </div>
+      </div>
+      <!-- Bleed extension - white at bottom for prompt area -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0.4in; background: #1a1a1a; z-index: -1;"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 0.4in; background: #fff; z-index: -1;"></div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in;">
+      <div class="card-content" style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #1a1a1a;
+        border-radius: 0.12in;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      ">
+        <div class="artwork" style="flex: 1; overflow: hidden;">
+          <img src="file:///Users/dereklomas/new/futures-deck/assets/deck-artwork/terrain-01.png" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="text-panel" style="
+          background: #1a1a1a;
+          padding: 0.08in 0.12in;
+          border-top: 1px solid #333;
+        ">
+          <div style="font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #4ECDC4; margin-bottom: 2px;">
+            Terrain
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 16px; color: #fff;">
+            The Ocean
+          </div>
+        </div>
+        <div class="ai-prompt" style="
+          background: #fff;
+          padding: 0.06in 0.1in;
+          font-size: 6.5px;
+          line-height: 1.45;
+          color: #222;
+          font-family: 'Source Sans Pro', sans-serif;
+        ">
+          Domain: seas and waters. Shipping, aquaculture, underwater habitats, marine resources, coastal life.
+        </div>
+      </div>
+      <!-- Bleed extension - white at bottom for prompt area -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0.4in; background: #1a1a1a; z-index: -1;"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 0.4in; background: #fff; z-index: -1;"></div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in;">
+      <div class="card-content" style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #1a1a1a;
+        border-radius: 0.12in;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      ">
+        <div class="artwork" style="flex: 1; overflow: hidden;">
+          <img src="file:///Users/dereklomas/new/futures-deck/assets/deck-artwork/object-01.png" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="text-panel" style="
+          background: #1a1a1a;
+          padding: 0.08in 0.12in;
+          border-top: 1px solid #333;
+        ">
+          <div style="font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #FF8C42; margin-bottom: 2px;">
+            Object
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 16px; color: #fff;">
+            Ritual
+          </div>
+        </div>
+        <div class="ai-prompt" style="
+          background: #fff;
+          padding: 0.06in 0.1in;
+          font-size: 6.5px;
+          line-height: 1.45;
+          color: #222;
+          font-family: 'Source Sans Pro', sans-serif;
+        ">
+          Artifact: ceremonies, traditions, repeated meaningful acts. Rites of passage, daily routines, sacred moments.
+        </div>
+      </div>
+      <!-- Bleed extension - white at bottom for prompt area -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0.4in; background: #1a1a1a; z-index: -1;"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 0.4in; background: #fff; z-index: -1;"></div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in;">
+      <div class="card-content" style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #1a1a1a;
+        border-radius: 0.12in;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      ">
+        <div class="artwork" style="flex: 1; overflow: hidden;">
+          <img src="file:///Users/dereklomas/new/futures-deck/assets/deck-artwork/time-01.png" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="text-panel" style="
+          background: #1a1a1a;
+          padding: 0.08in 0.12in;
+          border-top: 1px solid #333;
+        ">
+          <div style="font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #60a5fa; margin-bottom: 2px;">
+            Timeframe
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 16px; color: #fff;">
+            5 Years
+          </div>
+        </div>
+        <div class="ai-prompt" style="
+          background: #fff;
+          padding: 0.06in 0.1in;
+          font-size: 6.5px;
+          line-height: 1.45;
+          color: #222;
+          font-family: 'Source Sans Pro', sans-serif;
+        ">
+          Horizon: medium-term. Recognizable but shifted. Current trends matured. Plans become reality.
+        </div>
+      </div>
+      <!-- Bleed extension - white at bottom for prompt area -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0.4in; background: #1a1a1a; z-index: -1;"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 0.4in; background: #fff; z-index: -1;"></div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in;">
+      <div class="card-content" style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #1a1a1a;
+        border-radius: 0.12in;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      ">
+        <div class="artwork" style="flex: 1; overflow: hidden;">
+          <img src="file:///Users/dereklomas/new/futures-deck/assets/deck-artwork/mod-01.png" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="text-panel" style="
+          background: #1a1a1a;
+          padding: 0.08in 0.12in;
+          border-top: 1px solid #333;
+        ">
+          <div style="font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #f87171; margin-bottom: 2px;">
+            Modifier
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 16px; color: #fff;">
+            Breakthrough
+          </div>
+        </div>
+        <div class="ai-prompt" style="
+          background: #fff;
+          padding: 0.06in 0.1in;
+          font-size: 6.5px;
+          line-height: 1.45;
+          color: #222;
+          font-family: 'Source Sans Pro', sans-serif;
+        ">
+          Pace modifier: acceleration. Unexpected leap, barrier broken, eureka moment. Timeline compressed.
+        </div>
+      </div>
+      <!-- Bleed extension - white at bottom for prompt area -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0.4in; background: #1a1a1a; z-index: -1;"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 0.4in; background: #fff; z-index: -1;"></div>
+    </div>
+      <div class="cut-mark cut-v" style="left: 2.825in; top: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 2.825in; bottom: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 5.625in; top: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 5.625in; bottom: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 8.424999999999997in; top: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 8.424999999999997in; bottom: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 3.575in; left: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 3.575in; right: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 7.375in; left: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 7.375in; right: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 11.174999999999997in; left: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 11.174999999999997in; right: 0.1in;"></div>
+    </div>
+    <!-- Page 2: Backs -->
+    
+    <div class="page" style="
+      width: 8.5in;
+      height: 11in;
+      padding: 0.25in;
+      display: grid;
+      grid-template-columns: repeat(3, 2.75in);
+      grid-template-rows: repeat(3, 3.75in);
+      gap: 0.05in;
+      justify-content: center;
+      align-content: center;
+      page-break-after: always;
+      background: white;
+      position: relative;
+    ">
+      
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+      <div class="cut-mark cut-v" style="left: 2.825in; top: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 2.825in; bottom: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 5.625in; top: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 5.625in; bottom: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 8.424999999999997in; top: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 8.424999999999997in; bottom: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 3.575in; left: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 3.575in; right: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 7.375in; left: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 7.375in; right: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 11.174999999999997in; left: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 11.174999999999997in; right: 0.1in;"></div>
+    </div>
+  
+
+    <!-- Page 3: Fronts -->
+    
+    <div class="page" style="
+      width: 8.5in;
+      height: 11in;
+      padding: 0.25in;
+      display: grid;
+      grid-template-columns: repeat(3, 2.75in);
+      grid-template-rows: repeat(3, 3.75in);
+      gap: 0.05in;
+      justify-content: center;
+      align-content: center;
+      page-break-after: always;
+      background: white;
+      position: relative;
+    ">
+      
+    <div class="card" style="width: 2.75in; height: 3.75in;">
+      <div class="card-content" style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #1a1a1a;
+        border-radius: 0.12in;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      ">
+        <div class="artwork" style="flex: 1; overflow: hidden;">
+          <img src="file:///Users/dereklomas/new/futures-deck/assets/deck-artwork/well-05.png" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="text-panel" style="
+          background: #1a1a1a;
+          padding: 0.08in 0.12in;
+          border-top: 1px solid #333;
+        ">
+          <div style="font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #FFD93D; margin-bottom: 2px;">
+            Wellbeing
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 16px; color: #fff;">
+            Security
+          </div>
+        </div>
+        <div class="ai-prompt" style="
+          background: #fff;
+          padding: 0.06in 0.1in;
+          font-size: 6.5px;
+          line-height: 1.45;
+          color: #222;
+          font-family: 'Source Sans Pro', sans-serif;
+        ">
+          Safety, stability, predictability. Protection from threats, reliable foundations, peace of mind.
+        </div>
+      </div>
+      <!-- Bleed extension - white at bottom for prompt area -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0.4in; background: #1a1a1a; z-index: -1;"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 0.4in; background: #fff; z-index: -1;"></div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in;">
+      <div class="card-content" style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #1a1a1a;
+        border-radius: 0.12in;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      ">
+        <div class="artwork" style="flex: 1; overflow: hidden;">
+          <img src="file:///Users/dereklomas/new/futures-deck/assets/deck-artwork/well-06.png" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="text-panel" style="
+          background: #1a1a1a;
+          padding: 0.08in 0.12in;
+          border-top: 1px solid #333;
+        ">
+          <div style="font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #FFD93D; margin-bottom: 2px;">
+            Wellbeing
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 16px; color: #fff;">
+            Purpose
+          </div>
+        </div>
+        <div class="ai-prompt" style="
+          background: #fff;
+          padding: 0.06in 0.1in;
+          font-size: 6.5px;
+          line-height: 1.45;
+          color: #222;
+          font-family: 'Source Sans Pro', sans-serif;
+        ">
+          Meaning, direction, goals worth pursuing. Life pointing somewhere, efforts adding up, mission clarity.
+        </div>
+      </div>
+      <!-- Bleed extension - white at bottom for prompt area -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0.4in; background: #1a1a1a; z-index: -1;"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 0.4in; background: #fff; z-index: -1;"></div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in;">
+      <div class="card-content" style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #1a1a1a;
+        border-radius: 0.12in;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      ">
+        <div class="artwork" style="flex: 1; overflow: hidden;">
+          <img src="file:///Users/dereklomas/new/futures-deck/assets/deck-artwork/well-07.png" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="text-panel" style="
+          background: #1a1a1a;
+          padding: 0.08in 0.12in;
+          border-top: 1px solid #333;
+        ">
+          <div style="font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #FFD93D; margin-bottom: 2px;">
+            Wellbeing
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 16px; color: #fff;">
+            Competence
+          </div>
+        </div>
+        <div class="ai-prompt" style="
+          background: #fff;
+          padding: 0.06in 0.1in;
+          font-size: 6.5px;
+          line-height: 1.45;
+          color: #222;
+          font-family: 'Source Sans Pro', sans-serif;
+        ">
+          Mastery, skill, effectiveness. Knowing how, solving problems, capability growing through practice.
+        </div>
+      </div>
+      <!-- Bleed extension - white at bottom for prompt area -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0.4in; background: #1a1a1a; z-index: -1;"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 0.4in; background: #fff; z-index: -1;"></div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in;">
+      <div class="card-content" style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #1a1a1a;
+        border-radius: 0.12in;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      ">
+        <div class="artwork" style="flex: 1; overflow: hidden;">
+          <img src="file:///Users/dereklomas/new/futures-deck/assets/deck-artwork/well-08.png" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="text-panel" style="
+          background: #1a1a1a;
+          padding: 0.08in 0.12in;
+          border-top: 1px solid #333;
+        ">
+          <div style="font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #FFD93D; margin-bottom: 2px;">
+            Wellbeing
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 16px; color: #fff;">
+            Community
+          </div>
+        </div>
+        <div class="ai-prompt" style="
+          background: #fff;
+          padding: 0.06in 0.1in;
+          font-size: 6.5px;
+          line-height: 1.45;
+          color: #222;
+          font-family: 'Source Sans Pro', sans-serif;
+        ">
+          Group belonging, shared identity. Tribes, teams, movements. Part of something larger than self.
+        </div>
+      </div>
+      <!-- Bleed extension - white at bottom for prompt area -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0.4in; background: #1a1a1a; z-index: -1;"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 0.4in; background: #fff; z-index: -1;"></div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in;">
+      <div class="card-content" style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #1a1a1a;
+        border-radius: 0.12in;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      ">
+        <div class="artwork" style="flex: 1; overflow: hidden;">
+          <img src="file:///Users/dereklomas/new/futures-deck/assets/deck-artwork/arc-02.png" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="text-panel" style="
+          background: #1a1a1a;
+          padding: 0.08in 0.12in;
+          border-top: 1px solid #333;
+        ">
+          <div style="font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #a855f7; margin-bottom: 2px;">
+            Arc
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 16px; color: #fff;">
+            Collapse
+          </div>
+        </div>
+        <div class="ai-prompt" style="
+          background: #fff;
+          padding: 0.06in 0.1in;
+          font-size: 6.5px;
+          line-height: 1.45;
+          color: #222;
+          font-family: 'Source Sans Pro', sans-serif;
+        ">
+          Trajectory of decline. Systems failing, order fragmenting. Entropy wins, structures crumble.
+        </div>
+      </div>
+      <!-- Bleed extension - white at bottom for prompt area -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0.4in; background: #1a1a1a; z-index: -1;"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 0.4in; background: #fff; z-index: -1;"></div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in;">
+      <div class="card-content" style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #1a1a1a;
+        border-radius: 0.12in;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      ">
+        <div class="artwork" style="flex: 1; overflow: hidden;">
+          <img src="file:///Users/dereklomas/new/futures-deck/assets/deck-artwork/arc-03.png" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="text-panel" style="
+          background: #1a1a1a;
+          padding: 0.08in 0.12in;
+          border-top: 1px solid #333;
+        ">
+          <div style="font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #a855f7; margin-bottom: 2px;">
+            Arc
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 16px; color: #fff;">
+            Transformation
+          </div>
+        </div>
+        <div class="ai-prompt" style="
+          background: #fff;
+          padding: 0.06in 0.1in;
+          font-size: 6.5px;
+          line-height: 1.45;
+          color: #222;
+          font-family: 'Source Sans Pro', sans-serif;
+        ">
+          Trajectory of metamorphosis. Fundamental change, unrecognizable from before. New paradigm emerges.
+        </div>
+      </div>
+      <!-- Bleed extension - white at bottom for prompt area -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0.4in; background: #1a1a1a; z-index: -1;"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 0.4in; background: #fff; z-index: -1;"></div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in;">
+      <div class="card-content" style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #1a1a1a;
+        border-radius: 0.12in;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      ">
+        <div class="artwork" style="flex: 1; overflow: hidden;">
+          <img src="file:///Users/dereklomas/new/futures-deck/assets/deck-artwork/terrain-02.png" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="text-panel" style="
+          background: #1a1a1a;
+          padding: 0.08in 0.12in;
+          border-top: 1px solid #333;
+        ">
+          <div style="font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #4ECDC4; margin-bottom: 2px;">
+            Terrain
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 16px; color: #fff;">
+            Healthcare
+          </div>
+        </div>
+        <div class="ai-prompt" style="
+          background: #fff;
+          padding: 0.06in 0.1in;
+          font-size: 6.5px;
+          line-height: 1.45;
+          color: #222;
+          font-family: 'Source Sans Pro', sans-serif;
+        ">
+          Domain: medicine, bodies, minds. Hospitals, treatments, longevity, mental health, biotech.
+        </div>
+      </div>
+      <!-- Bleed extension - white at bottom for prompt area -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0.4in; background: #1a1a1a; z-index: -1;"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 0.4in; background: #fff; z-index: -1;"></div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in;">
+      <div class="card-content" style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #1a1a1a;
+        border-radius: 0.12in;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      ">
+        <div class="artwork" style="flex: 1; overflow: hidden;">
+          <img src="file:///Users/dereklomas/new/futures-deck/assets/deck-artwork/terrain-03.png" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="text-panel" style="
+          background: #1a1a1a;
+          padding: 0.08in 0.12in;
+          border-top: 1px solid #333;
+        ">
+          <div style="font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #4ECDC4; margin-bottom: 2px;">
+            Terrain
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 16px; color: #fff;">
+            Education
+          </div>
+        </div>
+        <div class="ai-prompt" style="
+          background: #fff;
+          padding: 0.06in 0.1in;
+          font-size: 6.5px;
+          line-height: 1.45;
+          color: #222;
+          font-family: 'Source Sans Pro', sans-serif;
+        ">
+          Domain: learning, knowledge transfer. Schools, skills, credentials, wisdom passed between generations.
+        </div>
+      </div>
+      <!-- Bleed extension - white at bottom for prompt area -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0.4in; background: #1a1a1a; z-index: -1;"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 0.4in; background: #fff; z-index: -1;"></div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in;">
+      <div class="card-content" style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #1a1a1a;
+        border-radius: 0.12in;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      ">
+        <div class="artwork" style="flex: 1; overflow: hidden;">
+          <img src="file:///Users/dereklomas/new/futures-deck/assets/deck-artwork/object-02.png" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="text-panel" style="
+          background: #1a1a1a;
+          padding: 0.08in 0.12in;
+          border-top: 1px solid #333;
+        ">
+          <div style="font-size: 7px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #FF8C42; margin-bottom: 2px;">
+            Object
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 16px; color: #fff;">
+            Device
+          </div>
+        </div>
+        <div class="ai-prompt" style="
+          background: #fff;
+          padding: 0.06in 0.1in;
+          font-size: 6.5px;
+          line-height: 1.45;
+          color: #222;
+          font-family: 'Source Sans Pro', sans-serif;
+        ">
+          Artifact: technology in hand. Phones, wearables, implants, tools that extend human capability.
+        </div>
+      </div>
+      <!-- Bleed extension - white at bottom for prompt area -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0.4in; background: #1a1a1a; z-index: -1;"></div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 0.4in; background: #fff; z-index: -1;"></div>
+    </div>
+      <div class="cut-mark cut-v" style="left: 2.825in; top: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 2.825in; bottom: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 5.625in; top: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 5.625in; bottom: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 8.424999999999997in; top: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 8.424999999999997in; bottom: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 3.575in; left: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 3.575in; right: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 7.375in; left: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 7.375in; right: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 11.174999999999997in; left: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 11.174999999999997in; right: 0.1in;"></div>
+    </div>
+    <!-- Page 4: Backs -->
+    
+    <div class="page" style="
+      width: 8.5in;
+      height: 11in;
+      padding: 0.25in;
+      display: grid;
+      grid-template-columns: repeat(3, 2.75in);
+      grid-template-rows: repeat(3, 3.75in);
+      gap: 0.05in;
+      justify-content: center;
+      align-content: center;
+      page-break-after: always;
+      background: white;
+      position: relative;
+    ">
+      
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+      <div class="cut-mark cut-v" style="left: 2.825in; top: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 2.825in; bottom: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 5.625in; top: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 5.625in; bottom: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 8.424999999999997in; top: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 8.424999999999997in; bottom: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 3.575in; left: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 3.575in; right: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 7.375in; left: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 7.375in; right: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 11.174999999999997in; left: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 11.174999999999997in; right: 0.1in;"></div>
+    </div>
+  
+
+    <!-- Page 5: Fronts -->
+    
+    <div class="page" style="
+      width: 8.5in;
+      height: 11in;
+      padding: 0.25in;
+      display: grid;
+      grid-template-columns: repeat(3, 2.75in);
+      grid-template-rows: repeat(3, 3.75in);
+      gap: 0.05in;
+      justify-content: center;
+      align-content: center;
+      page-break-after: always;
+      background: white;
+      position: relative;
+    ">
+      
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #f8f6f0;"></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #f8f6f0;
+        border-radius: 0.12in;
+        padding: 0.2in;
+        display: flex;
+        flex-direction: column;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.1in; left: 0.1in; right: 0.1in; bottom: 0.1in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+          pointer-events: none;
+        "></div>
+
+        <!-- Title -->
+        <div style="
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 18px;
+          letter-spacing: 0.15em;
+          color: #c9a227;
+          text-align: center;
+          margin-bottom: 0.1in;
+          padding-top: 0.05in;
+        ">DESCRIBE THIS FUTURE</div>
+
+        <!-- Divider -->
+        <div style="
+          width: 0.5in;
+          height: 2px;
+          background: #c9a227;
+          margin: 0 auto 0.12in;
+        "></div>
+
+        <!-- Text content -->
+        <div style="
+          font-family: 'Source Sans Pro', sans-serif;
+          font-size: 9px;
+          line-height: 1.5;
+          color: #333;
+          flex: 1;
+          white-space: pre-wrap;
+        ">You are interpreting a Futures Deck spread.
+
+Look at the cards laid out and weave them into a coherent speculative future.
+
+Consider:
+• The ARC sets the overall trajectory
+• The TERRAIN defines the domain
+• The OBJECT is a key artifact
+• WELLBEING cards show human impact
+• TIMEFRAME sets when this occurs
+• MODIFIERS adjust the pace
+
+Describe a vivid, specific future that incorporates all visible cards.</div>
+
+        <!-- Footer -->
+        <div style="
+          font-family: 'Playfair Display', serif;
+          font-size: 8px;
+          color: #999;
+          text-align: center;
+          font-style: italic;
+          margin-top: 0.08in;
+        ">Futures Deck — Prompt Card</div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #f8f6f0;"></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #f8f6f0;
+        border-radius: 0.12in;
+        padding: 0.2in;
+        display: flex;
+        flex-direction: column;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.1in; left: 0.1in; right: 0.1in; bottom: 0.1in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+          pointer-events: none;
+        "></div>
+
+        <!-- Title -->
+        <div style="
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 18px;
+          letter-spacing: 0.15em;
+          color: #c9a227;
+          text-align: center;
+          margin-bottom: 0.1in;
+          padding-top: 0.05in;
+        ">A DAY IN THE LIFE</div>
+
+        <!-- Divider -->
+        <div style="
+          width: 0.5in;
+          height: 2px;
+          background: #c9a227;
+          margin: 0 auto 0.12in;
+        "></div>
+
+        <!-- Text content -->
+        <div style="
+          font-family: 'Source Sans Pro', sans-serif;
+          font-size: 9px;
+          line-height: 1.5;
+          color: #333;
+          flex: 1;
+          white-space: pre-wrap;
+        ">Describe a single day in someone's life in this future.
+
+Use the cards visible in this spread to shape:
+• Where they live and work
+• What technology they use
+• Their relationships and community
+• Their hopes and concerns
+• Small details that make it real
+
+Be specific. Use names, places, sensory details. Make it feel lived-in.</div>
+
+        <!-- Footer -->
+        <div style="
+          font-family: 'Playfair Display', serif;
+          font-size: 8px;
+          color: #999;
+          text-align: center;
+          font-style: italic;
+          margin-top: 0.08in;
+        ">Futures Deck — Prompt Card</div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #f8f6f0;"></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #f8f6f0;
+        border-radius: 0.12in;
+        padding: 0.2in;
+        display: flex;
+        flex-direction: column;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.1in; left: 0.1in; right: 0.1in; bottom: 0.1in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+          pointer-events: none;
+        "></div>
+
+        <!-- Title -->
+        <div style="
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 18px;
+          letter-spacing: 0.15em;
+          color: #c9a227;
+          text-align: center;
+          margin-bottom: 0.1in;
+          padding-top: 0.05in;
+        ">WHAT WENT WRONG?</div>
+
+        <!-- Divider -->
+        <div style="
+          width: 0.5in;
+          height: 2px;
+          background: #c9a227;
+          margin: 0 auto 0.12in;
+        "></div>
+
+        <!-- Text content -->
+        <div style="
+          font-family: 'Source Sans Pro', sans-serif;
+          font-size: 9px;
+          line-height: 1.5;
+          color: #333;
+          flex: 1;
+          white-space: pre-wrap;
+        ">This spread shows a future that emerged from choices made today.
+
+Describe the path that led here:
+• What decisions were made?
+• What was ignored or overlooked?
+• Who won and who lost?
+• What unintended consequences emerged?
+
+Focus on the human and systemic failures that created this world.</div>
+
+        <!-- Footer -->
+        <div style="
+          font-family: 'Playfair Display', serif;
+          font-size: 8px;
+          color: #999;
+          text-align: center;
+          font-style: italic;
+          margin-top: 0.08in;
+        ">Futures Deck — Prompt Card</div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #f8f6f0;"></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #f8f6f0;
+        border-radius: 0.12in;
+        padding: 0.2in;
+        display: flex;
+        flex-direction: column;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.1in; left: 0.1in; right: 0.1in; bottom: 0.1in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+          pointer-events: none;
+        "></div>
+
+        <!-- Title -->
+        <div style="
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 18px;
+          letter-spacing: 0.15em;
+          color: #c9a227;
+          text-align: center;
+          margin-bottom: 0.1in;
+          padding-top: 0.05in;
+        ">WHAT WENT RIGHT?</div>
+
+        <!-- Divider -->
+        <div style="
+          width: 0.5in;
+          height: 2px;
+          background: #c9a227;
+          margin: 0 auto 0.12in;
+        "></div>
+
+        <!-- Text content -->
+        <div style="
+          font-family: 'Source Sans Pro', sans-serif;
+          font-size: 9px;
+          line-height: 1.5;
+          color: #333;
+          flex: 1;
+          white-space: pre-wrap;
+        ">This spread shows a future that emerged from choices made today.
+
+Describe the path that led here:
+• What breakthroughs occurred?
+• What movements gained power?
+• What old problems were solved?
+• What new possibilities opened up?
+
+Focus on the human ingenuity and cooperation that created this world.</div>
+
+        <!-- Footer -->
+        <div style="
+          font-family: 'Playfair Display', serif;
+          font-size: 8px;
+          color: #999;
+          text-align: center;
+          font-style: italic;
+          margin-top: 0.08in;
+        ">Futures Deck — Prompt Card</div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #f8f6f0;"></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #f8f6f0;
+        border-radius: 0.12in;
+        padding: 0.2in;
+        display: flex;
+        flex-direction: column;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.1in; left: 0.1in; right: 0.1in; bottom: 0.1in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+          pointer-events: none;
+        "></div>
+
+        <!-- Title -->
+        <div style="
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 18px;
+          letter-spacing: 0.15em;
+          color: #c9a227;
+          text-align: center;
+          margin-bottom: 0.1in;
+          padding-top: 0.05in;
+        ">DESCRIBE THIS FUTURE</div>
+
+        <!-- Divider -->
+        <div style="
+          width: 0.5in;
+          height: 2px;
+          background: #c9a227;
+          margin: 0 auto 0.12in;
+        "></div>
+
+        <!-- Text content -->
+        <div style="
+          font-family: 'Source Sans Pro', sans-serif;
+          font-size: 9px;
+          line-height: 1.5;
+          color: #333;
+          flex: 1;
+          white-space: pre-wrap;
+        ">You are interpreting a Futures Deck spread.
+
+Look at the cards laid out and weave them into a coherent speculative future.
+
+Consider:
+• The ARC sets the overall trajectory
+• The TERRAIN defines the domain
+• The OBJECT is a key artifact
+• WELLBEING cards show human impact
+• TIMEFRAME sets when this occurs
+• MODIFIERS adjust the pace
+
+Describe a vivid, specific future that incorporates all visible cards.</div>
+
+        <!-- Footer -->
+        <div style="
+          font-family: 'Playfair Display', serif;
+          font-size: 8px;
+          color: #999;
+          text-align: center;
+          font-style: italic;
+          margin-top: 0.08in;
+        ">Futures Deck — Prompt Card</div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #f8f6f0;"></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #f8f6f0;
+        border-radius: 0.12in;
+        padding: 0.2in;
+        display: flex;
+        flex-direction: column;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.1in; left: 0.1in; right: 0.1in; bottom: 0.1in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+          pointer-events: none;
+        "></div>
+
+        <!-- Title -->
+        <div style="
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 18px;
+          letter-spacing: 0.15em;
+          color: #c9a227;
+          text-align: center;
+          margin-bottom: 0.1in;
+          padding-top: 0.05in;
+        ">DESCRIBE THIS FUTURE</div>
+
+        <!-- Divider -->
+        <div style="
+          width: 0.5in;
+          height: 2px;
+          background: #c9a227;
+          margin: 0 auto 0.12in;
+        "></div>
+
+        <!-- Text content -->
+        <div style="
+          font-family: 'Source Sans Pro', sans-serif;
+          font-size: 9px;
+          line-height: 1.5;
+          color: #333;
+          flex: 1;
+          white-space: pre-wrap;
+        ">You are interpreting a Futures Deck spread.
+
+Look at the cards laid out and weave them into a coherent speculative future.
+
+Consider:
+• The ARC sets the overall trajectory
+• The TERRAIN defines the domain
+• The OBJECT is a key artifact
+• WELLBEING cards show human impact
+• TIMEFRAME sets when this occurs
+• MODIFIERS adjust the pace
+
+Describe a vivid, specific future that incorporates all visible cards.</div>
+
+        <!-- Footer -->
+        <div style="
+          font-family: 'Playfair Display', serif;
+          font-size: 8px;
+          color: #999;
+          text-align: center;
+          font-style: italic;
+          margin-top: 0.08in;
+        ">Futures Deck — Prompt Card</div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #f8f6f0;"></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #f8f6f0;
+        border-radius: 0.12in;
+        padding: 0.2in;
+        display: flex;
+        flex-direction: column;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.1in; left: 0.1in; right: 0.1in; bottom: 0.1in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+          pointer-events: none;
+        "></div>
+
+        <!-- Title -->
+        <div style="
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 18px;
+          letter-spacing: 0.15em;
+          color: #c9a227;
+          text-align: center;
+          margin-bottom: 0.1in;
+          padding-top: 0.05in;
+        ">DESCRIBE THIS FUTURE</div>
+
+        <!-- Divider -->
+        <div style="
+          width: 0.5in;
+          height: 2px;
+          background: #c9a227;
+          margin: 0 auto 0.12in;
+        "></div>
+
+        <!-- Text content -->
+        <div style="
+          font-family: 'Source Sans Pro', sans-serif;
+          font-size: 9px;
+          line-height: 1.5;
+          color: #333;
+          flex: 1;
+          white-space: pre-wrap;
+        ">You are interpreting a Futures Deck spread.
+
+Look at the cards laid out and weave them into a coherent speculative future.
+
+Consider:
+• The ARC sets the overall trajectory
+• The TERRAIN defines the domain
+• The OBJECT is a key artifact
+• WELLBEING cards show human impact
+• TIMEFRAME sets when this occurs
+• MODIFIERS adjust the pace
+
+Describe a vivid, specific future that incorporates all visible cards.</div>
+
+        <!-- Footer -->
+        <div style="
+          font-family: 'Playfair Display', serif;
+          font-size: 8px;
+          color: #999;
+          text-align: center;
+          font-style: italic;
+          margin-top: 0.08in;
+        ">Futures Deck — Prompt Card</div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #f8f6f0;"></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #f8f6f0;
+        border-radius: 0.12in;
+        padding: 0.2in;
+        display: flex;
+        flex-direction: column;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.1in; left: 0.1in; right: 0.1in; bottom: 0.1in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+          pointer-events: none;
+        "></div>
+
+        <!-- Title -->
+        <div style="
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 18px;
+          letter-spacing: 0.15em;
+          color: #c9a227;
+          text-align: center;
+          margin-bottom: 0.1in;
+          padding-top: 0.05in;
+        ">DESCRIBE THIS FUTURE</div>
+
+        <!-- Divider -->
+        <div style="
+          width: 0.5in;
+          height: 2px;
+          background: #c9a227;
+          margin: 0 auto 0.12in;
+        "></div>
+
+        <!-- Text content -->
+        <div style="
+          font-family: 'Source Sans Pro', sans-serif;
+          font-size: 9px;
+          line-height: 1.5;
+          color: #333;
+          flex: 1;
+          white-space: pre-wrap;
+        ">You are interpreting a Futures Deck spread.
+
+Look at the cards laid out and weave them into a coherent speculative future.
+
+Consider:
+• The ARC sets the overall trajectory
+• The TERRAIN defines the domain
+• The OBJECT is a key artifact
+• WELLBEING cards show human impact
+• TIMEFRAME sets when this occurs
+• MODIFIERS adjust the pace
+
+Describe a vivid, specific future that incorporates all visible cards.</div>
+
+        <!-- Footer -->
+        <div style="
+          font-family: 'Playfair Display', serif;
+          font-size: 8px;
+          color: #999;
+          text-align: center;
+          font-style: italic;
+          margin-top: 0.08in;
+        ">Futures Deck — Prompt Card</div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #f8f6f0;"></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+        background: #f8f6f0;
+        border-radius: 0.12in;
+        padding: 0.2in;
+        display: flex;
+        flex-direction: column;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.1in; left: 0.1in; right: 0.1in; bottom: 0.1in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+          pointer-events: none;
+        "></div>
+
+        <!-- Title -->
+        <div style="
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 18px;
+          letter-spacing: 0.15em;
+          color: #c9a227;
+          text-align: center;
+          margin-bottom: 0.1in;
+          padding-top: 0.05in;
+        ">DESCRIBE THIS FUTURE</div>
+
+        <!-- Divider -->
+        <div style="
+          width: 0.5in;
+          height: 2px;
+          background: #c9a227;
+          margin: 0 auto 0.12in;
+        "></div>
+
+        <!-- Text content -->
+        <div style="
+          font-family: 'Source Sans Pro', sans-serif;
+          font-size: 9px;
+          line-height: 1.5;
+          color: #333;
+          flex: 1;
+          white-space: pre-wrap;
+        ">You are interpreting a Futures Deck spread.
+
+Look at the cards laid out and weave them into a coherent speculative future.
+
+Consider:
+• The ARC sets the overall trajectory
+• The TERRAIN defines the domain
+• The OBJECT is a key artifact
+• WELLBEING cards show human impact
+• TIMEFRAME sets when this occurs
+• MODIFIERS adjust the pace
+
+Describe a vivid, specific future that incorporates all visible cards.</div>
+
+        <!-- Footer -->
+        <div style="
+          font-family: 'Playfair Display', serif;
+          font-size: 8px;
+          color: #999;
+          text-align: center;
+          font-style: italic;
+          margin-top: 0.08in;
+        ">Futures Deck — Prompt Card</div>
+      </div>
+    </div>
+      <div class="cut-mark cut-v" style="left: 2.825in; top: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 2.825in; bottom: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 5.625in; top: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 5.625in; bottom: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 8.424999999999997in; top: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 8.424999999999997in; bottom: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 3.575in; left: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 3.575in; right: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 7.375in; left: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 7.375in; right: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 11.174999999999997in; left: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 11.174999999999997in; right: 0.1in;"></div>
+    </div>
+    <!-- Page 6: Backs -->
+    
+    <div class="page" style="
+      width: 8.5in;
+      height: 11in;
+      padding: 0.25in;
+      display: grid;
+      grid-template-columns: repeat(3, 2.75in);
+      grid-template-rows: repeat(3, 3.75in);
+      gap: 0.05in;
+      justify-content: center;
+      align-content: center;
+      page-break-after: always;
+      background: white;
+      position: relative;
+    ">
+      
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 2.75in; height: 3.75in; position: relative;">
+      <!-- Bleed background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #080810;"></div>
+
+      <!-- Pattern extends to bleed -->
+      <div style="
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px),
+          repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(201, 162, 39, 0.05) 10px, rgba(201, 162, 39, 0.05) 11px);
+      "></div>
+
+      <!-- Content area -->
+      <div style="
+        position: absolute;
+        top: 0.125in; left: 0.125in;
+        width: 2.5in; height: 3.5in;
+      ">
+        <!-- Border -->
+        <div style="
+          position: absolute;
+          top: 0.12in; left: 0.12in; right: 0.12in; bottom: 0.12in;
+          border: 2px solid #c9a227;
+          border-radius: 0.08in;
+        "></div>
+
+        <!-- Inner border -->
+        <div style="
+          position: absolute;
+          top: 0.2in; left: 0.2in; right: 0.2in; bottom: 0.2in;
+          border: 1px solid rgba(201, 162, 39, 0.4);
+          border-radius: 0.05in;
+        "></div>
+
+        <!-- Center content -->
+        <div style="
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        ">
+          <!-- Eye -->
+          <div style="
+            width: 0.5in; height: 0.25in;
+            border: 2px solid #c9a227;
+            border-radius: 50%;
+            margin: 0 auto 0.12in;
+            position: relative;
+          ">
+            <div style="
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              width: 0.12in; height: 0.12in;
+              background: #c9a227;
+              border-radius: 50%;
+            "></div>
+          </div>
+
+          <div style="
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.2em;
+            color: #c9a227;
+            margin-bottom: 4px;
+          ">FUTURES DECK</div>
+
+          <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(201, 162, 39, 0.6);
+            font-style: italic;
+          ">Speculative Oracle</div>
+        </div>
+      </div>
+    </div>
+      <div class="cut-mark cut-v" style="left: 2.825in; top: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 2.825in; bottom: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 5.625in; top: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 5.625in; bottom: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 8.424999999999997in; top: 0.1in;"></div>
+      <div class="cut-mark cut-v" style="left: 8.424999999999997in; bottom: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 3.575in; left: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 3.575in; right: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 7.375in; left: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 7.375in; right: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 11.174999999999997in; left: 0.1in;"></div>
+      <div class="cut-mark cut-h" style="top: 11.174999999999997in; right: 0.1in;"></div>
+    </div>
+  
+</body>
+</html>

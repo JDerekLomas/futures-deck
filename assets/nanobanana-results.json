@@ -1,0 +1,36 @@
+{
+  "generated_at": "2025-12-17T10:44:51.440Z",
+  "model": "google/nano-banana-pro",
+  "results": [
+    {
+      "id": "arc-01",
+      "name": "Growth",
+      "type": "arc",
+      "status": "timeout"
+    },
+    {
+      "id": "terrain-05",
+      "name": "The Ocean",
+      "type": "terrain",
+      "status": "timeout"
+    },
+    {
+      "id": "object-03",
+      "name": "Ritual",
+      "type": "object",
+      "status": "timeout"
+    },
+    {
+      "id": "well-07",
+      "name": "Impact",
+      "type": "wellbeing",
+      "status": "timeout"
+    },
+    {
+      "id": "time-05",
+      "name": "5 Years",
+      "type": "timeframe",
+      "status": "timeout"
+    }
+  ]
+}

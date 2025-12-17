@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futures Deck - Print 9 Cards</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    @page {
+      size: letter;
+      margin: 0.5in;
+    }
+
+    body {
+      background: #fff;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+
+    .print-controls {
+      background: #2a2a2a;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .print-controls h1 {
+      font-family: 'Playfair Display', serif;
+      color: #c9a227;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    .print-controls p {
+      color: #888;
+      margin-bottom: 15px;
+    }
+
+    .print-controls button {
+      background: #c9a227;
+      color: #1a1a1a;
+      border: none;
+      padding: 12px 30px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .print-controls button:hover {
+      background: #d4ad2e;
+    }
+
+    .print-page {
+      width: 8.5in;
+      height: 11in;
+      margin: 20px auto;
+      padding: 0.5in;
+      background: #fff;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 0.15in;
+      height: 100%;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .card .artwork {
+      flex: 1;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .card .artwork img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card .text-panel {
+      background: linear-gradient(to bottom, #1a1a1a, #0f0f0f);
+      padding: 8px 10px;
+      border-top: 1px solid #333;
+      flex-shrink: 0;
+    }
+
+    .card .category {
+      font-size: 7px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #c9a227;
+      margin-bottom: 2px;
+    }
+
+    .card .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    /* Category colors */
+    .card[data-category="wellbeing"] .category { color: #FFD93D; }
+    .card[data-category="arc"] .category { color: #a855f7; }
+    .card[data-category="terrain"] .category { color: #4ECDC4; }
+    .card[data-category="object"] .category { color: #FF8C42; }
+    .card[data-category="timeframe"] .category { color: #60a5fa; }
+    .card[data-category="modifier"] .category { color: #f87171; }
+
+    /* Print styles */
+    @media print {
+      .print-controls {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      .print-page {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        page-break-after: always;
+      }
+
+      .card-grid {
+        padding: 0.25in;
+      }
+
+      .card {
+        box-shadow: none;
+        border: 0.5px solid #ddd;
+      }
+    }
+
+    /* Cut marks */
+    .cut-marks {
+      position: relative;
+    }
+
+    .cut-marks::before,
+    .cut-marks::after {
+      content: '';
+      position: absolute;
+      background: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-controls">
+    <h1>Futures Deck - 9 Card Print Sheet</h1>
+    <p>Print at 100% scale on Letter size paper (8.5" x 11"). Cut along card edges.</p>
+    <button onclick="window.print()">Print Cards</button>
+  </div>
+
+  <div class="print-page">
+    <div class="card-grid">
+
+      <!-- Row 1: Wellbeing cards -->
+      <div class="card" data-category="wellbeing">
+        <div class="artwork"><img src="assets/artdeco-4x5/autonomy.png" alt="Autonomy"></div>
+        <div class="text-panel">
+          <div class="category">Wellbeing</div>
+          <div class="title">Autonomy</div>
+        </div>
+      </div>
+
+      <div class="card" data-category="wellbeing">
+        <div class="artwork"><img src="assets/artdeco-4x5/impact.png" alt="Impact"></div>
+        <div class="text-panel">
+          <div class="category">Wellbeing</div>
+          <div class="title">Impact</div>
+        </div>
+      </div>
+
+      <div class="card" data-category="wellbeing">
+        <div class="artwork"><img src="assets/artdeco-4x5/relatedness.png" alt="Relatedness"></div>
+        <div class="text-panel">
+          <div class="category">Wellbeing</div>
+          <div class="title">Relatedness</div>
+        </div>
+      </div>
+
+      <!-- Row 2: Wellbeing + Arc + Terrain -->
+      <div class="card" data-category="wellbeing">
+        <div class="artwork"><img src="assets/artdeco-4x5/stimulation.png" alt="Stimulation"></div>
+        <div class="text-panel">
+          <div class="category">Wellbeing</div>
+          <div class="title">Stimulation</div>
+        </div>
+      </div>
+
+      <div class="card" data-category="arc">
+        <div class="artwork"><img src="assets/artdeco-4x5/growth.png" alt="Growth"></div>
+        <div class="text-panel">
+          <div class="category">Arc</div>
+          <div class="title">Growth</div>
+        </div>
+      </div>
+
+      <div class="card" data-category="terrain">
+        <div class="artwork"><img src="assets/artdeco-4x5/ocean.png" alt="The Ocean"></div>
+        <div class="text-panel">
+          <div class="category">Terrain</div>
+          <div class="title">The Ocean</div>
+        </div>
+      </div>
+
+      <!-- Row 3: Object + Timeframe + Modifier -->
+      <div class="card" data-category="object">
+        <div class="artwork"><img src="assets/artdeco-4x5/ritual.png" alt="Ritual"></div>
+        <div class="text-panel">
+          <div class="category">Object</div>
+          <div class="title">Ritual</div>
+        </div>
+      </div>
+
+      <div class="card" data-category="timeframe">
+        <div class="artwork"><img src="assets/artdeco-4x5/5years.png" alt="5 Years"></div>
+        <div class="text-panel">
+          <div class="category">Timeframe</div>
+          <div class="title">5 Years</div>
+        </div>
+      </div>
+
+      <div class="card" data-category="modifier">
+        <div class="artwork"><img src="assets/artdeco-4x5/breakthrough.png" alt="Major Breakthrough"></div>
+        <div class="text-panel">
+          <div class="category">Modifier</div>
+          <div class="title">Breakthrough</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Futures Deck - Print Sheet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Source+Sans+Pro:wght@400;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: letter;
+      margin: 0.25in;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #444;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+
+    .info {
+      max-width: 8.5in;
+      margin: 20px auto;
+      padding: 16px 20px;
+      background: #222;
+      color: #fff;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .info h1 {
+      font-size: 18px;
+      color: #c9a227;
+    }
+
+    .info p {
+      font-size: 13px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    .info .buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .info button {
+      background: #c9a227;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .info button:hover {
+      background: #d4b32a;
+    }
+
+    .page {
+      width: 8.5in;
+      min-height: 11in;
+      padding: 0.35in;
+      display: grid;
+      grid-template-columns: repeat(3, 2.5in);
+      grid-auto-rows: 3.5in;
+      gap: 0.1in;
+      justify-content: center;
+      align-content: start;
+      page-break-after: always;
+      background: white;
+      margin: 20px auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    .card {
+      width: 2.5in;
+      height: 3.5in;
+      border-radius: 0.125in;
+      overflow: hidden;
+      background: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card .artwork {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .card .artwork img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card .text-panel {
+      background: linear-gradient(to bottom, #1a1a1a, #0f0f0f);
+      padding: 8px 10px 10px;
+      border-top: 1px solid #333;
+    }
+
+    .card .category {
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .card .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .card .prompt-area {
+      background: #f8f6f0;
+      padding: 6px 8px;
+      font-size: 7px;
+      line-height: 1.4;
+      color: #333;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    /* Card back */
+    .card-back {
+      width: 2.5in;
+      height: 3.5in;
+      border-radius: 0.125in;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg, #0d1117 0%, #080810 50%, #0d1117 100%);
+    }
+
+    .card-back .pattern {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        repeating-linear-gradient(45deg, transparent, transparent 12px, rgba(201, 162, 39, 0.06) 12px, rgba(201, 162, 39, 0.06) 13px),
+        repeating-linear-gradient(-45deg, transparent, transparent 12px, rgba(201, 162, 39, 0.06) 12px, rgba(201, 162, 39, 0.06) 13px);
+    }
+
+    .card-back .border-outer {
+      position: absolute;
+      top: 0.15in; left: 0.15in; right: 0.15in; bottom: 0.15in;
+      border: 2px solid #c9a227;
+      border-radius: 0.06in;
+    }
+
+    .card-back .border-inner {
+      position: absolute;
+      top: 0.22in; left: 0.22in; right: 0.22in; bottom: 0.22in;
+      border: 1px solid rgba(201, 162, 39, 0.4);
+      border-radius: 0.04in;
+    }
+
+    .card-back .center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .card-back .eye {
+      width: 0.6in;
+      height: 0.3in;
+      border: 2px solid #c9a227;
+      border-radius: 50%;
+      position: relative;
+      margin: 0 auto 0.15in;
+    }
+
+    .card-back .eye::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 0.15in;
+      height: 0.15in;
+      background: #c9a227;
+      border-radius: 50%;
+    }
+
+    .card-back .eye::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 0.06in;
+      height: 0.06in;
+      background: #080810;
+      border-radius: 50%;
+    }
+
+    .card-back .back-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      letter-spacing: 0.2em;
+      color: #c9a227;
+      margin-bottom: 4px;
+    }
+
+    .card-back .back-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: rgba(201, 162, 39, 0.6);
+      font-style: italic;
+    }
+
+    /* Prompt cards */
+    .prompt-card {
+      width: 2.5in;
+      height: 3.5in;
+      border-radius: 0.125in;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0d1117 0%, #080810 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0.2in;
+      text-align: center;
+    }
+
+    .prompt-card .prompt-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      letter-spacing: 0.1em;
+      color: #c9a227;
+      margin-bottom: 12px;
+    }
+
+    .prompt-card .prompt-text {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 9px;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* Print styles */
+    @media print {
+      body {
+        background: white;
+      }
+
+      .info {
+        display: none;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+      }
+
+      .card, .card-back, .prompt-card {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    /* Category colors */
+    .cat-wellbeing { color: #FFD93D; }
+    .cat-arc { color: #a855f7; }
+    .cat-terrain { color: #4ECDC4; }
+    .cat-object { color: #FF8C42; }
+    .cat-timeframe { color: #60a5fa; }
+    .cat-modifier { color: #f87171; }
+  </style>
+</head>
+<body>
+
+  <div class="info">
+    <div>
+      <h1>Futures Deck - Printable Cards</h1>
+      <p>18 vision cards + 4 prompt cards | Print double-sided, flip on long edge</p>
+    </div>
+    <div class="buttons">
+      <button onclick="window.print()">Print All</button>
+    </div>
+  </div>
+
+  <!-- Page 1: Wellbeing Cards (8 cards) -->
+  <div class="page">
+    <div class="card">
+      <div class="artwork"><img src="cards/well-01-front.png" alt="Autonomy"></div>
+      <div class="text-panel">
+        <div class="category cat-wellbeing">Wellbeing</div>
+        <div class="title">Autonomy</div>
+      </div>
+      <div class="prompt-area">Independence, self-direction, freedom to choose. Control over decisions, personal agency, opt-out power.</div>
+    </div>
+
+    <div class="card">
+      <div class="artwork"><img src="cards/well-02-front.png" alt="Impact"></div>
+      <div class="text-panel">
+        <div class="category cat-wellbeing">Wellbeing</div>
+        <div class="title">Impact</div>
+      </div>
+      <div class="prompt-area">Making a difference, meaningful contribution, leaving a mark. Influence on outcomes, visible effects of actions.</div>
+    </div>
+
+    <div class="card">
+      <div class="artwork"><img src="cards/well-03-front.png" alt="Relatedness"></div>
+      <div class="text-panel">
+        <div class="category cat-wellbeing">Wellbeing</div>
+        <div class="title">Relatedness</div>
+      </div>
+      <div class="prompt-area">Connection, belonging, social bonds. Relationships with others, community ties, feeling understood.</div>
+    </div>
+
+    <div class="card">
+      <div class="artwork"><img src="cards/well-04-front.png" alt="Stimulation"></div>
+      <div class="text-panel">
+        <div class="category cat-wellbeing">Wellbeing</div>
+        <div class="title">Stimulation</div>
+      </div>
+      <div class="prompt-area">Novelty, variety, excitement. New experiences, mental engagement, avoiding boredom and routine.</div>
+    </div>
+
+    <div class="card">
+      <div class="artwork"><img src="cards/well-05-front.png" alt="Security"></div>
+      <div class="text-panel">
+        <div class="category cat-wellbeing">Wellbeing</div>
+        <div class="title">Security</div>
+      </div>
+      <div class="prompt-area">Safety, stability, predictability. Protection from harm, reliable resources, manageable risk.</div>
+    </div>
+
+    <div class="card">
+      <div class="artwork"><img src="cards/well-06-front.png" alt="Purpose"></div>
+      <div class="text-panel">
+        <div class="category cat-wellbeing">Wellbeing</div>
+        <div class="title">Purpose</div>
+      </div>
+      <div class="prompt-area">Meaning, direction, significance. Goals worth pursuing, sense of mission, life coherence.</div>
+    </div>
+
+    <div class="card">
+      <div class="artwork"><img src="cards/well-07-front.png" alt="Competence"></div>
+      <div class="text-panel">
+        <div class="category cat-wellbeing">Wellbeing</div>
+        <div class="title">Competence</div>
+      </div>
+      <div class="prompt-area">Mastery, skill, effectiveness. Ability to succeed, learning and growth, feeling capable.</div>
+    </div>
+
+    <div class="card">
+      <div class="artwork"><img src="cards/well-08-front.png" alt="Comfort"></div>
+      <div class="text-panel">
+        <div class="category cat-wellbeing">Wellbeing</div>
+        <div class="title">Comfort</div>
+      </div>
+      <div class="prompt-area">Ease, pleasure, physical wellbeing. Absence of pain, sensory satisfaction, bodily needs met.</div>
+    </div>
+
+    <!-- Empty slot -->
+    <div style="width: 2.5in; height: 3.5in;"></div>
+  </div>
+
+  <!-- Page 2: Arc + Terrain + Object + Time + Modifier Cards -->
+  <div class="page">
+    <div class="card">
+      <div class="artwork"><img src="cards/arc-01-front.png" alt="Growth"></div>
+      <div class="text-panel">
+        <div class="category cat-arc">Arc</div>
+        <div class="title">Growth</div>
+      </div>
+      <div class="prompt-area">Expansion, increase, flourishing. Systems scaling up, populations growing, capabilities multiplying.</div>
+    </div>
+
+    <div class="card">
+      <div class="artwork"><img src="cards/arc-02-front.png" alt="Collapse"></div>
+      <div class="text-panel">
+        <div class="category cat-arc">Arc</div>
+        <div class="title">Collapse</div>
+      </div>
+      <div class="prompt-area">Decline, breakdown, failure. Systems under stress, infrastructure crumbling, institutions weakening.</div>
+    </div>
+
+    <div class="card">
+      <div class="artwork"><img src="cards/arc-03-front.png" alt="Transformation"></div>
+      <div class="text-panel">
+        <div class="category cat-arc">Arc</div>
+        <div class="title">Transformation</div>
+      </div>
+      <div class="prompt-area">Fundamental change, metamorphosis, paradigm shift. Old forms dissolving, new patterns emerging.</div>
+    </div>
+
+    <div class="card">
+      <div class="artwork"><img src="cards/terrain-01-front.png" alt="The Ocean"></div>
+      <div class="text-panel">
+        <div class="category cat-terrain">Terrain</div>
+        <div class="title">The Ocean</div>
+      </div>
+      <div class="prompt-area">Marine systems, coastal life, deep sea. Shipping, fishing, underwater resources, rising seas, ocean health.</div>
+    </div>
+
+    <div class="card">
+      <div class="artwork"><img src="cards/terrain-02-front.png" alt="The City"></div>
+      <div class="text-panel">
+        <div class="category cat-terrain">Terrain</div>
+        <div class="title">The City</div>
+      </div>
+      <div class="prompt-area">Urban environment, dense population, built space. Infrastructure, transit, housing, public life, city services.</div>
+    </div>
+
+    <div class="card">
+      <div class="artwork"><img src="cards/terrain-03-front.png" alt="The Home"></div>
+      <div class="text-panel">
+        <div class="category cat-terrain">Terrain</div>
+        <div class="title">The Home</div>
+      </div>
+      <div class="prompt-area">Domestic space, private life, household. Family dynamics, living arrangements, home technology, shelter.</div>
+    </div>
+
+    <div class="card">
+      <div class="artwork"><img src="cards/object-01-front.png" alt="Ritual"></div>
+      <div class="text-panel">
+        <div class="category cat-object">Object</div>
+        <div class="title">Ritual</div>
+      </div>
+      <div class="prompt-area">Repeated practice, ceremony, tradition. Daily routines, cultural customs, meaningful patterns of behavior.</div>
+    </div>
+
+    <div class="card">
+      <div class="artwork"><img src="cards/object-02-front.png" alt="Device"></div>
+      <div class="text-panel">
+        <div class="category cat-object">Object</div>
+        <div class="title">Device</div>
+      </div>
+      <div class="prompt-area">Tool, gadget, technology artifact. Something held, worn, or used. Interface between human and system.</div>
+    </div>
+
+    <div class="card">
+      <div class="artwork"><img src="cards/time-01-front.png" alt="5 Years"></div>
+      <div class="text-panel">
+        <div class="category cat-timeframe">Timeframe</div>
+        <div class="title">5 Years</div>
+      </div>
+      <div class="prompt-area">Near future, emerging trends. Technologies in development, policies being debated, shifts underway.</div>
+    </div>
+  </div>
+
+  <!-- Page 3: Modifier + Prompt Cards -->
+  <div class="page">
+    <div class="card">
+      <div class="artwork"><img src="cards/mod-01-front.png" alt="Breakthrough"></div>
+      <div class="text-panel">
+        <div class="category cat-modifier">Modifier</div>
+        <div class="title">Breakthrough</div>
+      </div>
+      <div class="prompt-area">Sudden advance, unexpected success, barrier broken. Accelerates timeline, opens new possibilities.</div>
+    </div>
+
+    <!-- Prompt Cards -->
+    <div class="prompt-card">
+      <div class="prompt-title">DESCRIBE THIS FUTURE</div>
+      <div class="prompt-text">
+        You are interpreting a Futures Deck spread. Each card represents one dimension of a possible future.
+        Read the cards in the image and weave them into a coherent scenario. Be specific and vivid.
+        Describe what daily life looks like, what has changed, what tensions exist.
+        Ground abstract concepts in concrete details.
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-title">A DAY IN THE LIFE</div>
+      <div class="prompt-text">
+        You are interpreting a Futures Deck spread. Create a character who lives in this future.
+        Walk through their typical day from morning to night.
+        Show how each card manifests in their routine, relationships, and environment.
+        Include small sensory details that make the scenario feel real.
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-title">THE TURNING POINT</div>
+      <div class="prompt-text">
+        You are interpreting a Futures Deck spread. Identify the critical moment when this future became inevitable.
+        What decision, event, or discovery set this trajectory in motion?
+        Who were the key actors? What were they trying to achieve?
+        Describe the before and after.
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-title">WINNERS & LOSERS</div>
+      <div class="prompt-text">
+        You are interpreting a Futures Deck spread. Analyze who benefits and who suffers in this future.
+        What groups gained power, resources, or freedom?
+        Who lost out? What tradeoffs were made?
+        Consider different perspectives on whether this future is desirable.
+      </div>
+    </div>
+
+    <!-- Empty slots -->
+    <div style="width: 2.5in; height: 3.5in;"></div>
+    <div style="width: 2.5in; height: 3.5in;"></div>
+    <div style="width: 2.5in; height: 3.5in;"></div>
+    <div style="width: 2.5in; height: 3.5in;"></div>
+  </div>
+
+  <!-- Page 4: Card Backs (for double-sided printing) -->
+  <div class="page">
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 5: More Card Backs -->
+  <div class="page">
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 6: Remaining Card Backs -->
+  <div class="page">
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="pattern"></div>
+      <div class="border-outer"></div>
+      <div class="border-inner"></div>
+      <div class="center">
+        <div class="eye"></div>
+        <div class="back-title">FUTURES DECK</div>
+        <div class="back-subtitle">Speculative Oracle</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

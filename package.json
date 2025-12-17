@@ -19,5 +19,8 @@
     "dutch-design"
   ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^24.33.0"
+  }
 }

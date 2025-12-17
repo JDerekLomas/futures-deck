@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futures Deck - Print Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #1a1a1a;
+      color: #fff;
+      font-family: 'Source Sans Pro', sans-serif;
+      padding: 40px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: 32px;
+      color: #c9a227;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .specs {
+      background: #252525;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 40px;
+      display: inline-block;
+    }
+
+    .specs h3 {
+      color: #c9a227;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 8px 24px;
+      font-size: 13px;
+    }
+
+    .specs-grid dt { color: #888; }
+    .specs-grid dd { color: #fff; font-weight: 600; }
+
+    .section {
+      margin-bottom: 50px;
+    }
+
+    .section-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #666;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #333;
+    }
+
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .card-wrapper {
+      text-align: center;
+    }
+
+    .card-wrapper img {
+      width: 200px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+      transition: transform 0.2s;
+    }
+
+    .card-wrapper img:hover {
+      transform: scale(1.05);
+    }
+
+    .card-label {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #888;
+    }
+
+    .back-preview {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .back-preview img {
+      width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+
+    .back-info {
+      max-width: 400px;
+    }
+
+    .back-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: #c9a227;
+      margin-bottom: 12px;
+    }
+
+    .back-info p {
+      color: #888;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .bleed-demo {
+      margin-top: 40px;
+      background: #252525;
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .bleed-demo h3 {
+      color: #c9a227;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+
+    .bleed-diagram {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .bleed-visual {
+      width: 200px;
+      height: 280px;
+      position: relative;
+      background: #333;
+      border: 2px dashed #666;
+    }
+
+    .bleed-visual .bleed-area {
+      position: absolute;
+      top: 10px; left: 10px; right: 10px; bottom: 10px;
+      border: 2px solid #f87171;
+      background: rgba(248, 113, 113, 0.1);
+    }
+
+    .bleed-visual .cut-line {
+      position: absolute;
+      top: 20px; left: 20px; right: 20px; bottom: 20px;
+      border: 2px solid #c9a227;
+    }
+
+    .bleed-visual .safe-zone {
+      position: absolute;
+      top: 30px; left: 30px; right: 30px; bottom: 30px;
+      border: 2px dashed #4ECDC4;
+      background: rgba(78, 205, 196, 0.1);
+    }
+
+    .bleed-legend {
+      font-size: 13px;
+    }
+
+    .bleed-legend div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .bleed-legend .swatch {
+      width: 20px;
+      height: 3px;
+    }
+
+    .bleed-legend .swatch.bleed { background: #f87171; }
+    .bleed-legend .swatch.cut { background: #c9a227; }
+    .bleed-legend .swatch.safe { background: #4ECDC4; border-style: dashed; height: 0; border-width: 2px; }
+  </style>
+</head>
+<body>
+
+  <h1>Futures Deck — Print Preview</h1>
+  <p class="subtitle">Print-ready cards at 300 DPI with bleed</p>
+
+  <div class="specs">
+    <h3>Print Specifications</h3>
+    <dl class="specs-grid">
+      <dt>Card Size</dt>
+      <dd>2.48" × 3.46"</dd>
+      <dt>With Bleed</dt>
+      <dd>2.73" × 3.71"</dd>
+      <dt>Resolution</dt>
+      <dd>300 DPI</dd>
+      <dt>Pixels</dt>
+      <dd>819 × 1113</dd>
+      <dt>Bleed</dt>
+      <dd>0.125" each side</dd>
+      <dt>Corners</dt>
+      <dd>Square (printer rounds)</dd>
+    </dl>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Card Back</div>
+    <div class="back-preview">
+      <img src="card-back.png" alt="Card Back">
+      <div class="back-info">
+        <h3>Procedural Design</h3>
+        <p>Art deco geometric pattern with "Futures Deck" branding. Pattern extends to all edges for proper bleed coverage. Decorative elements stay within safe zone.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Card Fronts</div>
+    <div class="card-grid">
+      <div class="card-wrapper">
+        <img src="well-01-front.png" alt="Autonomy">
+        <div class="card-label">Autonomy</div>
+      </div>
+      <div class="card-wrapper">
+        <img src="well-02-front.png" alt="Impact">
+        <div class="card-label">Impact</div>
+      </div>
+      <div class="card-wrapper">
+        <img src="well-03-front.png" alt="Relatedness">
+        <div class="card-label">Relatedness</div>
+      </div>
+      <div class="card-wrapper">
+        <img src="well-04-front.png" alt="Stimulation">
+        <div class="card-label">Stimulation</div>
+      </div>
+      <div class="card-wrapper">
+        <img src="arc-01-front.png" alt="Growth">
+        <div class="card-label">Growth</div>
+      </div>
+      <div class="card-wrapper">
+        <img src="terrain-01-front.png" alt="The Ocean">
+        <div class="card-label">The Ocean</div>
+      </div>
+      <div class="card-wrapper">
+        <img src="object-01-front.png" alt="Ritual">
+        <div class="card-label">Ritual</div>
+      </div>
+      <div class="card-wrapper">
+        <img src="time-01-front.png" alt="5 Years">
+        <div class="card-label">5 Years</div>
+      </div>
+      <div class="card-wrapper">
+        <img src="mod-01-front.png" alt="Breakthrough">
+        <div class="card-label">Breakthrough</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bleed-demo">
+    <h3>Understanding Bleed & Safe Zones</h3>
+    <div class="bleed-diagram">
+      <div class="bleed-visual">
+        <div class="bleed-area"></div>
+        <div class="cut-line"></div>
+        <div class="safe-zone"></div>
+      </div>
+      <div class="bleed-legend">
+        <div><span class="swatch bleed"></span> <strong>Bleed area</strong> — extends beyond cut, gets trimmed off</div>
+        <div><span class="swatch cut"></span> <strong>Cut line</strong> — where the card will be cut</div>
+        <div><span class="swatch safe"></span> <strong>Safe zone</strong> — keep text/important content here</div>
+        <div style="margin-top: 16px; color: #888;">
+          Your design fills to the bleed edge. The printer cuts along the cut line<br>
+          and rounds the corners. Content in the safe zone won't get trimmed.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

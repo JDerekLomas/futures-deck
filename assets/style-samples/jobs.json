@@ -1,0 +1,38 @@
+[
+  {
+    "id": "style-infographic-growth",
+    "prompt": "Card titled \"GROWTH\" in bold geometric sans-serif at bottom, flat vector illustration style, information design aesthetic, showing: sprouting seed to tree progression, bar chart growing upward, city skyline expanding outward, rocket launching, exponential curve graph, coins stacking, network nodes multiplying, bright green and gold on white background, clean minimal pictograms, Memphis design influence, playful optimistic",
+    "status": "error",
+    "error": "Request was throttled. Your rate limit for creating predictions is reduced to 6 requests per minute with a burst of 1 requests while you have less than $5.0 in credit. Your rate limit resets in ~10s."
+  },
+  {
+    "id": "style-retro-ocean",
+    "prompt": "Card titled \"THE OCEAN\" in vintage nautical lettering, 1960s travel poster style, retro-futurist illustration showing: underwater glass dome city, yellow submarines, bathyspheres exploring, friendly whales, offshore wind turbines, cargo ships on horizon, stylized waves, deep teal and coral pink limited palette, bold graphic shapes, optimistic space-age aesthetic, googie architecture influence",
+    "status": "error",
+    "error": "Request was throttled. Your rate limit for creating predictions is reduced to 6 requests per minute with a burst of 1 requests while you have less than $5.0 in credit. Your rate limit resets in ~10s."
+  },
+  {
+    "id": "style-pictogram-ritual",
+    "prompt": "Card titled \"RITUAL\" in geometric modernist type, dense grid of 12 symbolic pictograms on warm background showing: birthday cake with candles, wedding rings, graduation cap, handshake, champagne glasses toasting, sunrise, clock face, family gathering around table, ceremonial bonfire, wrapped gift, calendar with checkmark, coffee cup morning ritual, warm amber and purple palette, Otl Aicher icon style, universal symbols",
+    "predictionId": "gsmw8yj0fhrm80cv5fj8s680gc",
+    "status": "started"
+  },
+  {
+    "id": "style-collage-impact",
+    "prompt": "Card titled \"IMPACT\" in bold stencil letters, mixed media collage style illustration showing: ripples in water spreading outward, dominoes falling in chain reaction, hand dropping pebble, megaphone broadcasting, footprints leading forward, lightbulb moments, paper airplanes flying, seeds becoming forest, warm orange and yellow palette, cut paper aesthetic, layered textures, dynamic composition",
+    "status": "error",
+    "error": "Request was throttled. Your rate limit for creating predictions is reduced to 6 requests per minute with a burst of 1 requests while you have less than $5.0 in credit. Your rate limit resets in ~10s."
+  },
+  {
+    "id": "style-bauhaus-time",
+    "prompt": "Card titled \"5 YEARS\" in Bauhaus geometric typography, constructivist poster style, bold abstract shapes showing: hourglass form, circular calendar wheel, arrow pointing forward, five bold circles or bars, clock hands, growing spiral, geometric progression, primary colors red blue yellow on cream background, strong diagonal composition, 1920s modernist aesthetic",
+    "status": "error",
+    "error": "Request was throttled. Your rate limit for creating predictions is reduced to 6 requests per minute with a burst of 1 requests while you have less than $5.0 in credit. Your rate limit resets in ~10s."
+  },
+  {
+    "id": "style-botanical-growth",
+    "prompt": "Card titled \"GROWTH\" in elegant serif letters, vintage botanical illustration style, detailed naturalist drawing showing: cross-section of seed germinating, root system spreading, rings of tree trunk, unfurling fern frond, blooming flower stages, fruit ripening, forest canopy layers, warm earth tones green and brown and gold, scientific diagram aesthetic, hand-drawn linework feel",
+    "status": "error",
+    "error": "Request was throttled. Your rate limit for creating predictions is reduced to 6 requests per minute with a burst of 1 requests while you have less than $5.0 in credit. Your rate limit resets in ~10s."
+  }
+]

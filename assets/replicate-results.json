@@ -1,0 +1,37 @@
+{
+  "generated_at": "2025-12-17T09:49:11.630Z",
+  "model": "flux-1.1-pro",
+  "results": [
+    {
+      "id": "terrain-05",
+      "name": "The Ocean",
+      "type": "terrain",
+      "status": "downloaded",
+      "path": "/Users/dereklomas/new/futures-deck/assets/tarot-replicate/terrain-05.png",
+      "predictionId": "eeqf9fv0r1rm80cv5etvcx1gn8"
+    },
+    {
+      "id": "object-03",
+      "name": "Ritual",
+      "type": "object",
+      "status": "downloaded",
+      "path": "/Users/dereklomas/new/futures-deck/assets/tarot-replicate/object-03.png",
+      "predictionId": "d3a2njednnrma0cv5etvw0fbgm"
+    },
+    {
+      "id": "well-07",
+      "name": "Impact",
+      "type": "wellbeing",
+      "status": "failed",
+      "predictionId": "b99ytn9hj9rmc0cv5ev8era9a8"
+    },
+    {
+      "id": "time-05",
+      "name": "5 Years",
+      "type": "timeframe",
+      "status": "downloaded",
+      "path": "/Users/dereklomas/new/futures-deck/assets/tarot-replicate/time-05.png",
+      "predictionId": "8pyq5tvz1hrmc0cv5ev9055264"
+    }
+  ]
+}

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Layout Options</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&family=Source+Sans+Pro:wght@300;400;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #2a2a2a;
+      padding: 40px;
+      font-family: 'Source Sans Pro', sans-serif;
+      color: #fff;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #c9a227;
+    }
+
+    h2 {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .card-row {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    /* ========== LAYOUT A: CLASSIC TAROT ========== */
+    .card-classic {
+      width: 270px;
+      height: 378px; /* 2.5 x 3.5 ratio */
+      background: #1a1a1a;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    }
+
+    .card-classic .artwork {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .card-classic .artwork img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-classic .text-panel {
+      background: linear-gradient(to bottom, #1a1a1a, #0f0f0f);
+      padding: 14px 18px;
+      border-top: 1px solid #333;
+    }
+
+    .card-classic .category {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #c9a227;
+      margin-bottom: 4px;
+    }
+
+    .card-classic .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    /* ========== LAYOUT B: MUSEUM PLACARD ========== */
+    .card-museum {
+      width: 270px;
+      height: 378px;
+      background: #f5f2eb;
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    }
+
+    .card-museum .artwork-frame {
+      flex: 1;
+      padding: 12px 12px 0 12px;
+      background: #f5f2eb;
+    }
+
+    .card-museum .artwork-inner {
+      width: 100%;
+      height: 100%;
+      border: 1px solid #d4cfc4;
+      overflow: hidden;
+    }
+
+    .card-museum .artwork-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-museum .text-panel {
+      background: #f5f2eb;
+      padding: 12px 16px 16px;
+      text-align: center;
+      border-top: 1px solid #d4cfc4;
+      margin: 0 12px;
+    }
+
+    .card-museum .category {
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #8b7355;
+      margin-bottom: 3px;
+    }
+
+    .card-museum .title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #2a2520;
+    }
+
+    /* ========== LAYOUT C: ART DECO BAND ========== */
+    .card-deco {
+      width: 270px;
+      height: 378px;
+      background: #0d0d0d;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      border: 2px solid #c9a227;
+    }
+
+    .card-deco .artwork {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-deco .artwork img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-deco .text-panel {
+      background: linear-gradient(to bottom, #1a1612, #0d0a08);
+      padding: 12px 16px;
+      position: relative;
+      border-top: 2px solid #c9a227;
+    }
+
+    .card-deco .text-panel::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 14px;
+      background: #0d0a08;
+      border: 2px solid #c9a227;
+      border-bottom: none;
+    }
+
+    .card-deco .text-panel::after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 4px;
+      background: #c9a227;
+    }
+
+    .card-deco .deco-corners {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+    }
+
+    .card-deco .deco-corners::before,
+    .card-deco .deco-corners::after {
+      content: '◆';
+      position: absolute;
+      color: #c9a227;
+      font-size: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .card-deco .deco-corners::before { left: 12px; }
+    .card-deco .deco-corners::after { right: 12px; }
+
+    .card-deco .category {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #c9a227;
+      text-align: center;
+      margin-bottom: 2px;
+    }
+
+    .card-deco .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #f5f2eb;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+
+    /* Labels */
+    .layout-label {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .card-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Card Layout Options</h1>
+  <h2>Text in separate section below artwork</h2>
+
+  <div class="section">
+    <div class="card-row">
+
+      <!-- LAYOUT A: Classic Tarot -->
+      <div class="card-wrapper">
+        <div class="layout-label">A) Classic Tarot</div>
+        <div class="card-classic">
+          <div class="artwork">
+            <img src="assets/artdeco-4x5/autonomy.png" alt="Autonomy">
+          </div>
+          <div class="text-panel">
+            <div class="category">Wellbeing</div>
+            <div class="title">Autonomy</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LAYOUT B: Museum Placard -->
+      <div class="card-wrapper">
+        <div class="layout-label">B) Museum Placard</div>
+        <div class="card-museum">
+          <div class="artwork-frame">
+            <div class="artwork-inner">
+              <img src="assets/artdeco-engraving/autonomy.png" alt="Autonomy">
+            </div>
+          </div>
+          <div class="text-panel">
+            <div class="category">Wellbeing</div>
+            <div class="title">Autonomy</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LAYOUT C: Art Deco Band -->
+      <div class="card-wrapper">
+        <div class="layout-label">C) Art Deco Band</div>
+        <div class="card-deco">
+          <div class="artwork">
+            <img src="assets/artdeco-engraving/autonomy.png" alt="Autonomy">
+          </div>
+          <div class="text-panel">
+            <div class="deco-corners"></div>
+            <div class="category">Wellbeing</div>
+            <div class="title">Autonomy</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <h2 style="margin-top: 40px;">All four cards in each style</h2>
+
+  <!-- All cards in Classic style - using 4:5 ratio images -->
+  <div class="section">
+    <div class="layout-label">A) Classic Tarot — with 4:5 artwork ratio</div>
+    <div class="card-row">
+      <div class="card-classic">
+        <div class="artwork"><img src="assets/artdeco-4x5/autonomy.png" alt=""></div>
+        <div class="text-panel">
+          <div class="category">Wellbeing</div>
+          <div class="title">Autonomy</div>
+        </div>
+      </div>
+      <div class="card-classic">
+        <div class="artwork"><img src="assets/artdeco-4x5/impact.png" alt=""></div>
+        <div class="text-panel">
+          <div class="category">Wellbeing</div>
+          <div class="title">Impact</div>
+        </div>
+      </div>
+      <div class="card-classic">
+        <div class="artwork"><img src="assets/artdeco-4x5/relatedness.png" alt=""></div>
+        <div class="text-panel">
+          <div class="category">Wellbeing</div>
+          <div class="title">Relatedness</div>
+        </div>
+      </div>
+      <div class="card-classic">
+        <div class="artwork"><img src="assets/artdeco-4x5/stimulation.png" alt=""></div>
+        <div class="text-panel">
+          <div class="category">Wellbeing</div>
+          <div class="title">Stimulation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- All cards in Museum style -->
+  <div class="section">
+    <div class="layout-label">B) Museum Placard</div>
+    <div class="card-row">
+      <div class="card-museum">
+        <div class="artwork-frame"><div class="artwork-inner"><img src="assets/artdeco-engraving/autonomy.png" alt=""></div></div>
+        <div class="text-panel">
+          <div class="category">Wellbeing</div>
+          <div class="title">Autonomy</div>
+        </div>
+      </div>
+      <div class="card-museum">
+        <div class="artwork-frame"><div class="artwork-inner"><img src="assets/artdeco-engraving/impact.png" alt=""></div></div>
+        <div class="text-panel">
+          <div class="category">Wellbeing</div>
+          <div class="title">Impact</div>
+        </div>
+      </div>
+      <div class="card-museum">
+        <div class="artwork-frame"><div class="artwork-inner"><img src="assets/artdeco-engraving/relatedness.png" alt=""></div></div>
+        <div class="text-panel">
+          <div class="category">Wellbeing</div>
+          <div class="title">Relatedness</div>
+        </div>
+      </div>
+      <div class="card-museum">
+        <div class="artwork-frame"><div class="artwork-inner"><img src="assets/artdeco-engraving/stimulation.png" alt=""></div></div>
+        <div class="text-panel">
+          <div class="category">Wellbeing</div>
+          <div class="title">Stimulation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- All cards in Art Deco style -->
+  <div class="section">
+    <div class="layout-label">C) Art Deco Band</div>
+    <div class="card-row">
+      <div class="card-deco">
+        <div class="artwork"><img src="assets/artdeco-engraving/autonomy.png" alt=""></div>
+        <div class="text-panel">
+          <div class="deco-corners"></div>
+          <div class="category">Wellbeing</div>
+          <div class="title">Autonomy</div>
+        </div>
+      </div>
+      <div class="card-deco">
+        <div class="artwork"><img src="assets/artdeco-engraving/impact.png" alt=""></div>
+        <div class="text-panel">
+          <div class="deco-corners"></div>
+          <div class="category">Wellbeing</div>
+          <div class="title">Impact</div>
+        </div>
+      </div>
+      <div class="card-deco">
+        <div class="artwork"><img src="assets/artdeco-engraving/relatedness.png" alt=""></div>
+        <div class="text-panel">
+          <div class="deco-corners"></div>
+          <div class="category">Wellbeing</div>
+          <div class="title">Relatedness</div>
+        </div>
+      </div>
+      <div class="card-deco">
+        <div class="artwork"><img src="assets/artdeco-engraving/stimulation.png" alt=""></div>
+        <div class="text-panel">
+          <div class="deco-corners"></div>
+          <div class="category">Wellbeing</div>
+          <div class="title">Stimulation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
