@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantum Futures - Futures Deck</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark: #0d0d0d;
+      --gold: #c9a227;
+      --quantum: #7c3aed;
+      --light: #f5f5f5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+      background: var(--dark);
+      color: var(--light);
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(135deg, #1a0a2e 0%, #0d0d15 100%);
+      border-bottom: 1px solid rgba(124, 58, 237, 0.3);
+    }
+
+    header h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      letter-spacing: 0.15em;
+      color: var(--quantum);
+      text-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
+    }
+
+    header p {
+      color: rgba(255,255,255,0.7);
+      max-width: 600px;
+      margin: 15px auto 0;
+      font-size: 18px;
+    }
+
+    nav {
+      background: #1a1a1a;
+      padding: 15px 20px;
+      text-align: center;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--quantum); }
+
+    .intro {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .intro p {
+      color: rgba(255,255,255,0.8);
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 30px 20px;
+      background: rgba(124, 58, 237, 0.1);
+      border-top: 1px solid rgba(124, 58, 237, 0.2);
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+      margin-bottom: 40px;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat .value {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      color: var(--quantum);
+    }
+
+    .stat .label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .scenario-card {
+      background: #1a1a1a;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 40px;
+      border: 1px solid rgba(124, 58, 237, 0.2);
+      transition: border-color 0.3s;
+    }
+
+    .scenario-card:hover {
+      border-color: rgba(124, 58, 237, 0.5);
+    }
+
+    .scenario-image {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+
+    .scenario-content {
+      padding: 30px;
+    }
+
+    .scenario-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 14px;
+      color: var(--quantum);
+      letter-spacing: 0.2em;
+      margin-bottom: 8px;
+    }
+
+    .scenario-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      color: var(--light);
+      margin-bottom: 8px;
+    }
+
+    .scenario-subtitle {
+      color: rgba(255,255,255,0.6);
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .scenario-text {
+      color: rgba(255,255,255,0.85);
+      line-height: 1.8;
+    }
+
+    .scenario-text p {
+      margin-bottom: 15px;
+    }
+
+    .scene {
+      background: rgba(124, 58, 237, 0.1);
+      border-left: 3px solid var(--quantum);
+      padding: 20px;
+      margin: 25px 0;
+      font-style: italic;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .cards-used {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .card-tag {
+      background: rgba(124, 58, 237, 0.2);
+      color: var(--quantum);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .implications {
+      background: rgba(0,0,0,0.3);
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 25px;
+    }
+
+    .implications h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      color: var(--quantum);
+      margin-bottom: 15px;
+    }
+
+    .implications ul {
+      list-style: none;
+    }
+
+    .implications li {
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .implications li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--quantum);
+    }
+
+    .implications strong {
+      color: var(--light);
+    }
+
+    .prompt-box {
+      background: var(--dark);
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-top: 20px;
+      font-family: monospace;
+      font-size: 11px;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.6);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .prompt-box h5 {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--quantum);
+      margin-bottom: 10px;
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, #1a0a2e 0%, #0d0d15 100%);
+      padding: 60px 20px;
+      text-align: center;
+      border-top: 1px solid rgba(124, 58, 237, 0.3);
+    }
+
+    .cta-section h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      color: var(--quantum);
+      margin-bottom: 15px;
+    }
+
+    .cta-section p {
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 25px;
+    }
+
+    .btn-quantum {
+      display: inline-block;
+      background: var(--quantum);
+      color: white;
+      padding: 15px 35px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-quantum:hover {
+      background: #8b5cf6;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    footer a { color: var(--quantum); }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 36px; }
+      .stats-bar { flex-wrap: wrap; gap: 20px; }
+      .scenario-title { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>QUANTUM FUTURES</h1>
+    <p>Six scenarios exploring how quantum technology will reshape society, markets, privacy, and what it means to be human</p>
+  </header>
+
+  <nav>
+    <a href="index.html">About</a>
+    <a href="play.html">Play</a>
+    <a href="examples.html">All Examples</a>
+    <a href="rate.html">Rate</a>
+    <a href="print.html">Print</a>
+  </nav>
+
+  <div class="intro">
+    <p>Quantum computing isn't just faster calculation—it's a fundamentally different way of processing information that will create winners and losers, expose secrets, detect diseases, and transform markets. These six scenarios explore the human implications of the quantum revolution.</p>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="value">6</div>
+      <div class="label">Scenarios</div>
+    </div>
+    <div class="stat">
+      <div class="value">2030-35</div>
+      <div class="label">Timeline</div>
+    </div>
+    <div class="stat">
+      <div class="value">$25B+</div>
+      <div class="label">Market by 2030</div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- Scenario 1: The Quantum Lottery -->
+    <div class="scenario-card">
+      <img class="scenario-image" src="cards/scenario-04.png" alt="The Quantum Lottery">
+      <div class="scenario-content">
+        <div class="scenario-number">QUANTUM FUTURE 01</div>
+        <h2 class="scenario-title">The Quantum Lottery</h2>
+        <p class="scenario-subtitle">When true randomness becomes the fairest arbiter of opportunity</p>
+
+        <div class="scenario-text">
+          <p>It started as a joke at a quantum computing startup in Austin. The founders, exhausted by the politics of promotion decisions, built a system that used quantum randomness to assign projects. True randomness—not algorithmic, not gameable, derived from the fundamental uncertainty of the universe itself. They called it the "Quantum Oracle" and used it for a month as an experiment.</p>
+          <p>The results were bizarre. A junior developer got assigned to lead the flagship product and, freed from imposter syndrome by the knowledge that no one had chosen him, delivered the best release in company history. A senior architect got assigned to documentation and discovered she loved it. The usual status games evaporated. What was the point of politicking when a radioactive atom's decay decided your fate?</p>
+
+          <div class="scene">
+            The waiting room at Fortuna Technologies feels like a doctor's office, if the doctor prescribed destinies. Maya sits with forty other candidates, all of them qualified for the senior role. In the old days, they'd be competing—crafting narratives, networking, performing competence. Now they just wait. In twenty minutes, the quantum oracle will collapse a wavefunction and one of them will become a director. The others will receive different assignments, also randomly generated. "It's actually peaceful," Maya admits to the stranger beside her. "For the first time in my career, there's nothing I can do to game this. So I just... stopped trying."
+          </div>
+
+          <p>Fortuna's model spread faster than anyone expected. Burned-out workers, exhausted by decades of "leaning in" and personal branding, embraced the absolution of randomness. Impact still mattered—you were evaluated on what you did with your assignment—but access to opportunity was finally, provably fair.</p>
+        </div>
+
+        <div class="implications">
+          <h4>Second-Order Implications</h4>
+          <ul>
+            <li><strong>Career coaching collapse:</strong> An entire industry of resume writers and interview coaches becomes obsolete overnight</li>
+            <li><strong>New inequalities:</strong> The random system is fair but not equal; over time, luck compounds and "lottery winners" emerge</li>
+            <li><strong>Meaning crisis:</strong> If success is random, what's the point of excellence? New philosophies of craft emerge in response</li>
+            <li><strong>Family planning:</strong> People time major life decisions around "low-stakes" lottery periods</li>
+          </ul>
+        </div>
+
+        <div class="cards-used">
+          <span class="card-tag">Impact</span>
+          <span class="card-tag">Growth</span>
+          <span class="card-tag">Workplace</span>
+          <span class="card-tag">Quantum</span>
+          <span class="card-tag">Startup</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scenario 2: The Precognition Clinic -->
+    <div class="scenario-card">
+      <img class="scenario-image" src="cards/scenario-05.png" alt="The Precognition Clinic">
+      <div class="scenario-content">
+        <div class="scenario-number">QUANTUM FUTURE 02</div>
+        <h2 class="scenario-title">The Precognition Clinic</h2>
+        <p class="scenario-subtitle">Quantum sensing detects disease years before symptoms appear</p>
+
+        <div class="scenario-text">
+          <p>The breakthrough came from nanodiamond sensors—nitrogen-vacancy centers that could detect magnetic signatures of individual molecules. By 2030, the QuantumDx scanner could identify cancer cells seven years before they'd form a detectable tumor. Parkinson's, twelve years out. Alzheimer's markers, sometimes two decades before the first forgotten name.</p>
+          <p>The hospitals transformed. The old model—wait until symptoms, then treat—gave way to something stranger. Patients arrived healthy, felt healthy, looked healthy. They left with timelines. "You have an 84% probability of developing pancreatic cancer between ages 52 and 58. Here's your intervention protocol."</p>
+
+          <div class="scene">
+            Dr. Sarah Chen reviews the morning's scans in the Quantum Diagnostic Suite at Johns Hopkins. The room hums with cryogenic coolers maintaining the sensor arrays at near absolute zero. Her patient, Marcus, 34, sits in the scanning chair looking at his phone, bored. The results populate her screen: elevated tau protein clustering in the hippocampus, characteristic folding patterns. Early-stage Alzheimer's markers. He won't notice anything for fifteen years. She has rehearsed this conversation hundreds of times, but it never gets easier—telling someone healthy that they're already dying, slowly, invisibly. Marcus looks up and sees her face. "That bad?" She pulls up the intervention options. "We caught it early. That's the whole point. You have time."
+          </div>
+
+          <p>The technology was nine orders of magnitude more sensitive than MRI. But what the engineers hadn't anticipated was the psychological toll of knowing. A new condition emerged: Pre-Diagnosis Anxiety Disorder. People who couldn't stop checking, who scheduled monthly scans, who lived in a permanent state of waiting for the other shoe to drop.</p>
+        </div>
+
+        <div class="implications">
+          <h4>Second-Order Implications</h4>
+          <ul>
+            <li><strong>The Pre-Patient class:</strong> Millions live in medical limbo—not sick, not well, but "pre-symptomatic"</li>
+            <li><strong>Dating and disclosure:</strong> Do you tell a new partner your quantum prognosis? A new legal category emerges</li>
+            <li><strong>Insurance chaos:</strong> "Pre-existing conditions" now means conditions you don't have yet but probably will</li>
+            <li><strong>The Willfully Ignorant:</strong> Communities form around refusing to be scanned</li>
+          </ul>
+        </div>
+
+        <div class="cards-used">
+          <span class="card-tag">Security</span>
+          <span class="card-tag">Transformation</span>
+          <span class="card-tag">Hospital</span>
+          <span class="card-tag">Quantum</span>
+          <span class="card-tag">Device</span>
+          <span class="card-tag">5 Years</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scenario 3: The Great Unmasking -->
+    <div class="scenario-card">
+      <img class="scenario-image" src="cards/scenario-07.png" alt="The Great Unmasking">
+      <div class="scenario-content">
+        <div class="scenario-number">QUANTUM FUTURE 03</div>
+        <h2 class="scenario-title">The Great Unmasking</h2>
+        <p class="scenario-subtitle">Q-Day arrives and the harvested past becomes readable</p>
+
+        <div class="scenario-text">
+          <p>They'd been warning about Q-Day for fifteen years. "Harvest now, decrypt later," the security researchers said. Nation-states and criminal organizations were vacuuming up encrypted traffic—emails, medical records, financial transactions, diplomatic cables—storing petabytes of gibberish that would become readable once quantum computers matured. Most people shrugged. The future felt far away.</p>
+          <p>Then, in 2035, a research team in Shenzhen demonstrated Shor's algorithm on a 4,000-logical-qubit machine. RSA-2048 fell in six hours. The first domino. Within months, black markets were selling decryption services. Within a year, the harvested data began to surface.</p>
+
+          <div class="scene">
+            Senator Morrison stares at her phone. The message contains a transcript—her own words from 2024, an encrypted Signal conversation with a lobbyist she barely remembers. The conversation is benign, mostly. But there's one sentence, taken out of context, that will end her career. Across the country, millions of people are having similar moments. The affair from 2019. The medical diagnosis never shared with family. The business negotiation that crossed a line. Everything everyone ever said in confidence, thinking encryption made it safe, is now potentially public.
+          </div>
+
+          <p>The Bitcoin collapse was the most visible casualty. The entire blockchain—every transaction since 2009—became transparent. Pseudonymous wallets revealed their owners. The Federal Reserve had warned this would happen. No one had listened.</p>
+        </div>
+
+        <div class="implications">
+          <h4>Second-Order Implications</h4>
+          <ul>
+            <li><strong>The Transparency Cult:</strong> A movement emerges advocating radical openness—"post-privacy" becomes a lifestyle</li>
+            <li><strong>Retroactive prosecution:</strong> Old crimes revealed through decrypted communications flood courts</li>
+            <li><strong>Analog renaissance:</strong> In-person meetings surge; paper documents return</li>
+            <li><strong>Trust asymmetry:</strong> Those who migrated to post-quantum encryption early have clean futures</li>
+          </ul>
+        </div>
+
+        <div class="cards-used">
+          <span class="card-tag">Autonomy</span>
+          <span class="card-tag">Collapse</span>
+          <span class="card-tag">City</span>
+          <span class="card-tag">Quantum</span>
+          <span class="card-tag">Setback</span>
+          <span class="card-tag">10 Years</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scenario 4: The Quantum Divide -->
+    <div class="scenario-card">
+      <img class="scenario-image" src="cards/scenario-09.png" alt="The Quantum Divide">
+      <div class="scenario-content">
+        <div class="scenario-number">QUANTUM FUTURE 04</div>
+        <h2 class="scenario-title">The Quantum Divide</h2>
+        <p class="scenario-subtitle">When only some can see the market's true patterns</p>
+
+        <div class="scenario-text">
+          <p>HSBC announced it first: a 34% improvement in bond trading predictions using quantum-enhanced models. Then JPMorgan's $10 billion quantum initiative started showing returns. By 2029, the divide was undeniable. Firms with quantum access weren't just faster—they were operating in a different reality, seeing arbitrage opportunities invisible to classical systems, optimizing portfolios across dimensions that traditional computers couldn't model.</p>
+          <p>The researchers called it "quantum advantage in trading"—game-theoretic models that exploited quantum entanglement to find higher-paying market equilibria. What that meant in practice was simpler and more brutal: if you had quantum, you won. If you didn't, you were the other side of the trade.</p>
+
+          <div class="scene">
+            David Chen manages a mid-sized pension fund in Cleveland. Twenty years of experience, a team of analysts, sophisticated models. None of it matters anymore. His screens show the same data as always, but the patterns he used to find—the inefficiencies he built a career exploiting—are gone by the time he sees them. Harvested by quantum systems that spotted them microseconds earlier. "We're not competing with other traders," his quant explains. "We're competing with physics itself." Last quarter, the fund underperformed the quantum-advantaged benchmark by 4%.
+          </div>
+
+          <p>A new category of "quantum-proof" investments emerged—real estate, art, private businesses, anything too illiquid for the quantum traders to bother with. The wealthy retreated to these safe harbors. Everyone else watched their retirement accounts become, in effect, a tax paid to those who could afford to see the future a few milliseconds more clearly.</p>
+        </div>
+
+        <div class="implications">
+          <h4>Second-Order Implications</h4>
+          <ul>
+            <li><strong>Regulatory paralysis:</strong> How do you regulate an advantage that operates through physics?</li>
+            <li><strong>Pension crisis:</strong> Public retirement funds systematically underperform; the retirement gap becomes a chasm</li>
+            <li><strong>Exit from markets:</strong> Retail investors abandon public markets entirely</li>
+            <li><strong>New asset classes:</strong> "Quantum-opaque" investments become sought after</li>
+          </ul>
+        </div>
+
+        <div class="cards-used">
+          <span class="card-tag">Autonomy</span>
+          <span class="card-tag">Growth</span>
+          <span class="card-tag">Workplace</span>
+          <span class="card-tag">Quantum</span>
+          <span class="card-tag">Startup</span>
+          <span class="card-tag">Breakthrough</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scenario 5: The Unhackable Channel -->
+    <div class="scenario-card">
+      <img class="scenario-image" src="cards/scenario-11.png" alt="The Unhackable Channel">
+      <div class="scenario-content">
+        <div class="scenario-number">QUANTUM FUTURE 05</div>
+        <h2 class="scenario-title">The Unhackable Channel</h2>
+        <p class="scenario-subtitle">Quantum networks create a two-tier world of communication</p>
+
+        <div class="scenario-text">
+          <p>IBM and Cisco had promised it by 2030: networked quantum computers enabling truly unhackable communication through quantum key distribution. By 2032, the Quantum Internet was real—for those who could access it. Banks transmitted financial data with absolute confidence. Governments exchanged classified information without fear of interception. Hospitals shared patient records knowing that eavesdropping was physically impossible, not just computationally difficult.</p>
+          <p>The physics was elegant. Any attempt to observe a quantum-encrypted transmission would instantly alter the data, making detection immediate. For the first time in human history, perfect secrecy was achievable. But the infrastructure was expensive. The quantum repeaters, the fiber networks, the authentication systems—all required massive investment. And so a divide emerged: quantum-secured versus classical, the watchers versus the watched.</p>
+
+          <div class="scene">
+            Maria runs a small export business in Guatemala City. She watches the news about quantum-secured banking with distant fascination—like hearing about colonies on Mars. Her communications still travel the classical internet, vulnerable to the same surveillance that's always existed, now made worse by AI-powered analysis. Her competitor in Miami, backed by a Fortune 500 parent company, conducts all negotiations on quantum-secured channels. Maria's offers are intercepted, analyzed, undercut. "It's not that they're better," she tells her daughter. "They just have walls I can't see through. And I'm in a house made of glass."
+          </div>
+
+          <p>The geopolitical implications were profound. Countries that achieved quantum network dominance gained advantages in both security and economic competitiveness. A new arms race emerged—not for weapons, but for the infrastructure of trust. China's quantum satellite constellation covered Asia. The EU's EuroQCI spanned the continent. America's network remained fragmented, a patchwork of private and government systems that never quite connected.</p>
+        </div>
+
+        <div class="implications">
+          <h4>Second-Order Implications</h4>
+          <ul>
+            <li><strong>Digital apartheid:</strong> Quantum-secured communications become a luxury; the rest inherit vulnerability</li>
+            <li><strong>Corporate espionage immunity:</strong> Companies with quantum networks can strategize freely; others cannot</li>
+            <li><strong>Diplomatic asymmetry:</strong> Nations without quantum infrastructure negotiate at permanent disadvantage</li>
+            <li><strong>The trust premium:</strong> "Quantum-verified" becomes a mark of legitimacy for contracts and agreements</li>
+          </ul>
+        </div>
+
+        <div class="cards-used">
+          <span class="card-tag">Security</span>
+          <span class="card-tag">Discipline</span>
+          <span class="card-tag">City</span>
+          <span class="card-tag">Quantum</span>
+          <span class="card-tag">Government Service</span>
+          <span class="card-tag">5 Years</span>
+        </div>
+
+        <div class="prompt-box">
+          <h5>Illustration Prompt (16:9)</h5>art deco engraving illustration, hand-tinted vintage colors, intricate linework, ornate geometric borders -- THE UNHACKABLE CHANNEL: A split world of quantum-secured and classical communication, on one side diplomats and bankers in a crystalline quantum-secured chamber with entangled photon streams connecting them in perfect privacy, on the other side ordinary people using old phones and computers with visible data leaking into the ether, a great divide between those with quantum encryption and those without, ethereal blue quantum light vs warm vulnerable amber of classical networks, atmosphere of elegant digital apartheid</div>
+      </div>
+    </div>
+
+    <!-- Scenario 6: The Lossless Grid -->
+    <div class="scenario-card">
+      <img class="scenario-image" src="cards/scenario-12.png" alt="The Lossless Grid">
+      <div class="scenario-content">
+        <div class="scenario-number">QUANTUM FUTURE 06</div>
+        <h2 class="scenario-title">The Lossless Grid</h2>
+        <p class="scenario-subtitle">Room-temperature superconductors transform energy forever</p>
+
+        <div class="scenario-text">
+          <p>The MIT team published their findings in 2028: a material that superconducted at room temperature, stable enough for industrial production. The implications were staggering. The U.S. Energy Information Administration had long noted that 5% of all electricity generated was lost in transmission—wasted as heat in resistant wires. Globally, that meant hundreds of billions of dollars and millions of tons of carbon, vanishing into the atmosphere because copper wasn't quite good enough.</p>
+          <p>By 2033, the Lossless Grid was being deployed across the American Southwest. Solar farms in the Mojave could now power New York with negligible losses. Wind turbines in Kansas fed the entire Eastern seaboard. The geography of energy was rewritten overnight. Power plants that existed solely because transmission losses made remote generation impractical shut down. Coal country died faster. Solar country boomed.</p>
+
+          <div class="scene">
+            Elena holds up her phone for her grandmother to see. "Look—ninety-two days since I charged it." The superconducting battery, no bigger than the old lithium ones, stores energy with nearly perfect efficiency. Her grandmother shakes her head in wonder. She grew up rationing electricity, timing her cooking to off-peak hours. Elena's children will never know what a power bill looks like. The maglev outside their window floats past silently—no friction, no energy loss, just frictionless motion through the city. "In my day," her grandmother says, "we used to joke about perpetual motion machines." Elena laughs. "We're pretty close now."
+          </div>
+
+          <p>The deeper transformation was in what became possible. MRI machines, once million-dollar installations requiring liquid helium cooling, became cheap enough for rural clinics. Maglev trains, previously limited to showcase routes, proliferated. Quantum computers, freed from cryogenic requirements, shrank from warehouse-sized installations to desktop devices. The bottleneck that had constrained a century of electrical engineering simply... vanished.</p>
+        </div>
+
+        <div class="implications">
+          <h4>Second-Order Implications</h4>
+          <ul>
+            <li><strong>Geography reshuffled:</strong> Remote renewable sources become viable; energy-poor regions gain leverage</li>
+            <li><strong>Grid collapse economics:</strong> Utility companies face existential crisis as distributed generation plus lossless storage disrupts their model</li>
+            <li><strong>Geopolitical realignment:</strong> Oil states scramble to diversify; sun-rich nations gain power</li>
+            <li><strong>The efficiency dividend:</strong> Freed energy budget enables new technologies previously too power-hungry to deploy</li>
+            <li><strong>Battery revolution:</strong> Devices that store power indefinitely change consumer behavior</li>
+          </ul>
+        </div>
+
+        <div class="cards-used">
+          <span class="card-tag">Comfort</span>
+          <span class="card-tag">Transformation</span>
+          <span class="card-tag">Home</span>
+          <span class="card-tag">Quantum</span>
+          <span class="card-tag">Breakthrough</span>
+          <span class="card-tag">10 Years</span>
+        </div>
+
+        <div class="prompt-box">
+          <h5>Illustration Prompt (16:9)</h5>art deco engraving illustration, hand-tinted vintage colors, intricate linework, ornate geometric borders -- THE LOSSLESS GRID: A transformed cityscape powered by room-temperature superconductors, gleaming power lines that glow with perfect efficiency carrying electricity without loss, a family home with devices that never need charging, maglev vehicles floating silently through streets, massive wind turbines in the distance feeding power that travels thousands of miles without degradation, a child holding a phone that hasnt been charged in months, utopian clean energy aesthetic, cool superconducting blues and warm hopeful golds, atmosphere of technological salvation</div>
+      </div>
+    </div>
+
+  </main>
+
+  <div class="cta-section">
+    <h2>Explore More Futures</h2>
+    <p>Rate these scenarios or create your own quantum visions.</p>
+    <a href="rate.html" class="btn-quantum">Rate Scenarios</a>
+  </div>
+
+  <footer>
+    <p>
+      <a href="index.html">About Futures Deck</a> &middot;
+      <a href="examples.html">All Examples</a> &middot;
+      <a href="play.html">Create Your Own</a>
+    </p>
+  </footer>
+
+</body>
+</html>
