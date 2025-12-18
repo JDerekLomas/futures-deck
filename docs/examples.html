@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futures Deck - Example Scenarios</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Source+Sans+Pro:wght@300;400;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c9a227;
+      --dark: #0a0a12;
+      --light: #f8f6f0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+      background: var(--light);
+      color: #333;
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--dark);
+      color: #fff;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 42px;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: rgba(255,255,255,0.7);
+      font-size: 16px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    .example {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      margin-bottom: 50px;
+      overflow: hidden;
+    }
+
+    .example-header {
+      background: var(--dark);
+      color: #fff;
+      padding: 20px 25px;
+    }
+
+    .example-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
+
+    .example-header p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .spread {
+      display: flex;
+      gap: 12px;
+      padding: 25px;
+      background: #1a1a1a;
+      overflow-x: auto;
+    }
+
+    .mini-card {
+      flex-shrink: 0;
+      width: 100px;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #2a2a2a;
+    }
+
+    .mini-card img {
+      width: 100%;
+      height: 80px;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .mini-card .info {
+      padding: 6px 8px;
+      font-size: 10px;
+    }
+
+    .mini-card .cat {
+      font-size: 7px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .mini-card .name {
+      font-family: 'Playfair Display', serif;
+      font-size: 11px;
+      color: #fff;
+    }
+
+    .mini-card.wellbeing .info { background: linear-gradient(to bottom, #4a3d10, #3d3008); }
+    .mini-card.wellbeing .cat { color: #FFD93D; }
+    .mini-card.arc .info { background: linear-gradient(to bottom, #2d1f4d, #231839); }
+    .mini-card.arc .cat { color: #c084fc; }
+    .mini-card.terrain .info { background: linear-gradient(to bottom, #1a3d3a, #132d2b); }
+    .mini-card.terrain .cat { color: #4ECDC4; }
+    .mini-card.outcome .info { background: linear-gradient(to bottom, #4d2a10, #3d2008); }
+    .mini-card.outcome .cat { color: #FF8C42; }
+    .mini-card.timeframe .info { background: linear-gradient(to bottom, #1a2a4d, #132039); }
+    .mini-card.timeframe .cat { color: #60a5fa; }
+    .mini-card.modifier .info { background: linear-gradient(to bottom, #4d1a1a, #3d1313); }
+    .mini-card.modifier .cat { color: #f87171; }
+    .mini-card.technology .info { background: linear-gradient(to bottom, #1a3d4d, #133039); }
+    .mini-card.technology .cat { color: #22d3ee; }
+
+    .scenario {
+      padding: 30px;
+    }
+
+    .scenario h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      color: var(--dark);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .scenario p {
+      margin-bottom: 16px;
+    }
+
+    .scenario .scene {
+      background: rgba(201, 162, 39, 0.1);
+      border-left: 4px solid var(--gold);
+      padding: 20px;
+      margin: 25px 0;
+      font-style: italic;
+    }
+
+    .scenario .implications {
+      background: #f5f5f5;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .scenario .implications h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #666;
+    }
+
+    .scenario .implications ul {
+      margin-left: 20px;
+    }
+
+    .scenario .implications li {
+      margin-bottom: 8px;
+    }
+
+    nav {
+      background: #1a1a1a;
+      padding: 15px 20px;
+      text-align: center;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 14px;
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #999;
+      font-size: 14px;
+    }
+
+    footer a { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>EXAMPLE SCENARIOS</h1>
+    <p>See how the Futures Deck generates speculative futures</p>
+  </header>
+
+  <nav>
+    <a href="play.html">Play Online</a>
+    <a href="index.html">About</a>
+    <a href="print.html">Print Cards</a>
+  </nav>
+
+  <main>
+
+    <!-- Example 1 -->
+    <div class="example">
+      <div class="example-header">
+        <h2>Scenario #1: The Quiet Redundancy</h2>
+        <p>A near-future urban collapse driven by AI automation</p>
+      </div>
+      <div class="spread">
+        <div class="mini-card wellbeing">
+          <img src="cards/well-01.png" alt="Autonomy">
+          <div class="info">
+            <div class="cat">Wellbeing</div>
+            <div class="name">Autonomy</div>
+          </div>
+        </div>
+        <div class="mini-card arc">
+          <img src="cards/arc-02.png" alt="Collapse">
+          <div class="info">
+            <div class="cat">Arc</div>
+            <div class="name">Collapse</div>
+          </div>
+        </div>
+        <div class="mini-card terrain">
+          <img src="cards/terrain-02.png" alt="The City">
+          <div class="info">
+            <div class="cat">Terrain</div>
+            <div class="name">The City</div>
+          </div>
+        </div>
+        <div class="mini-card timeframe">
+          <img src="cards/time-01.png" alt="5 Years">
+          <div class="info">
+            <div class="cat">Timeframe</div>
+            <div class="name">5 Years</div>
+          </div>
+        </div>
+        <div class="mini-card technology">
+          <img src="cards/tech-01.png" alt="AI">
+          <div class="info">
+            <div class="cat">Technology</div>
+            <div class="name">AI</div>
+          </div>
+        </div>
+      </div>
+      <div class="scenario">
+        <h3>The Quiet Redundancy</h3>
+        <p>It's 2029, and downtown Phoenix feels like a movie set between takes. The light rail still runs on schedule, but the cars are mostly empty. The coffee shops have perfected their automated systems—your cortado arrives via a small wheeled robot that thanks you by name—but the tables sit vacant.</p>
+        <p>The collapse wasn't dramatic. No riots, no breadlines. Just a slow evaporation of purpose. When the white-collar jobs went to AI—not just the data entry, but the analysis, the strategy, the creative work—people didn't starve. The UBI checks arrive like clockwork. But something else disappeared.</p>
+
+        <div class="scene">
+          Marcus Chen, 34, former marketing strategist, now spends his mornings in what used to be a WeWork. He and a dozen others gather there not to work—there's no work to do—but to feel the ghost of productivity. They drink free coffee (the building's AI landlord decided occupancy metrics looked better with bodies) and debate whether their hobbies count as purpose. Marcus has gotten very good at woodworking. He's made seventeen cutting boards this month. His wife has asked him to stop.
+        </div>
+
+        <p>The city itself is immaculate. Autonomous systems maintain the infrastructure better than humans ever did. Crime is down—it's hard to muster the energy for crime when your basic needs are met and surveillance is total. But the parks feel like waiting rooms. People walk their dogs with the glazed patience of the indefinitely paused.</p>
+        <p>Autonomy, it turns out, requires something to choose between. When the AI handles everything that matters, freedom becomes a museum you can visit but not touch. The young people seem to adapt—they've built elaborate virtual societies, status hierarchies based on gaming achievements and social media metrics. But for anyone who remembers when their decisions shaped something real, the comfort feels like a velvet coffin.</p>
+
+        <div class="implications">
+          <h4>Second-Order Implications</h4>
+          <ul>
+            <li><strong>Mental health crisis:</strong> Depression and anxiety rates triple, but it's a quiet epidemic—people feel guilty for being unhappy when all their needs are met</li>
+            <li><strong>Relationship strain:</strong> Divorce rates spike as couples lose the shared project of building a life</li>
+            <li><strong>New religions emerge:</strong> Movements promising meaning through suffering gain followers; some communities deliberately reject automation</li>
+            <li><strong>Political vacuum:</strong> With nothing to vote for (AI optimizes policy), democracy becomes theater</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="example">
+      <div class="example-header">
+        <h2>Scenario #2: The Comfort Mandate</h2>
+        <p>A disciplined society trades freedom for security at home</p>
+      </div>
+      <div class="spread">
+        <div class="mini-card wellbeing">
+          <img src="cards/well-05.png" alt="Security">
+          <div class="info">
+            <div class="cat">Wellbeing</div>
+            <div class="name">Security</div>
+          </div>
+        </div>
+        <div class="mini-card arc">
+          <img src="cards/arc-04.png" alt="Discipline">
+          <div class="info">
+            <div class="cat">Arc</div>
+            <div class="name">Discipline</div>
+          </div>
+        </div>
+        <div class="mini-card terrain">
+          <img src="cards/terrain-03.png" alt="The Home">
+          <div class="info">
+            <div class="cat">Terrain</div>
+            <div class="name">The Home</div>
+          </div>
+        </div>
+        <div class="mini-card outcome">
+          <img src="cards/object-04.png" alt="Government Service">
+          <div class="info">
+            <div class="cat">Outcome</div>
+            <div class="name">Gov't Service</div>
+          </div>
+        </div>
+        <div class="mini-card timeframe">
+          <img src="cards/time-05.png" alt="2 Years">
+          <div class="info">
+            <div class="cat">Timeframe</div>
+            <div class="name">2 Years</div>
+          </div>
+        </div>
+      </div>
+      <div class="scenario">
+        <h3>The Comfort Mandate</h3>
+        <p>After the third pandemic in five years, the Home Safety Bureau was inevitable. What started as voluntary wellness checks became mandatory "domestic compliance visits." The HSB agents are unfailingly polite—trained in de-escalation, armed only with tablets and air quality sensors. They're just here to help.</p>
+        <p>Your home must now meet federal Habitability Standards. Air filtration rated for viral particles. Food storage monitored for spoilage risk. Medication compliance verified through smart pill bottles that report to your health profile. It's all very reasonable. The data shows it saves lives.</p>
+
+        <div class="scene">
+          Jennifer adjusts the angle of her vitamin bottles before the Tuesday inspection. The HSB app gives her a 94 compliance score—good, but not great. Last month, her neighbor got flagged for "irregular sleep patterns detected via mattress sensor" and had to attend three wellness seminars. Jennifer has learned to perform health. She exercises when the fitness tracker expects it. She eats at optimal intervals. Her home is a stage set for an audience of algorithms.
+        </div>
+
+        <p>The strange thing is, people do feel safer. The ambient anxiety of the chaotic years has faded. You don't have to worry about making the right choices—the system makes them for you. Parents especially embrace it; the child safety features alone have reduced accidents by 60%. "I'd rather have my kids grow up in a nanny state than not grow up at all," one mother tells the news drone hovering at her door.</p>
+        <p>But the home has changed. It used to be the one place you could be unobserved, unoptimized, yourself. Now it's the most surveilled space of all—because that's where the risks live. Where you might eat wrong, sleep wrong, feel wrong. Where you might, in an unmonitored moment, make a choice the system hasn't approved.</p>
+
+        <div class="implications">
+          <h4>Second-Order Implications</h4>
+          <ul>
+            <li><strong>Underground spaces:</strong> Faraday-cage rooms become a black market luxury; "dark houses" where the wealthy go to be unwatched</li>
+            <li><strong>Performance exhaustion:</strong> A new syndrome emerges—people who can no longer distinguish their real preferences from their compliant ones</li>
+            <li><strong>Family reconfiguration:</strong> Multi-generational homes become mandatory (efficiency scores), changing family dynamics</li>
+            <li><strong>The opt-out class:</strong> Those with resources move to "freedom zones" in rural areas, creating a new geographic divide</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="example">
+      <div class="example-header">
+        <h2>Scenario #3: The Reef Resurrection</h2>
+        <p>A biotech breakthrough transforms ocean conservation</p>
+      </div>
+      <div class="spread">
+        <div class="mini-card wellbeing">
+          <img src="cards/well-04.png" alt="Stimulation">
+          <div class="info">
+            <div class="cat">Wellbeing</div>
+            <div class="name">Stimulation</div>
+          </div>
+        </div>
+        <div class="mini-card arc">
+          <img src="cards/arc-03.png" alt="Transformation">
+          <div class="info">
+            <div class="cat">Arc</div>
+            <div class="name">Transformation</div>
+          </div>
+        </div>
+        <div class="mini-card terrain">
+          <img src="cards/terrain-01.png" alt="The Ocean">
+          <div class="info">
+            <div class="cat">Terrain</div>
+            <div class="name">The Ocean</div>
+          </div>
+        </div>
+        <div class="mini-card technology">
+          <img src="cards/tech-03.png" alt="Biotech">
+          <div class="info">
+            <div class="cat">Technology</div>
+            <div class="name">Biotech</div>
+          </div>
+        </div>
+        <div class="mini-card modifier">
+          <img src="cards/mod-01.png" alt="Breakthrough">
+          <div class="info">
+            <div class="cat">Modifier</div>
+            <div class="name">Breakthrough</div>
+          </div>
+        </div>
+        <div class="mini-card timeframe">
+          <img src="cards/time-06.png" alt="10 Years">
+          <div class="info">
+            <div class="cat">Timeframe</div>
+            <div class="name">10 Years</div>
+          </div>
+        </div>
+      </div>
+      <div class="scenario">
+        <h3>The Reef Resurrection</h3>
+        <p>They called it the Lazarus Coral—a synthetic organism that could survive in acidified, warming oceans while still providing habitat for marine life. When the team at the Okinawa Institute released their paper in 2028, marine biologists wept. Not from joy, but from the strangeness of hope after so many years of documenting death.</p>
+        <p>By 2035, the oceans are transforming into something unprecedented: not the ecosystems of the past, but something new. The Lazarus Coral comes in varieties now—some engineered for different depths, temperatures, chemical compositions. The reefs they form glow faintly at night, a side effect of the bioluminescent genes spliced in for monitoring. Sailors report that the Caribbean looks like a city seen from space.</p>
+
+        <div class="scene">
+          Kai surfaces from her dive, pulling off her mask with shaking hands. She's 23, part of the first generation of "reef gardeners"—a job that didn't exist when she was born. Below her, a synthetic reef stretches for miles, teeming with fish that have learned to call this alien structure home. Some of the species are engineered too—heat-tolerant versions of creatures that went extinct in her childhood. "It's beautiful," she tells her dive partner, "but it's not... it's not what the old videos showed." He shrugs. "The old reefs are gone. This is what we have now. And it's alive."
+        </div>
+
+        <p>The transformation has created a new kind of ocean tourism. People come not for nostalgia but for novelty—to see creatures and formations that have never existed before. The stimulation is real: every dive reveals something unprecedented. Marine biologists have become artists, designing ecosystems like architects design buildings. There are debates about aesthetics now. Should the Pacific reef be more colorful? Should they engineer fish that are easier for tourists to photograph?</p>
+        <p>The purists mourn what was lost. But the children who grow up swimming through bioluminescent forests of synthetic coral don't know to grieve. To them, this is just the ocean. And it's more alive than it's been in fifty years.</p>
+
+        <div class="implications">
+          <h4>Second-Order Implications</h4>
+          <ul>
+            <li><strong>Intellectual property wars:</strong> Who owns a synthetic species? Biotech companies patent lifeforms; open-source biology movements pirate them</li>
+            <li><strong>New fishing industries:</strong> Engineered fish grow faster; traditional fishing communities adapt or perish</li>
+            <li><strong>Ecological unpredictability:</strong> Synthetic ecosystems behave in unexpected ways; a new science of "xeno-ecology" emerges</li>
+            <li><strong>Philosophy of nature:</strong> If we designed it, is it still "nature"? Tourism boards and environmental groups clash over language</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 4 -->
+    <div class="example">
+      <div class="example-header">
+        <h2>Scenario #4: The Quantum Lottery</h2>
+        <p>When randomness becomes the last fair arbiter</p>
+      </div>
+      <div class="spread">
+        <div class="mini-card wellbeing">
+          <img src="cards/well-02.png" alt="Impact">
+          <div class="info">
+            <div class="cat">Wellbeing</div>
+            <div class="name">Impact</div>
+          </div>
+        </div>
+        <div class="mini-card arc">
+          <img src="cards/arc-01.png" alt="Growth">
+          <div class="info">
+            <div class="cat">Arc</div>
+            <div class="name">Growth</div>
+          </div>
+        </div>
+        <div class="mini-card terrain">
+          <img src="cards/terrain-05.png" alt="The Workplace">
+          <div class="info">
+            <div class="cat">Terrain</div>
+            <div class="name">The Workplace</div>
+          </div>
+        </div>
+        <div class="mini-card technology">
+          <img src="cards/tech-02.png" alt="Quantum">
+          <div class="info">
+            <div class="cat">Technology</div>
+            <div class="name">Quantum</div>
+          </div>
+        </div>
+        <div class="mini-card outcome">
+          <img src="cards/object-03.png" alt="Startup">
+          <div class="info">
+            <div class="cat">Outcome</div>
+            <div class="name">Startup</div>
+          </div>
+        </div>
+      </div>
+      <div class="scenario">
+        <h3>The Quantum Lottery</h3>
+        <p>It started as a joke at a quantum computing startup in Austin. The founders, exhausted by the politics of promotion decisions, built a system that used quantum randomness to assign projects. True randomness—not algorithmic, not gameable, derived from the fundamental uncertainty of the universe itself. They called it the "Quantum Oracle" and used it for a month as an experiment.</p>
+        <p>The results were bizarre. A junior developer got assigned to lead the flagship product and, freed from imposter syndrome by the knowledge that no one had chosen him, delivered the best release in company history. A senior architect got assigned to documentation and discovered she loved it. The usual status games evaporated. What was the point of politicking when a radioactive atom's decay decided your fate?</p>
+
+        <div class="scene">
+          The waiting room at Fortuna Technologies feels like a doctor's office, if the doctor prescribed destinies. Maya sits with forty other candidates, all of them qualified for the senior role. In the old days, they'd be competing—crafting narratives, networking, performing competence. Now they just wait. In twenty minutes, the quantum oracle will collapse a wavefunction and one of them will become a director. The others will receive different assignments, also randomly generated. "It's actually peaceful," Maya admits to the stranger beside her. "For the first time in my career, there's nothing I can do to game this. So I just... stopped trying."
+        </div>
+
+        <p>Fortuna's model spread faster than anyone expected. Burned-out workers, exhausted by decades of "leaning in" and personal branding, embraced the absolution of randomness. Impact still mattered—you were evaluated on what you did with your assignment—but access to opportunity was finally, provably fair. The playing field wasn't level, but the lottery was honest.</p>
+        <p>Critics call it a abdication of judgment. Supporters call it liberation. The companies that adopted it report strange metrics: lower ambition but higher satisfaction, less innovation but more stability. Workers describe a feeling they struggle to name—something like the relief of no longer having to perform a self.</p>
+
+        <div class="implications">
+          <h4>Second-Order Implications</h4>
+          <ul>
+            <li><strong>Career coaching collapse:</strong> An entire industry of resume writers and interview coaches becomes obsolete overnight</li>
+            <li><strong>New inequalities:</strong> The random system is fair but not equal; over time, luck compounds and "lottery winners" emerge</li>
+            <li><strong>Meaning crisis:</strong> If success is random, what's the point of excellence? New philosophies of craft emerge in response</li>
+            <li><strong>Family planning:</strong> People time major life decisions around "low-stakes" lottery periods; a new astrology of quantum fluctuations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>
+      These scenarios were generated using the <a href="play.html">Futures Deck</a>.<br>
+      <a href="play.html">Draw your own cards</a> and create new futures.
+    </p>
+  </footer>
+
+</body>
+</html>
