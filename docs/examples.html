@@ -229,6 +229,45 @@
     }
 
     footer a { color: var(--gold); }
+
+    .create-section {
+      background: linear-gradient(135deg, #1a1a2e 0%, #0d0d15 100%);
+      padding: 60px 20px;
+      text-align: center;
+      border-top: 1px solid rgba(201, 162, 39, 0.2);
+      border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+    }
+
+    .create-section h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .create-section p {
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 25px;
+    }
+
+    .btn-create {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--dark);
+      padding: 16px 40px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-create:hover {
+      background: #d4b32a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(201, 162, 39, 0.3);
+    }
   </style>
 </head>
 <body>
@@ -538,6 +577,12 @@
     </div>
 
   </main>
+
+  <div class="create-section">
+    <h2>Create Your Own Scenario</h2>
+    <p>Draw cards, generate a narrative, and create a matching illustration.</p>
+    <a href="play.html" class="btn-create">Draw Cards & Create</a>
+  </div>
 
   <footer>
     <p>
